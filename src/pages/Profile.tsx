@@ -4,10 +4,66 @@ import { useAuth } from '../context/AuthContext';
 import { getUserById } from '../data/mockData';
 import { GitHubPortfolioWidget } from '../components/github/GitHubPortfolioWidget';
 import type { User, Badge, Achievement, Certificate, BadgeTier } from '../types';
-import { getJobRecommendationsForUser } from '../data/jobRecommendationsMockData';
+import { computeProfileJobMatching } from '../utils/nlpMatcher';
+import { jobListings } from '../data/jobsMockData';
 
+// ─── Animated Sticker Mapping (Gifs like Reddit/Discord) ───────────────────
+const ANIMATED_STICKERS: Record<string, string> = {
+  // Badges
+  'bg-first-post': 'https://fonts.gstatic.com/s/e/notoemoji/latest/270d_fe0f/512.gif', // Writing Hand
+  'bg-bounty-hunter': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f3af/512.gif', // Bullseye Target
+  'bg-eagle-scout': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f985/512.gif', // Eagle
+  'bg-top-solver': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f3c6/512.gif', // Trophy
+  'bg-code-wizard': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f9d9/512.gif', // Wizard
+  'bg-community-start': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f3db_fe0f/512.gif', // Classical Building
+  'bg-connector': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f517/512.gif', // Link
+  'bg-event-host': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f3a4/512.gif', // Mic
+  'bg-helpful': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f64c/512.gif', // Celebration Hands
+  'bg-news-hound': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f4f0/512.gif', // Newspaper
+  'bg-cert-pro': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f4dc/512.gif', // Scroll
+  'bg-deep-diver': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f93f/512.gif', // Diving Mask
+  'bg-rising-star': 'https://fonts.gstatic.com/s/e/notoemoji/latest/2b50/512.gif', // Star
+  'bg-innovator': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f4a1/512.gif', // Lightbulb
+  'bg-veteran': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f396_fe0f/512.gif', // Military Medal
+  'bg-og': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f31f/512.gif', // Glowing Star
+  'bg-mentor': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f9d1_200d_1f3eb/512.gif', // Teacher
+  'bg-hardware-hacker': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f6e0_fe0f/512.gif', // Hammer & Wrench
+
+  // Achievements/Icons Fallbacks
+  '🎯': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f3af/512.gif',
+  '✅': 'https://fonts.gstatic.com/s/e/notoemoji/latest/2705/512.gif',
+  '👥': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f465/512.gif',
+  '💬': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f4ac/512.gif',
+  '📚': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f4da/512.gif',
+  '🌿': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f33f/512.gif',
+  '📊': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f4ca/512.gif',
+  '📜': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f4dc/512.gif',
+  '🔬': 'https://fonts.gstatic.com/s/e/notoemoji/latest/1f52c/512.gif'
+};
+
+// Render animated sticker or emoji fallback
+function Sticker({ idOrEmoji, fallbackText, className = "w-8 h-8" }: { idOrEmoji: string; fallbackText: string; className?: string }) {
+  const stickerUrl = ANIMATED_STICKERS[idOrEmoji] || ANIMATED_STICKERS[fallbackText];
+  if (stickerUrl) {
+    return (
+      <img
+        src={stickerUrl}
+        alt={fallbackText}
+        className={`${className} object-contain transition-transform duration-300 hover:scale-125`}
+        onError={(e) => {
+          // fallback if loading fails
+          (e.currentTarget as HTMLImageElement).style.display = 'none';
+          const next = e.currentTarget.nextSibling as HTMLElement;
+          if (next) next.style.display = 'inline';
+        }}
+      />
+    );
+  }
+  return <span className={className}>{fallbackText}</span>;
+}
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
+
 
 const LEVEL_THRESHOLDS = [
   { level: 1, title: 'Newcomer',    minXP: 0,    maxXP: 99,   color: '#9ca3af' },
@@ -110,7 +166,7 @@ function BadgeShelf({ badges }: { badges: Badge[] }) {
             key={badge.id}
             className={`flex flex-col items-center gap-1.5 p-3 rounded-lg border text-center ${TIER_COLOR[badge.tier]}`}
           >
-            <span className="text-2xl">{badge.icon}</span>
+            <Sticker idOrEmoji={badge.id} fallbackText={badge.icon} className="w-10 h-10" />
             <p className="text-xs font-semibold leading-tight">{badge.name}</p>
             <span className={`text-[9px] uppercase font-bold px-1.5 py-0.5 rounded border ${TIER_COLOR[badge.tier]}`}>
               {TIER_LABEL[badge.tier]}
@@ -147,7 +203,7 @@ function AchievementTimeline({ achievements }: { achievements: Achievement[] }) 
             <div key={ach.id} className="flex gap-3 relative">
               {/* dot */}
               <div className="absolute -left-[19px] w-3 h-3 rounded-full bg-accent border-2 border-surface-base shrink-0 mt-1" />
-              <span className="text-xl shrink-0">{ach.icon}</span>
+              <Sticker idOrEmoji={ach.icon} fallbackText={ach.icon} className="w-8 h-8 shrink-0" />
               <div className="flex-1">
                 <div className="flex items-center justify-between gap-2 flex-wrap">
                   <p className="text-sm font-semibold text-text-primary">{ach.name}</p>
@@ -300,9 +356,9 @@ export default function Profile() {
                 <span
                   key={b.id}
                   title={b.name}
-                  className={`inline-flex items-center justify-center w-8 h-8 rounded-full border text-base ${TIER_COLOR[b.tier]}`}
+                  className={`inline-flex items-center justify-center w-8 h-8 rounded-full border ${TIER_COLOR[b.tier]}`}
                 >
-                  {b.icon}
+                  <Sticker idOrEmoji={b.id} fallbackText={b.icon} className="w-5 h-5" />
                 </span>
               ))}
               {badges.length > 6 && (
@@ -350,7 +406,7 @@ export default function Profile() {
                 <div className="space-y-3">
                   {achs.slice(0, 3).map(ach => (
                     <div key={ach.id} className="flex items-start gap-3">
-                      <span className="text-xl shrink-0">{ach.icon}</span>
+                      <Sticker idOrEmoji={ach.icon} fallbackText={ach.icon} className="w-8 h-8 shrink-0" />
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
                           <p className="text-sm font-semibold text-text-primary">{ach.name}</p>
@@ -384,20 +440,34 @@ export default function Profile() {
                   <a href="/jobs" className="text-xs text-accent hover:underline">View all jobs</a>
                 </div>
                 <div className="space-y-3">
-                  {getJobRecommendationsForUser(user.id).slice(0, 3).map(rec => (
-                    <div key={rec.jobId} className="p-3 bg-surface-elevated border border-border rounded-lg flex items-center justify-between gap-4">
-                      <div>
-                        <p className="text-sm font-bold text-text-primary">{rec.title}</p>
-                        <p className="text-xs text-text-muted">{rec.companyName}</p>
-                        <p className="text-[11px] text-text-secondary mt-1">{rec.explanation}</p>
+                  {computeProfileJobMatching(
+                    {
+                      bio: user.bio || '',
+                      skills: user.skills || [],
+                      headline: user.headline || '',
+                      interests: user.interests || [],
+                    },
+                    jobListings
+                  )
+                  .sort((a, b) => b.matchPercentage - a.matchPercentage)
+                  .slice(0, 3)
+                  .map(rec => {
+                    const job = jobListings.find(j => j.id === rec.jobId);
+                    return (
+                      <div key={rec.jobId} className="p-3 bg-surface-elevated border border-border rounded-lg flex items-center justify-between gap-4">
+                        <div>
+                          <p className="text-sm font-bold text-text-primary">{job?.title || rec.jobId}</p>
+                          <p className="text-xs text-text-muted">{job?.department || 'Würth Elektronik'}</p>
+                          <p className="text-[11px] text-text-secondary mt-1">{rec.explanation}</p>
+                        </div>
+                        <div className="text-right shrink-0">
+                          <span className="inline-block text-xs font-bold text-green-500 bg-green-500/10 px-2 py-0.5 rounded border border-green-500/20">
+                            {rec.matchPercentage}% Match
+                          </span>
+                        </div>
                       </div>
-                      <div className="text-right shrink-0">
-                        <span className="inline-block text-xs font-bold text-green-500 bg-green-500/10 px-2 py-0.5 rounded border border-green-500/20">
-                          {rec.matchPercentage}% Match
-                        </span>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -414,8 +484,8 @@ export default function Profile() {
                 <div className="grid grid-cols-4 gap-2">
                   {badges.slice(0, 8).map(b => (
                     <div key={b.id} className={`flex flex-col items-center gap-1 p-2 rounded-lg border text-center ${TIER_COLOR[b.tier]}`}>
-                      <span className="text-xl">{b.icon}</span>
-                      <p className="text-[9px] font-semibold leading-tight">{b.name}</p>
+                      <Sticker idOrEmoji={b.id} fallbackText={b.icon} className="w-6 h-6" />
+                      <p className="text-[9px] font-semibold leading-tight mt-1">{b.name}</p>
                     </div>
                   ))}
                 </div>

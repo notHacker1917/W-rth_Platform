@@ -4,7 +4,7 @@ import { jobListings } from '../data/jobsMockData';
 import { WE_EVENTS } from '../data/weFeed';
 import type { WEFeedItem } from '../data/weFeed';
 import { useAuth } from '../context/AuthContext';
-import { getJobRecommendationsForUser } from '../data/jobRecommendationsMockData';
+import { computeProfileJobMatching } from '../utils/nlpMatcher';
 
 // Inline type definitions to avoid Vite module resolution issues
 type JobCategory = 'Working Student' | 'Internship' | 'Research Assistant' | 'HiWi';
@@ -16,7 +16,19 @@ const DEPARTMENTS: Department[] = ['Power Modules', 'Wireless Connectivity & Sen
 export default function Jobs() {
   const { currentUser } = useAuth();
   const [useRecommendations, setUseRecommendations] = useState(false);
-  const recommendations = currentUser ? getJobRecommendationsForUser(currentUser.id) : [];
+
+  // Compute NLP matching recommendations dynamically based on current student profile
+  const recommendations = currentUser
+    ? computeProfileJobMatching(
+        {
+          bio: currentUser.bio || '',
+          skills: currentUser.skills || [],
+          headline: currentUser.headline || '',
+          interests: currentUser.interests || [],
+        },
+        jobListings
+      )
+    : [];
 
   const {
     filteredJobs,
@@ -42,11 +54,12 @@ export default function Jobs() {
           return {
             ...job,
             rec,
-            matchPercentage: rec ? rec.matchPercentage : Math.floor(Math.random() * 20) + 10 // baseline match
+            matchPercentage: rec ? rec.matchPercentage : 10
           };
         })
         .sort((a, b) => b.matchPercentage - a.matchPercentage)
     : filteredJobs;
+
 
 
   return (
