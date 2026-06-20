@@ -1,0 +1,365 @@
+/* ─── Admin Dashboard Styles ──────────────────────────────────────────────── */
+
+.admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.dashboard-header {
+  margin-bottom: 1rem;
+}
+
+.dashboard-header h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1e1e2e;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.dashboard-header p {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ─── Section Title ───────────────────────────────────────────────────────── */
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 1.25rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+/* ─── Stats Grid ──────────────────────────────────────────────────────────── */
+
+.dashboard-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #d1d5db;
+  transform: translateY(-2px);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 0.75rem 0;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0066cc;
+  margin: 0.5rem 0;
+}
+
+.stat-trend {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ─── Modules Grid ────────────────────────────────────────────────────────── */
+
+.dashboard-modules {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.module-card {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.module-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0066cc, #0052a3);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.module-card:hover::before {
+  transform: scaleX(1);
+}
+
+.module-card:hover {
+  border-color: #0066cc;
+  box-shadow: 0 8px 16px rgba(0, 102, 204, 0.1);
+  transform: translateY(-4px);
+}
+
+.module-icon {
+  font-size: 2.5rem;
+  min-width: 60px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.module-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.module-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.module-description {
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.module-count {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #0066cc;
+  background-color: #eff6ff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.module-arrow {
+  display: flex;
+  align-items: center;
+  color: #d1d5db;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.module-card:hover .module-arrow {
+  color: #0066cc;
+  transform: translateX(4px);
+}
+
+/* ─── Quick Actions ───────────────────────────────────────────────────────── */
+
+.dashboard-quick-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.action-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+}
+
+.action-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
+}
+
+.action-button:active {
+  transform: translateY(-2px);
+}
+
+.action-icon {
+  font-size: 1.75rem;
+}
+
+.action-label {
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* ─── Info Grid ───────────────────────────────────────────────────────────── */
+
+.dashboard-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.info-box {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.info-box:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #d1d5db;
+}
+
+.info-icon {
+  font-size: 2rem;
+  min-width: 50px;
+  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.info-content h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.info-content p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* ─── Responsive Styles ───────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modules-grid,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-dashboard {
+    gap: 1.5rem;
+  }
+
+  .dashboard-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .stats-grid,
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .module-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .module-icon {
+    min-width: auto;
+  }
+
+  .module-arrow {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+
+  .action-button {
+    flex-direction: row;
+    padding: 1rem;
+  }
+
+  .action-icon {
+    font-size: 1.25rem;
+  }
+
+  .action-label {
+    text-align: left;
+    font-size: 0.9rem;
+  }
+
+  .info-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-icon {
+    min-width: auto;
+  }
+}

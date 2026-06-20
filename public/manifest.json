@@ -1,0 +1,10 @@
+{
+  "name": "Würth Network",
+  "short_name": "Würth",
+  "description": "Student–Company Professional Network",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#851a1a",
+  "background_color": "#141414",
+  "icons": [{ "src": "/favicon.ico", "sizes": "any", "type": "image/x-icon" }]
+}

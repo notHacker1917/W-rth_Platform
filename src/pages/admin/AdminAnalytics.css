@@ -1,0 +1,354 @@
+/* ─── Analytics Dashboard Styles ──────────────────────────────────────────── */
+
+.admin-analytics {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.admin-analytics-header {
+  margin-bottom: 1rem;
+}
+
+.admin-analytics-header h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1e1e2e;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.admin-analytics-header p {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ─── Metrics Grid ────────────────────────────────────────────────────────── */
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 1.25rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.analytics-metrics-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.metrics-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.metric-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.metric-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #d1d5db;
+}
+
+.metric-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.metric-trend {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  background-color: #f3f4f6;
+}
+
+.metric-value {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #0066cc;
+  margin: 0.5rem 0;
+}
+
+.metric-date {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* ─── Summary Cards ───────────────────────────────────────────────────────── */
+
+.analytics-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.summary-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.summary-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #0066cc;
+}
+
+.summary-icon {
+  font-size: 2.5rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.summary-content {
+  flex: 1;
+}
+
+.summary-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.5px;
+}
+
+.summary-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0066cc;
+  margin: 0.25rem 0;
+}
+
+.summary-subtitle {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* ─── Chart Section ───────────────────────────────────────────────────────── */
+
+.analytics-chart-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.chart-container {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.roi-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 200px;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.chart-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 40px;
+}
+
+.chart-bar {
+  width: 100%;
+  min-width: 30px;
+  border-radius: 4px 4px 0 0;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.chart-bar:hover {
+  opacity: 0.8;
+  filter: brightness(1.1);
+}
+
+.chart-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-align: center;
+}
+
+.chart-legend {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* ─── Table Section ───────────────────────────────────────────────────────── */
+
+.analytics-table-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.table-wrapper {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.analytics-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.analytics-table thead {
+  background-color: #f3f4f6;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.analytics-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  letter-spacing: 0.3px;
+}
+
+.analytics-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+.analytics-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.analytics-table td {
+  padding: 1rem;
+  color: #374151;
+}
+
+.table-month {
+  font-weight: 600;
+  color: #0066cc;
+}
+
+.table-revenue,
+.table-engagement,
+.table-roi {
+  text-align: right;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.table-revenue {
+  color: #059669;
+}
+
+.table-engagement {
+  color: #0066cc;
+}
+
+.table-roi {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+/* ─── Responsive Styles ───────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .metrics-container {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .summary-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chart-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-analytics {
+    gap: 1.5rem;
+  }
+
+  .metrics-container {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-bars {
+    height: 150px;
+  }
+
+  .analytics-table {
+    font-size: 0.85rem;
+  }
+
+  .analytics-table th,
+  .analytics-table td {
+    padding: 0.75rem;
+  }
+}

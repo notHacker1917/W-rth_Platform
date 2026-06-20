@@ -1,0 +1,399 @@
+/* ─── Opportunities Controller Styles ────────────────────────────────────────── */
+
+.admin-opportunities {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.opportunities-header {
+  margin-bottom: 1rem;
+}
+
+.opportunities-header h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1e1e2e;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.opportunities-header p {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ─── Tab Navigation ────────────────────────────────────────────────────────── */
+
+.opportunities-tabs {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+  margin-bottom: 2rem;
+}
+
+.tab-btn {
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6b7280;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+  margin-bottom: -2px;
+  position: relative;
+}
+
+.tab-btn:hover {
+  color: #374151;
+}
+
+.tab-btn.active {
+  color: #0066cc;
+  border-bottom-color: #0066cc;
+}
+
+/* ─── Section Header ────────────────────────────────────────────────────────── */
+
+.opportunities-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* ─── Buttons ───────────────────────────────────────────────────────────────── */
+
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0052a3;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+/* ─── Table Styles ──────────────────────────────────────────────────────────── */
+
+.table-wrapper {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.opportunities-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.opportunities-table thead {
+  background-color: #f3f4f6;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.opportunities-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.opportunities-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+.opportunities-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.opportunities-table td {
+  padding: 1rem;
+  color: #374151;
+}
+
+/* ─── Cell Styles ───────────────────────────────────────────────────────────── */
+
+.cell-title {
+  font-weight: 600;
+  color: #0066cc;
+}
+
+.cell-category,
+.cell-company,
+.cell-duration {
+  color: #6b7280;
+}
+
+.cell-value,
+.cell-compensation {
+  font-weight: 600;
+  color: #059669;
+}
+
+.cell-applicants {
+  text-align: center;
+  font-weight: 600;
+}
+
+.cell-deadline {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.cell-status {
+  text-align: center;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-draft {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.status-published {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-completed {
+  background-color: #bfdbfe;
+  color: #1e40af;
+}
+
+.status-archived {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.cell-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-action {
+  padding: 0.4rem 0.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.btn-publish:hover {
+  background-color: #d1fae5;
+}
+
+.btn-edit:hover {
+  background-color: #dbeafe;
+}
+
+.btn-delete:hover {
+  background-color: #fee2e2;
+}
+
+/* ─── Empty State ────────────────────────────────────────────────────────────── */
+
+.empty-state {
+  padding: 3rem;
+  text-align: center;
+  color: #9ca3af;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ─── Statistics ────────────────────────────────────────────────────────────── */
+
+.section-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #d1d5db;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0066cc;
+}
+
+/* ─── Modal ─────────────────────────────────────────────────────────────────── */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+
+.modal-content h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  color: #1e1e2e;
+}
+
+.modal-note {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-close {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #e5e7eb;
+  color: #374151;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-close:hover {
+  background-color: #d1d5db;
+}
+
+/* ─── Responsive Styles ──────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .opportunities-table {
+    font-size: 0.85rem;
+  }
+
+  .opportunities-table th,
+  .opportunities-table td {
+    padding: 0.75rem;
+  }
+
+  .section-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .section-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+  .opportunities-table {
+    font-size: 0.75rem;
+  }
+
+  .opportunities-table th,
+  .opportunities-table td {
+    padding: 0.5rem;
+  }
+
+  .cell-actions {
+    flex-direction: column;
+  }
+
+  .btn-action {
+    width: 100%;
+  }
+
+  .opportunities-tabs {
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .tab-btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .section-stats {
+    grid-template-columns: 1fr;
+  }
+}
