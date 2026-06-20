@@ -13,7 +13,7 @@ export default function Layout() {
       <TopNav searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       <div className="max-w-6xl mx-auto px-4 py-6 flex gap-6">
         <SideNav />
-        <main className="flex-1 min-w-0">
+        <main className="flex-1 min-w-0 pb-20 lg:pb-0">
           <Outlet context={{ searchQuery }} />
         </main>
       </div>

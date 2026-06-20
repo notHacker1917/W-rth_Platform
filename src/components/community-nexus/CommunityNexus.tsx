@@ -525,7 +525,7 @@ export default function CommunityNexus() {
   return (
     <>
       {/* floating button */}
-      <div className="fixed bottom-6 left-6 z-50 flex flex-col items-start gap-3">
+      <div className="fixed bottom-20 lg:bottom-6 left-4 lg:left-6 z-50 flex flex-col items-start gap-3">
         {/* tooltip (first-load) */}
         {pulse && !open && (
           <div className="bg-surface-card border border-accent/30 rounded-xl px-3 py-2 shadow-lg text-xs text-text-muted whitespace-nowrap animate-bounce">
@@ -547,7 +547,7 @@ export default function CommunityNexus() {
 
       {/* panel */}
       {open && (
-        <div className="fixed bottom-24 left-6 z-50 w-[380px] max-h-[620px] bg-surface-base border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+        <div className="fixed bottom-36 lg:bottom-24 left-0 lg:left-6 z-50 w-full lg:w-[380px] max-h-[70vh] lg:max-h-[620px] bg-surface-base border-t lg:border border-border rounded-none lg:rounded-2xl shadow-2xl flex flex-col overflow-hidden">
           {/* header */}
           <div className="flex items-center gap-3 px-4 py-3 border-b border-border bg-surface-card shrink-0">
             <span className="text-lg">🏛</span>

@@ -38,7 +38,7 @@ function BountiesSection({
   return (
     <div className="space-y-4">
       {/* Mini stat row */}
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
           { label: 'Total Value',   value: `$${totalValue.toLocaleString()}` },
           { label: 'Published',     value: published },
@@ -115,7 +115,7 @@ function InternshipsSection({
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
           { label: 'Total Listings', value: internships.length },
           { label: 'Published',      value: internships.filter(i => i.status === 'published').length },

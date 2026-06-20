@@ -320,7 +320,7 @@ export default function WEChatbot() {
       {/* Floating trigger button */}
       <button
         onClick={() => setOpen(v => !v)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-accent shadow-lg flex items-center justify-center hover:bg-accent-deep transition-colors group"
+        className="fixed bottom-20 lg:bottom-6 right-4 lg:right-6 z-50 w-14 h-14 rounded-full bg-accent shadow-lg flex items-center justify-center hover:bg-accent-deep transition-colors group"
         title="Würth Elektronik Assistant"
       >
         <span className="text-2xl">{open ? '✕' : '🤖'}</span>
@@ -333,7 +333,8 @@ export default function WEChatbot() {
 
       {/* Chat panel */}
       {open && (
-        <div className="fixed bottom-24 right-6 z-50 w-[360px] max-h-[600px] flex flex-col rounded-2xl shadow-2xl border border-border bg-surface-card overflow-hidden">
+        <div className="fixed bottom-36 lg:bottom-24 right-0 lg:right-6 z-50 w-full lg:w-[360px] max-w-sm mx-auto lg:mx-0 max-h-[70vh] lg:max-h-[600px] flex flex-col rounded-none lg:rounded-2xl shadow-2xl border-t lg:border border-border bg-surface-card overflow-hidden"
+             style={{ left: 'env(safe-area-inset-left)', right: 'env(safe-area-inset-right)' }}>
           {/* header */}
           <div className="flex items-center gap-3 px-4 py-3 bg-surface-elevated border-b border-border">
             <span className="text-xl">🤖</span>

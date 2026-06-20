@@ -231,7 +231,7 @@ export default function Leaderboard() {
       <div className="grid lg:grid-cols-[1fr_300px] gap-6">
         <div className="space-y-4">
           {/* podium */}
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {top3.map((u, i) => (
               <PodiumCard key={u.id} user={u} rank={i} />
             ))}

@@ -111,7 +111,7 @@ function ReviewPanel({ project, onApprove, onReject, onRevision }: {
               className="w-full text-xs bg-surface-elevated border border-border rounded-xl p-3 text-text-primary placeholder:text-text-muted resize-none focus:outline-none focus:border-accent/30"
             />
           </div>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             <button onClick={() => { onApprove(note); setNote(''); }}
               className="py-2 rounded-xl bg-green-400/10 border border-green-400/30 text-green-400 text-xs hover:bg-green-400/20 transition-colors">
               ✅ Approve

@@ -555,72 +555,6 @@ export const MOCK_BOUNTIES: Bounty[] = [
 export const getBountyById = (id: string): Bounty | undefined =>
   MOCK_BOUNTIES.find(b => b.id === id);
 
-// ─── Projects ──────────────────────────────────────────────────────────────
-
-export const MOCK_PROJECTS: Project[] = [
-  {
-    id: 'pr1',
-    authorId: 'u1',
-    title: 'RaftKV — Distributed Key-Value Store',
-    description: 'A fault-tolerant distributed key-value store built on the Raft consensus algorithm in Go.',
-    tags: ['Go', 'Distributed Systems', 'Raft', 'GCP'],
-    imageUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80',
-    repoUrl: 'https://github.com/priya/raftkv',
-    createdAt: '2026-06-01T00:00:00Z',
-    likes: 88,
-    likedBy: ['u2', 'u4'],
-  },
-  {
-    id: 'pr2',
-    authorId: 'u2',
-    title: 'Aria Design System',
-    description: 'An accessible, token-based component library built in React + TypeScript. Includes 40+ components.',
-    tags: ['React', 'TypeScript', 'Figma', 'Accessibility', 'Storybook'],
-    imageUrl: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80',
-    repoUrl: 'https://github.com/marcuswebb/aria-ds',
-    liveUrl: 'https://aria-ds.vercel.app',
-    createdAt: '2026-05-10T00:00:00Z',
-    likes: 143,
-    likedBy: ['u1', 'u6'],
-  },
-  {
-    id: 'pr3',
-    authorId: 'u3',
-    title: 'AirView Austin',
-    description: 'Real-time dashboard visualizing Austin air quality index and correlations with traffic and weather data.',
-    tags: ['Python', 'React', 'Plotly', 'PostgreSQL', 'Climate'],
-    imageUrl: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&q=80',
-    repoUrl: 'https://github.com/aishakamara/airview',
-    liveUrl: 'https://airview.vercel.app',
-    createdAt: '2026-06-14T00:00:00Z',
-    likes: 72,
-    likedBy: ['u1', 'u5'],
-  },
-  {
-    id: 'pr4',
-    authorId: 'u1',
-    title: 'NoteSync — Local-First Notes App',
-    description: 'A local-first Markdown notes app with real-time peer-to-peer sync using CRDTs (Yjs).',
-    tags: ['TypeScript', 'Yjs', 'CRDTs', 'Electron', 'Markdown'],
-    repoUrl: 'https://github.com/priya/notesync',
-    createdAt: '2026-04-20T00:00:00Z',
-    likes: 54,
-    likedBy: ['u4'],
-  },
-  {
-    id: 'pr5',
-    authorId: 'u2',
-    title: 'Onboard.fyi — Onboarding UX Teardowns',
-    description: 'A curated collection of annotated onboarding flow breakdowns from 30+ products.',
-    tags: ['UX Research', 'Product Design', 'Case Studies'],
-    imageUrl: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80',
-    liveUrl: 'https://onboard.fyi',
-    createdAt: '2026-03-05T00:00:00Z',
-    likes: 201,
-    likedBy: ['u1', 'u3', 'u6'],
-  },
-];
-
 // ─── Lecture Materials ─────────────────────────────────────────────────────
 
 export const MOCK_LECTURE_MATERIALS: LectureMaterial[] = [
@@ -1043,3 +977,300 @@ export const MOCK_NEWS: NewsArticle[] = [
 
 export const getNewsById = (id: string): NewsArticle | undefined =>
   MOCK_NEWS.find(n => n.id === id);
+
+// ─── Projects ───────────────────────────────────────────────────────────────
+// Personal projects (2-3 per user) + 8 Würth Elektronik company projects
+// Company-wide projects use authorId = 'wurth-elektronik'
+
+export const MOCK_PROJECTS: Project[] = [
+
+  // ── Priya Nair (u1) — WE Engineering Projects ───────────────────────────
+
+  /**
+   * Project 1 — High-efficiency Synchronous Buck Converter
+   * Domain: Power Electronics · WE focus: MagI³C Power Modules + EMI suppression
+   */
+  {
+    id: 'proj-u1-we-1',
+    authorId: 'u1',
+    title: 'SyncBuck48 — 48V→3.3V Synchronous Buck Converter PCB',
+    category: 'Power Electronics',
+    description:
+      'Designed a four-layer PCB implementing a 48V-to-3.3V synchronous buck converter achieving 94.7% peak efficiency at 15A load, centred on the WE-MagI³C FDSM 17A power module to eliminate discrete magnetics and dramatically shrink footprint. EMI suppression was tackled by pairing WE-MPSB multilayer power suppression beads on the input rail with a WE-CNSW combined common-mode/normal-mode choke, cutting conducted emissions below CISPR 32 Class B limits without a secondary LC stage. Thermal management was optimised through copper-pour flood stitching and strategic WE-CMB capacitor-bead filter placement on all gate-drive lines, reducing switch-node ringing by 62% versus the baseline design.',
+    hardwareUsed: [
+      'WE-MagI³C FDSM Power Module — 17A, 4V–36V Input (177 series)',
+      'WE-MPSB Multilayer Power Suppression Bead — 600Ω @ 100 MHz',
+      'WE-CNSW Combined Common-Mode & Normal-Mode Choke — 5.6 µH',
+      'WE-CMB Capacitor-Bead EMI Filter — 100 pF / 600Ω',
+      'WE-CLFS EMI Suppression Filter for Power Lines',
+      'WE-CBF Capacitor-Bead Filter on Gate Drive Lines',
+    ],
+    complexityScore: 'Advanced',
+    tags: ['Buck Converter', 'Power Module', 'EMI', 'PCB Design', 'KiCad', 'LTspice', 'CISPR 32'],
+    repoUrl: 'https://github.com/priya-nair/syncbuck48-pcb',
+    createdAt: '2026-03-12',
+    likes: 134,
+    likedBy: ['u4', 'u7'],
+  },
+
+  /**
+   * Project 2 — Ultra-Low Power IoT Sensor Node (BLE + Energy Harvesting)
+   * Domain: Wireless Connectivity + Embedded Systems · WE focus: eiSos BLE + WPCC coil
+   */
+  {
+    id: 'proj-u1-we-2',
+    authorId: 'u1',
+    title: 'HarvestNode BLE — Ultra-Low Power Industrial IoT Sensor Node',
+    category: 'Wireless Connectivity',
+    description:
+      'Engineered a batteryless industrial IoT node targeting sub-10 µA average current draw by combining a WE-WPCC wireless power charging coil with a custom 15 µW boost-converter energy-harvesting front-end, storing harvested energy in a 100 mF supercapacitor stack to sustain BLE advertisement bursts via the WE-eiSos THOR Bluetooth 5.3 module. Power-rail integrity was maintained using WE-CBF capacitor-bead filters on every supply pin and a WE-MAPI shielded SMD power inductor for the boost stage, achieving a ripple of < 8 mV pk-pk under 50 mA transient loads triggered by BLE TX events. The sensor firmware (Zephyr RTOS on Nordic nRF5340) implements adaptive duty-cycling, transmitting vibration and temperature payloads over BLE GATT to a WE gateway node at 0.5 Hz — sustaining operation from a 50 lux indoor ambient light source alone.',
+    hardwareUsed: [
+      'WE-eiSos THOR Bluetooth 5.3 Module — nRF5340, -96 dBm sensitivity',
+      'WE-WPCC Wireless Power Charging Coil — 110 µH, Q > 40',
+      'WE-CBF Capacitor-Bead Filter — 100 pF / 300Ω @ 100 MHz',
+      'WE-MAPI Shielded SMD Power Inductor — 47 µH, 200 mA',
+      'WE-SD Schottky Diode Array for Rectifier Bridge',
+      'WE-MF Multilayer Ferrite Chip Bead — Supply Decoupling',
+    ],
+    complexityScore: 'Expert',
+    tags: ['BLE 5.3', 'Energy Harvesting', 'IoT', 'Zephyr RTOS', 'nRF5340', 'WPCC', 'Ultra-Low Power'],
+    repoUrl: 'https://github.com/priya-nair/harvestnode-ble',
+    createdAt: '2026-05-01',
+    likes: 209,
+    likedBy: ['u3', 'u4', 'u7'],
+  },
+
+  /**
+   * Project 3 — High-Frequency RF Front-End Matching Network (Drone Telemetry)
+   * Domain: RF Communications · WE focus: WE-BAL Baluns + RF passives
+   */
+  {
+    id: 'proj-u1-we-3',
+    authorId: 'u1',
+    title: 'DroneLink 2.4 GHz — RF Front-End Matching Network for Drone Telemetry',
+    category: 'RF Communications',
+    description:
+      'Developed an automated impedance-matching front-end for a 2.4 GHz drone telemetry transceiver, using a WE-BAL surface-mount balun to convert the CC2652R7 transceiver\'s differential output to a 50Ω single-ended feed for a λ/4 planar inverted-F antenna, achieving a measured insertion loss of 0.35 dB and return loss > 18 dB across the 2.4–2.485 GHz ISM band. A three-element L-network built from WE-DPC dual-port chip inductors and WE-CFF ceramic flat filters was tuned using Keysight ADS simulation and verified on a vector network analyser, compensating for PCB parasitic effects on a 0.8 mm Rogers RO4003C substrate. The complete RF chain — including a WE-RFH RF choke on the DC bias line and WE-MPSB ferrite beads at the antenna port — delivers +20 dBm TX power with –104 dBm RX sensitivity at 250 kbps IEEE 802.15.4g, extending telemetry range to 1.8 km line-of-sight in field tests.',
+    hardwareUsed: [
+      'WE-BAL 2.4 GHz SMT Balun — 50Ω SE to 100Ω Differential (748421245)',
+      'WE-DPC Dual Port Chip Inductor — 2.2 nH, Q > 35 @ 2.4 GHz',
+      'WE-CFF Ceramic Flat Filter — 2.4 GHz BPF, 80 MHz BW',
+      'WE-RFH RF Choke — 270 nH, SRF > 2.8 GHz (DC Bias Isolation)',
+      'WE-MPSB Ferrite Bead — 1 kΩ @ 100 MHz (Antenna Port ESD/EMI)',
+      'WE-MCA Multilayer Chip Antenna (Reference Footprint)',
+    ],
+    complexityScore: 'Expert',
+    tags: ['RF Design', 'Balun', 'Impedance Matching', 'ADS', 'IEEE 802.15.4g', '2.4 GHz', 'Drone Telemetry', 'VNA'],
+    repoUrl: 'https://github.com/priya-nair/dronelink-rf-frontend',
+    createdAt: '2026-06-05',
+    likes: 178,
+    likedBy: ['u4', 'u6', 'u7'],
+  },
+
+  // ── Priya Nair (u1) — CS + ML student ──────────────────────────────────
+  {
+    id: 'proj-u1-1',
+    authorId: 'u1',
+    title: 'VoltForge Dashboard',
+    description: 'Real-time battery cell health monitoring dashboard built with React + FastAPI. Uses a PyTorch LSTM model to predict capacity fade over 500+ charge cycles. Integrated with Würth Elektronik WE-PD power inductor telemetry via UART.',
+    tags: ['React', 'PyTorch', 'FastAPI', 'Python', 'Power Electronics'],
+    repoUrl: 'https://github.com/priya-nair/voltforge-dashboard',
+    liveUrl: 'https://voltforge.vercel.app',
+    createdAt: '2026-04-10',
+    likes: 87,
+    likedBy: ['u2', 'u4', 'u7'],
+  },
+  {
+    id: 'proj-u1-2',
+    authorId: 'u1',
+    title: 'Signal Tracer',
+    description: 'ML-powered oscilloscope data analyser that auto-classifies waveform anomalies (ringing, overshoot, ground bounce) in exported CSV captures. Built in Python with scikit-learn and a custom Tkinter UI.',
+    tags: ['Python', 'scikit-learn', 'Signal Processing', 'Tkinter', 'EE'],
+    repoUrl: 'https://github.com/priya-nair/signal-tracer',
+    createdAt: '2026-01-22',
+    likes: 54,
+    likedBy: ['u3', 'u7'],
+  },
+  {
+    id: 'proj-u1-3',
+    authorId: 'u1',
+    title: 'NeuralEdge Scheduler',
+    description: 'Preemptive task scheduler optimised for ARM Cortex-M4 microcontrollers running TensorFlow Lite inference jobs. Minimises DRAM access latency by co-scheduling inference tasks with DMA burst windows.',
+    tags: ['C++', 'Embedded', 'ARM Cortex-M4', 'TFLite', 'RTOS'],
+    repoUrl: 'https://github.com/priya-nair/neural-edge-scheduler',
+    createdAt: '2025-11-05',
+    likes: 121,
+    likedBy: ['u4', 'u6', 'u7'],
+  },
+
+  // ── Marcus Webb (u2) — Product Design student ────────────────────────────
+  {
+    id: 'proj-u2-1',
+    authorId: 'u2',
+    title: 'Aria Design System',
+    description: 'Accessible component library for engineering-facing SaaS dashboards. 40+ components built in React + Storybook, with WCAG 2.1 AA compliance baked in. Used across 3 active open-source projects.',
+    tags: ['React', 'Storybook', 'Figma', 'WCAG', 'Component Library'],
+    repoUrl: 'https://github.com/marcus-webb/aria-design-system',
+    liveUrl: 'https://aria-ds.vercel.app',
+    createdAt: '2025-10-18',
+    likes: 203,
+    likedBy: ['u1', 'u3', 'u4', 'u5'],
+  },
+  {
+    id: 'proj-u2-2',
+    authorId: 'u2',
+    title: 'FlowState',
+    description: 'Pomodoro-meets-kanban productivity app with built-in focus analytics. Tracks interruptions, task switching cost, and daily flow streaks. Built with SvelteKit + IndexedDB (no server, fully offline).',
+    tags: ['SvelteKit', 'UX Design', 'Figma', 'IndexedDB', 'Productivity'],
+    repoUrl: 'https://github.com/marcus-webb/flowstate',
+    liveUrl: 'https://flowstate.app',
+    createdAt: '2026-02-14',
+    likes: 68,
+    likedBy: ['u1', 'u3'],
+  },
+
+  // ── Aisha Kamara (u3) — Data Science student ────────────────────────────
+  {
+    id: 'proj-u3-1',
+    authorId: 'u3',
+    title: 'AirView Austin',
+    description: 'Real-time air quality visualisation for Austin, TX — aggregates EPA AQS data + 120 low-cost IoT sensor feeds (Plantower PMS5003) onto an interactive Mapbox map. Forecasts PM2.5 levels 6h ahead using an XGBoost model trained on 2 years of NOAA weather data.',
+    tags: ['Python', 'XGBoost', 'Mapbox', 'Pandas', 'Climate', 'IoT'],
+    repoUrl: 'https://github.com/aisha-kamara/airview-austin',
+    liveUrl: 'https://airview.austin.city',
+    createdAt: '2026-03-28',
+    likes: 156,
+    likedBy: ['u1', 'u5', 'u7'],
+  },
+  {
+    id: 'proj-u3-2',
+    authorId: 'u3',
+    title: 'EnergyLens',
+    description: 'Household energy consumption predictor that ingests smart-meter CSV exports and outputs 30-day usage forecasts with anomaly detection. Built as an end-to-end MLOps pipeline: data ingestion → feature engineering → model training → Streamlit dashboard.',
+    tags: ['Python', 'Streamlit', 'MLOps', 'scikit-learn', 'Energy', 'SQL'],
+    repoUrl: 'https://github.com/aisha-kamara/energy-lens',
+    createdAt: '2025-12-10',
+    likes: 73,
+    likedBy: ['u5'],
+  },
+
+  // ── Prof. Elena Hartmann (u7) — Educator ────────────────────────────────
+  {
+    id: 'proj-u7-1',
+    authorId: 'u7',
+    title: 'EE401 Open Course Portal',
+    description: 'Open-access companion portal for the TU Munich Power Electronics course. Hosts 48 lecture recordings, 12 lab guides, interactive SPICE exercises, and a peer Q&A board. 1,200+ students enrolled across 14 countries.',
+    tags: ['Education', 'Power Electronics', 'SPICE', 'Open-access', 'TU Munich'],
+    liveUrl: 'https://ee401.tum.de',
+    createdAt: '2024-09-01',
+    likes: 344,
+    likedBy: ['u1', 'u2', 'u3'],
+  },
+  {
+    id: 'proj-u7-2',
+    authorId: 'u7',
+    title: 'LabBooker',
+    description: 'Automated lab bench booking system for university EE departments. Students reserve oscilloscopes, soldering stations, and power supplies via a React web app; the backend enforces fair-use quotas and sends automated reminder emails. Deployed across 3 TU Munich lab buildings.',
+    tags: ['React', 'Node.js', 'PostgreSQL', 'University Tools', 'Lab Management'],
+    repoUrl: 'https://github.com/tum-ee/labbooker',
+    createdAt: '2025-03-15',
+    likes: 91,
+    likedBy: ['u1'],
+  },
+
+  // ── Würth Elektronik Company Projects (8) ───────────────────────────────
+  {
+    id: 'we-proj-1',
+    authorId: 'wurth-elektronik',
+    title: 'NexusOS Student–Industry Platform',
+    description: 'The Würth Elektronik NexusOS platform connecting engineering students with industry challenges, bounties, and mentors. Includes job board, bounty marketplace, leaderboard, and REDEXPERT digital twin integration.',
+    tags: ['Platform', 'React', 'TypeScript', 'Student Engagement', 'Würth'],
+    liveUrl: 'https://nexusos.we-online.com',
+    createdAt: '2024-01-01',
+    likes: 512,
+    likedBy: ['u1', 'u2', 'u3', 'u7'],
+  },
+  {
+    id: 'we-proj-2',
+    authorId: 'wurth-elektronik',
+    title: 'REDEXPERT v5 Online Simulator',
+    description: 'Browser-based passive component simulation engine. Lets engineers model the real-world behaviour of WE inductors, capacitors, and ferrites under actual operating conditions — frequency, temperature, DC bias — without leaving the browser.',
+    tags: ['SPICE', 'Simulation', 'Magnetics', 'Capacitors', 'Web App'],
+    liveUrl: 'https://www.we-online.com/en/tools/redexpert',
+    createdAt: '2023-06-01',
+    likes: 874,
+    likedBy: ['u1', 'u7'],
+  },
+  {
+    id: 'we-proj-3',
+    authorId: 'wurth-elektronik',
+    title: 'WE-eiCos IoT Reference Design',
+    description: 'Open reference design for an industrial IoT sensor node using WE components: WE-MAPI shielded inductor, WE-CBF capacitor-bead filter, and WE-eiSos Bluetooth 5.3 module. Includes schematics, BOM, firmware, and manufacturing notes.',
+    tags: ['IoT', 'Bluetooth', 'Reference Design', 'Hardware', 'KiCad'],
+    repoUrl: 'https://github.com/WurthElektronik/we-eicos-iot-refdesign',
+    liveUrl: 'https://www.we-online.com/en/products/eisos/wireless-connectivity',
+    createdAt: '2024-04-15',
+    likes: 289,
+    likedBy: ['u1', 'u3'],
+  },
+  {
+    id: 'we-proj-4',
+    authorId: 'wurth-elektronik',
+    title: 'Smart 48V Power Supply Reference',
+    description: 'High-density 48V → 12V/5V/3.3V multi-rail power supply reference design using WE-PD power inductors and WE-MCRI common-mode chokes. Achieves 96.4% efficiency at full load. Full LTspice simulation files and Gerbers included.',
+    tags: ['Power Supply', 'LTspice', 'Magnetics', 'EMC', '48V', 'Reference Design'],
+    repoUrl: 'https://github.com/WurthElektronik/48v-smart-psu-reference',
+    createdAt: '2024-08-20',
+    likes: 401,
+    likedBy: ['u1', 'u7'],
+  },
+  {
+    id: 'we-proj-5',
+    authorId: 'wurth-elektronik',
+    title: 'EMC Filter Design Kit',
+    description: 'Interactive EMC filter design toolkit: web calculator for differential-mode and common-mode filter topologies, supported by a curated library of WE ferrite beads, capacitor-bead filters, and chokes. Exports a ready-to-use BOM.',
+    tags: ['EMC', 'Filter Design', 'Ferrite', 'Web Tool', 'Compliance'],
+    liveUrl: 'https://www.we-online.com/en/tools/emcdesign',
+    createdAt: '2023-11-10',
+    likes: 337,
+    likedBy: ['u1', 'u7'],
+  },
+  {
+    id: 'we-proj-6',
+    authorId: 'wurth-elektronik',
+    title: 'WE Academy Technical Course Library',
+    description: 'Free online course library covering magnetics design, RF fundamentals, ESD protection, and power integrity — taught by Würth Elektronik field application engineers. 28 courses, 180+ hours of content, with certificates of completion.',
+    tags: ['Education', 'Magnetics', 'RF', 'Power Integrity', 'Certificates'],
+    liveUrl: 'https://www.we-online.com/en/support/knowledge/we-academy',
+    createdAt: '2023-01-15',
+    likes: 692,
+    likedBy: ['u1', 'u2', 'u3', 'u7'],
+  },
+  {
+    id: 'we-proj-7',
+    authorId: 'wurth-elektronik',
+    title: 'Wireless Connectivity SDK',
+    description: 'Unified SDK for WE Bluetooth, Wi-Fi, and LoRa modules. Covers AT-command abstraction, firmware OTA update, low-power state management, and BLE mesh provisioning. Supports Arduino, Zephyr RTOS, and bare-metal STM32.',
+    tags: ['Bluetooth', 'LoRa', 'Wi-Fi', 'Zephyr', 'Embedded SDK', 'OTA'],
+    repoUrl: 'https://github.com/WurthElektronik/wireless-connectivity-sdk',
+    createdAt: '2024-02-01',
+    likes: 458,
+    likedBy: ['u1', 'u3'],
+  },
+  {
+    id: 'we-proj-8',
+    authorId: 'wurth-elektronik',
+    title: 'WE Component REST API',
+    description: 'Public REST API exposing 100,000+ WE component specs, SPICE models, 3D models, and datasheet links. Supports parametric search, cross-reference lookup, and lifecycle status queries. Rate-limited free tier available for students and makers.',
+    tags: ['REST API', 'Components', 'SPICE', 'Datasheet', 'Developer Tools'],
+    liveUrl: 'https://developers.we-online.com/components/api/v2',
+    repoUrl: 'https://github.com/WurthElektronik/component-api-samples',
+    createdAt: '2025-01-10',
+    likes: 523,
+    likedBy: ['u1', 'u2', 'u3', 'u7'],
+  },
+];
+
+export const WE_COMPANY_PROJECTS = MOCK_PROJECTS.filter(p => p.authorId === 'wurth-elektronik');
+export const getProjectsByUser   = (userId: string): Project[] =>
+  MOCK_PROJECTS.filter(p => p.authorId === userId);

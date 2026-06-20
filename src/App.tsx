@@ -3,7 +3,6 @@ import { AuthProvider } from './context/AuthContext';
 import Layout from './components/layout/Layout';
 import Feed from './pages/Feed';
 import Jobs from './pages/Jobs';
-import Projects from './pages/Projects';
 import Profile from './pages/Profile';
 import Bounties from './pages/Bounties';
 import BountyDetail from './pages/BountyDetail';
@@ -15,6 +14,8 @@ import Leaderboard from './pages/Leaderboard';
 import Community from './pages/Community';
 import NewsDigest from './pages/NewsDigest';
 import Products from './pages/Products';
+import Courses from './pages/Courses';
+import UniversityRegistry from './pages/UniversityRegistry';
 import { AdminGuard } from './guards/adminGuard';
 import AdminLayout from './components/admin/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
@@ -36,8 +37,6 @@ export default function App() {
             <Route path="bounties" element={<Bounties />} />
             <Route path="bounties/new" element={<PostBounty />} />
             <Route path="bounties/:bountyId" element={<BountyDetail />} />
-            <Route path="projects" element={<Projects />} />
-            <Route path="projects/mine" element={<Projects />} />
             <Route path="profile" element={<Profile />} />
             <Route path="profile/:userId" element={<Profile />} />
             <Route path="analytics" element={<ExecutiveDashboard />} />
@@ -47,6 +46,8 @@ export default function App() {
             <Route path="community" element={<Community />} />
             <Route path="news" element={<NewsDigest />} />
             <Route path="products" element={<Products />} />
+            <Route path="courses" element={<Courses />} />
+            <Route path="registry" element={<UniversityRegistry />} />
           </Route>
 
           {/* Admin Dashboard Routes (RBAC Protected) */}

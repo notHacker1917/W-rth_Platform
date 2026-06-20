@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { getUserById } from '../data/mockData';
+import { getUserById, getProjectsByUser, WE_COMPANY_PROJECTS } from '../data/mockData';
 import { GitHubPortfolioWidget } from '../components/github/GitHubPortfolioWidget';
-import type { User, Badge, Achievement, Certificate, BadgeTier } from '../types';
+import type { User, Badge, Achievement, Certificate, BadgeTier, Project } from '../types';
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
 
@@ -192,7 +192,168 @@ function CertificateCard({ cert }: { cert: Certificate }) {
 
 // ─── Page ──────────────────────────────────────────────────────────────────
 
-type ProfileTab = 'overview' | 'badges' | 'achievements' | 'certificates' | 'github-portfolio' | 'redexpert';
+type ProfileTab = 'overview' | 'projects' | 'badges' | 'achievements' | 'certificates' | 'github-portfolio' | 'redexpert';
+
+// ─── Project Cards ──────────────────────────────────────────────────────────
+
+const COMPLEXITY_STYLE: Record<string, string> = {
+  Beginner:     'bg-status-success/10 text-status-success border-status-success/25',
+  Intermediate: 'bg-[#0d2a45] text-[#5eaeff] border-[#1e4d7b]',
+  Advanced:     'bg-status-warn/10 text-status-warn border-status-warn/25',
+  Expert:       'bg-accent-deepest text-[#f2a0a0] border-accent/30',
+};
+
+const CATEGORY_ICON: Record<string, string> = {
+  'Power Electronics':   '⚡',
+  'Wireless Connectivity': '📡',
+  'RF Communications':   '📻',
+  'Embedded Systems':    '🔧',
+  'Data Science':        '📊',
+  'UX Design':           '🎨',
+};
+
+function ProjectCard({ project }: { project: Project }) {
+  const [liked,    setLiked]    = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const isWE        = project.authorId === 'wurth-elektronik';
+  const hasHW       = project.hardwareUsed && project.hardwareUsed.length > 0;
+  const complexStyle = project.complexityScore ? COMPLEXITY_STYLE[project.complexityScore] ?? '' : '';
+  const catIcon     = project.category ? (CATEGORY_ICON[project.category] ?? '🗂') : null;
+
+  return (
+    <div className="bg-surface-card border border-border rounded-xl p-4 hover:border-accent/30 transition-colors group flex flex-col">
+      {/* header row */}
+      <div className="flex items-start justify-between gap-2 mb-2 flex-wrap">
+        <h3 className="text-sm font-bold text-text-primary group-hover:text-accent transition-colors leading-snug flex-1">
+          {project.title}
+        </h3>
+        <div className="flex items-center gap-1.5 shrink-0 flex-wrap justify-end">
+          {project.complexityScore && (
+            <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded border ${complexStyle}`}>
+              {project.complexityScore}
+            </span>
+          )}
+          {isWE && (
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-accent-deepest text-[#f2a0a0] border border-accent/30">
+              WE
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* category */}
+      {project.category && (
+        <p className="text-[10px] text-text-muted font-semibold mb-2 uppercase tracking-wide">
+          {catIcon} {project.category}
+        </p>
+      )}
+
+      {/* description */}
+      <p className={`text-xs text-text-muted leading-relaxed mb-3 ${expanded ? '' : 'line-clamp-3'}`}>
+        {project.description}
+      </p>
+      {project.description.length > 180 && (
+        <button onClick={() => setExpanded(v => !v)} className="text-[10px] text-accent hover:underline mb-2 self-start">
+          {expanded ? 'Show less' : 'Read more'}
+        </button>
+      )}
+
+      {/* hardware used */}
+      {hasHW && (
+        <div className="mb-3 p-2.5 rounded-lg bg-surface-base border border-border">
+          <p className="text-[9px] font-bold text-text-muted uppercase tracking-widest mb-1.5">🔩 Hardware Stack</p>
+          <ul className="space-y-0.5">
+            {project.hardwareUsed!.map(hw => (
+              <li key={hw} className="text-[10px] text-text-muted flex items-start gap-1.5">
+                <span className="text-accent mt-0.5 shrink-0">▸</span>
+                <span>{hw}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* tags */}
+      <div className="flex flex-wrap gap-1 mb-3">
+        {project.tags.map(t => (
+          <span key={t} className="text-[10px] px-1.5 py-0.5 rounded bg-surface-elevated border border-border text-text-muted">
+            {t}
+          </span>
+        ))}
+      </div>
+
+      {/* footer */}
+      <div className="flex items-center gap-3 pt-3 border-t border-border mt-auto">
+        <button
+          onClick={() => setLiked(v => !v)}
+          className={`flex items-center gap-1 text-xs font-semibold transition-colors ${liked ? 'text-accent' : 'text-text-muted hover:text-accent'}`}
+        >
+          ♥ {project.likes + (liked ? 1 : 0)}
+        </button>
+        <span className="text-[10px] text-text-muted">
+          {new Date(project.createdAt).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}
+        </span>
+        <div className="ml-auto flex items-center gap-2">
+          {project.repoUrl && (
+            <a href={project.repoUrl} target="_blank" rel="noopener noreferrer"
+              className="text-[10px] text-text-muted hover:text-text-primary transition-colors px-2 py-0.5 rounded border border-border">
+              ⌥ Code
+            </a>
+          )}
+          {project.liveUrl && (
+            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer"
+              className="text-[10px] font-medium text-accent hover:underline">
+              ↗ Live
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProjectsPanel({ userId }: { userId: string }) {
+  const personal = getProjectsByUser(userId);
+
+  return (
+    <div className="space-y-6">
+      {/* Personal / "My" projects */}
+      <div>
+        <div className="flex items-center justify-between mb-3">
+          <p className="text-sm font-bold text-text-primary">My Projects</p>
+          <span className="text-xs text-text-muted">{personal.length} project{personal.length !== 1 ? 's' : ''}</span>
+        </div>
+        {personal.length === 0 ? (
+          <div className="bg-surface-card border border-border rounded-xl p-8 text-center">
+            <p className="text-3xl mb-2">🗂</p>
+            <p className="text-sm text-text-muted">No personal projects yet.</p>
+          </div>
+        ) : (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {personal.map(p => <ProjectCard key={p.id} project={p} />)}
+          </div>
+        )}
+      </div>
+
+      {/* Company-wide WE projects */}
+      <div>
+        <div className="flex items-center gap-3 mb-3">
+          <img
+            src="https://www.we-online.com/files/png1/favicon_we_2022.png"
+            alt="WE"
+            className="w-5 h-5 rounded"
+            onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
+          <p className="text-sm font-bold text-text-primary">Würth Elektronik Platform Projects</p>
+          <span className="text-xs text-text-muted ml-auto">{WE_COMPANY_PROJECTS.length} projects</span>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {WE_COMPANY_PROJECTS.map(p => <ProjectCard key={p.id} project={p} />)}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // ─── REDEXPERT Digital Twin Panel ──────────────────────────────────────────
 
@@ -389,12 +550,15 @@ export default function Profile() {
 
   const isStudent = user.role === 'student';
 
+  const userProjects = getProjectsByUser(user.id);
+
   const TABS: { key: ProfileTab; label: string; count?: number }[] = [
-    { key: 'overview',          label: 'Overview'                          },
-    { key: 'github-portfolio',  label: 'GitHub Portfolio'                  },
-    { key: 'badges',            label: 'Badges',       count: badges.length },
-    { key: 'achievements',      label: 'Achievements', count: achs.length   },
-    { key: 'certificates',      label: 'Certificates', count: certs.length  },
+    { key: 'overview',          label: 'Overview'                                                     },
+    { key: 'projects',          label: 'Projects', count: userProjects.length + WE_COMPANY_PROJECTS.length },
+    { key: 'github-portfolio',  label: 'GitHub Portfolio'                                             },
+    { key: 'badges',            label: 'Badges',       count: badges.length                           },
+    { key: 'achievements',      label: 'Achievements', count: achs.length                             },
+    { key: 'certificates',      label: 'Certificates', count: certs.length                            },
     ...(isStudent ? [{ key: 'redexpert' as ProfileTab, label: '🔩 Digital Twin' }] : []),
   ];
 
@@ -555,7 +719,7 @@ export default function Profile() {
                   <p className="text-sm font-semibold text-text-primary">Top Badges</p>
                   <button onClick={() => setTab('badges')} className="text-xs text-accent hover:underline">View all</button>
                 </div>
-                <div className="grid grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   {badges.slice(0, 8).map(b => (
                     <div key={b.id} className={`flex flex-col items-center gap-1 p-2 rounded-lg border text-center ${TIER_COLOR[b.tier]}`}>
                       <span className="text-xl">{b.icon}</span>
@@ -585,6 +749,24 @@ export default function Profile() {
                 </div>
               </div>
             )}
+            {/* projects preview */}
+            {userProjects.length > 0 && (
+              <div className="bg-surface-card border border-border rounded-xl p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-sm font-semibold text-text-primary">My Projects</p>
+                  <button onClick={() => setTab('projects')} className="text-xs text-accent hover:underline">View all</button>
+                </div>
+                <div className="space-y-2">
+                  {userProjects.slice(0, 2).map(proj => (
+                    <div key={proj.id} className="p-2.5 rounded-lg bg-surface-elevated border border-border">
+                      <p className="text-xs font-semibold text-text-primary truncate">{proj.title}</p>
+                      <p className="text-[10px] text-text-muted mt-0.5 line-clamp-2">{proj.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* joined date */}
             <div className="bg-surface-card border border-border rounded-xl p-4 text-xs text-text-muted space-y-1">
               <p>📅 Joined {new Date(user.joinedAt).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}</p>
@@ -596,6 +778,7 @@ export default function Profile() {
         </div>
       )}
 
+      {tab === 'projects'     && <ProjectsPanel userId={user.id} />}
       {tab === 'badges'       && <BadgeShelf badges={badges} />}
       {tab === 'achievements' && <AchievementTimeline achievements={achs} />}
       {tab === 'github-portfolio' && (

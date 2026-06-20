@@ -93,7 +93,7 @@ function spawnEnemies(wave) {
   const ew = 7 * PX, eh = 6 * PX;
   const gx = 14, gy = 12;
   const ox = (W - (cols * ew + (cols - 1) * gx)) / 2;
-  const oy = 50;
+  const oy = Math.min(50 + (wave - 1) * 25, H - 250);
   const grid = [];
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
@@ -125,7 +125,6 @@ function fresh(wave = 1, score = 0, health = 3) {
     shootCD: 0,
     eDir: 1,
     eSpd: Math.min(2.8, 0.55 + wave * 0.22),
-    eDrop: 0,
     done: false,
     explosions: [],
     announce: 0,     // frames to show "WAVE N" text
@@ -215,7 +214,6 @@ export default function PixelSpaceShooter({ onGameOver = () => {} }) {
         g.enemies  = spawnEnemies(g.wave);
         g.eSpd     = Math.min(2.8, 0.55 + g.wave * 0.22);
         g.eDir     = 1;
-        g.eDrop    = 0;
         g.eLasers  = [];
         g.announce = 100;
         setHudWave(g.wave);
@@ -227,20 +225,13 @@ export default function PixelSpaceShooter({ onGameOver = () => {} }) {
           if (e.x + e.w > maxX) maxX = e.x + e.w;
         });
 
-        if (g.eDrop <= 0) {
-          if ((g.eDir > 0 && maxX + g.eSpd > W - 2) ||
-              (g.eDir < 0 && minX + g.eDir * g.eSpd < 2)) {
-            g.eDir *= -1;
-            g.eDrop = 20;
-          }
+        if ((g.eDir > 0 && maxX + g.eSpd > W - 2) ||
+            (g.eDir < 0 && minX + g.eDir * g.eSpd < 2)) {
+          g.eDir *= -1;
         }
-
-        const dy = g.eDrop > 0 ? Math.min(g.eDrop, 4) : 0;
-        if (g.eDrop > 0) g.eDrop -= dy;
 
         alive.forEach(e => {
           e.x += g.eDir * g.eSpd;
-          e.y += dy;
 
           // Enemy fire (only if no friendly in col below — simplified: random front-line)
           e.fireT--;

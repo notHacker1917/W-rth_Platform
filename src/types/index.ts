@@ -141,6 +141,8 @@ export interface JobListing {
 
 // ─── Project ───────────────────────────────────────────────────────────────
 
+export type ProjectComplexity = 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
+
 export interface Project {
   id: string;
   authorId: string;
@@ -148,11 +150,15 @@ export interface Project {
   description: string;
   tags: string[];
   imageUrl?: string;
-  repoUrl?: string;
+  repoUrl?: string;      // also used as codeLink
   liveUrl?: string;
   createdAt: string;
   likes: number;
   likedBy: string[];
+  // ── Engineering metadata (WE-aligned projects) ──
+  category?: string;               // e.g. 'Power Electronics', 'RF Communications'
+  hardwareUsed?: string[];         // Würth component types
+  complexityScore?: ProjectComplexity;
 }
 
 // ─── Lecture Material ──────────────────────────────────────────────────────
@@ -361,6 +367,28 @@ export interface NewsArticle {
   url: string;
   tags: string[];
   isSponsored?: boolean;
+}
+
+// ─── University–Würth Project Registry ─────────────────────────────────────
+
+export type UniversityProjectStatus =
+  | 'In Progress'
+  | 'Completed'
+  | 'Seeking Hardware Sponsor';
+
+export type UniversityProjectDomain =
+  | 'Electrical Engineering'
+  | 'Electronics';
+
+export interface UniversityProject {
+  projectId: string;
+  title: string;
+  hostingChair: string;
+  primaryDomain: UniversityProjectDomain;
+  activeContributors: number;
+  status: UniversityProjectStatus;
+  technicalStack: string[];
+  summary: string;
 }
 
 // ─── Notification ──────────────────────────────────────────────────────────

@@ -1,161 +1,141 @@
+/**
+ * NewsDigest.tsx
+ * Würth Elektronik proprietary news feed — exclusively sourced from
+ * https://rss.app/feeds/v1.1/1S6y5xcPbR8OEhcm.json
+ */
 import { useState } from 'react';
-import { MOCK_NEWS } from '../data/mockData';
-import { WE_NEWS } from '../data/weFeed';
-import type { WEFeedItem } from '../data/weFeed';
-import { useAuth } from '../context/AuthContext';
-import type { NewsArticle, NewsCategory } from '../types';
+import { WE_FEED_ITEMS, WE_TRENDING_TAGS } from '../data/weFeed';
+import type { WEFeedItem, WEItemCategory } from '../data/weFeed';
 
-// ─── Helpers ───────────────────────────────────────────────────────────────
+// ─── Category config ────────────────────────────────────────────────────────
 
-const CATEGORIES: { key: NewsCategory | 'all' | 'wurth'; label: string; icon: string }[] = [
-  { key: 'all',              label: 'All',                icon: '📡' },
-  { key: 'wurth',            label: 'Würth Elektronik',  icon: '🔩' },
-  { key: 'semiconductors',   label: 'Semiconductors',     icon: '💎' },
-  { key: 'power-electronics',label: 'Power Electronics',  icon: '⚡' },
-  { key: 'iot-embedded',     label: 'IoT & Embedded',     icon: '🤖' },
-  { key: 'pcb-design',       label: 'PCB Design',         icon: '🔌' },
-  { key: 'rf-wireless',      label: 'RF & Wireless',      icon: '📶' },
-  { key: 'automotive',       label: 'Automotive',         icon: '🚗' },
-  { key: 'ai-hardware',      label: 'AI Hardware',        icon: '🧠' },
-  { key: 'industry',         label: 'Industry',           icon: '🌍' },
+const CATEGORIES: { key: WEItemCategory | 'all'; label: string; icon: string }[] = [
+  { key: 'all',     label: 'All Updates',   icon: '📡' },
+  { key: 'news',    label: 'News',          icon: '📰' },
+  { key: 'product', label: 'Products',      icon: '⚙️' },
+  { key: 'service', label: 'Services',      icon: '🛠' },
+  { key: 'blog',    label: 'Blog',          icon: '✍️' },
+  { key: 'event',   label: 'Events',        icon: '📅' },
+  { key: 'career',  label: 'Career',        icon: '💼' },
 ];
+
+const CAT_STYLE: Record<WEItemCategory, { bg: string; text: string; border: string; label: string; icon: string }> = {
+  news:    { bg: 'bg-[#0d2a45]',       text: 'text-[#5eaeff]',   border: 'border-[#1e4d7b]',        label: 'News',     icon: '📰' },
+  product: { bg: 'bg-accent-deepest',   text: 'text-[#f2a0a0]',  border: 'border-accent-deep/40',   label: 'Product',  icon: '⚙️' },
+  service: { bg: 'bg-status-warn/10',   text: 'text-status-warn', border: 'border-status-warn/25',  label: 'Service',  icon: '🛠' },
+  blog:    { bg: 'bg-surface-elevated', text: 'text-text-muted',  border: 'border-border',           label: 'Blog',     icon: '✍️' },
+  event:   { bg: 'bg-status-success/10',text: 'text-status-success',border:'border-status-success/25',label:'Event',   icon: '📅' },
+  career:  { bg: 'bg-[#2a1f0d]',        text: 'text-status-warn', border: 'border-status-warn/25',  label: 'Career',   icon: '💼' },
+};
+
+// ─── Helpers ────────────────────────────────────────────────────────────────
 
 function timeAgo(iso: string) {
   const diffMs = Date.now() - new Date(iso).getTime();
   const diffH  = Math.floor(diffMs / 3_600_000);
   if (diffH < 1)  return `${Math.floor(diffMs / 60_000)}m ago`;
   if (diffH < 24) return `${diffH}h ago`;
-  return `${Math.floor(diffH / 24)}d ago`;
+  const diffD = Math.floor(diffH / 24);
+  if (diffD < 30) return `${diffD}d ago`;
+  return new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
 }
 
-function publishedDate(iso: string) {
-  return new Date(iso).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+function readTime(text: string) {
+  return Math.max(1, Math.ceil(text.split(' ').length / 200));
 }
 
-// ─── Article Card ──────────────────────────────────────────────────────────
+// ─── Featured card ───────────────────────────────────────────────────────────
 
-const CAT_COLOR: Record<string, string> = {
-  'semiconductors':    'bg-blue-500/10 text-blue-400 border-blue-400/20',
-  'power-electronics': 'bg-accent/10 text-[#f2a0a0] border-accent/20',
-  'iot-embedded':      'bg-green-500/10 text-green-400 border-green-400/20',
-  'pcb-design':        'bg-purple-500/10 text-purple-400 border-purple-400/20',
-  'rf-wireless':       'bg-sky-500/10 text-sky-400 border-sky-400/20',
-  'automotive':        'bg-orange-500/10 text-orange-400 border-orange-400/20',
-  'ai-hardware':       'bg-pink-500/10 text-pink-400 border-pink-400/20',
-  'industry':          'bg-yellow-500/10 text-yellow-400 border-yellow-400/20',
-};
-
-const CAT_LABEL: Record<string, { label: string; icon: string }> = Object.fromEntries(
-  CATEGORIES.filter(c => c.key !== 'all').map(c => [c.key, { label: c.label, icon: c.icon }])
-);
-
-interface ArticleCardProps {
-  article: NewsArticle;
-  featured?: boolean;
-  onUpvote: () => void;
-  onSave: () => void;
-}
-
-function ArticleCard({ article, featured, onUpvote, onSave }: ArticleCardProps) {
-  const cat = CAT_LABEL[article.category];
-
-  if (featured) {
-    return (
-      <div className="bg-surface-card border border-border rounded-xl overflow-hidden hover:border-accent/30 transition-colors group">
-        {article.imageUrl && (
-          <div className="h-48 overflow-hidden">
-            <img src={article.imageUrl} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-          </div>
-        )}
-        <div className="p-5">
-          <div className="flex items-center gap-2 mb-3 flex-wrap">
-            <span className={`text-[11px] font-semibold px-2 py-0.5 rounded border ${CAT_COLOR[article.category]}`}>
-              {cat?.icon} {cat?.label}
-            </span>
-            <span className="text-xs text-text-muted">{article.sourceLogoEmoji} {article.source}</span>
-            <span className="text-xs text-text-muted ml-auto">{timeAgo(article.publishedAt)}</span>
-          </div>
-          <h3 className="font-bold text-text-primary text-base leading-snug mb-2 group-hover:text-accent transition-colors">
-            {article.title}
-          </h3>
-          <p className="text-sm text-text-muted leading-relaxed mb-4 line-clamp-3">{article.summary}</p>
-          <div className="flex items-center gap-3 flex-wrap">
-            <button onClick={onUpvote} className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${article.upvotedBy.includes('u1') ? 'text-accent' : 'text-text-muted hover:text-accent'}`}>
-              ▲ {article.upvotes}
-            </button>
-            <span className="text-xs text-text-muted">⏱ {article.readTime} min read</span>
-            <div className="ml-auto flex gap-2">
-              <button onClick={onSave} className={`text-sm transition-colors ${article.saved ? 'text-accent' : 'text-text-muted hover:text-accent'}`} title={article.saved ? 'Unsave' : 'Save'}>
-                {article.saved ? '🔖' : '○'} {article.saved ? 'Saved' : 'Save'}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
+function FeaturedCard({ item, onVote, onSave, voted, saved }:
+  { item: WEFeedItem; onVote: () => void; onSave: () => void; voted: boolean; saved: boolean }) {
+  const s = CAT_STYLE[item.category];
   return (
-    <div className="bg-surface-card border border-border rounded-xl p-4 hover:border-accent/30 transition-colors group flex gap-4">
-      {article.imageUrl && (
-        <div className="w-20 h-20 rounded-lg overflow-hidden shrink-0 hidden sm:block">
-          <img src={article.imageUrl} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+    <div className="bg-surface-card border border-border rounded-xl overflow-hidden hover:border-accent/30 transition-colors group">
+      {item.image && (
+        <div className="h-52 overflow-hidden bg-surface-base">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            onError={e => { (e.currentTarget as HTMLImageElement).parentElement!.style.display = 'none'; }}
+          />
         </div>
       )}
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-          <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded border ${CAT_COLOR[article.category]}`}>
-            {cat?.icon} {cat?.label}
+      <div className="p-5">
+        <div className="flex items-center gap-2 mb-3 flex-wrap">
+          <span className={`text-[11px] font-bold px-2 py-0.5 rounded border ${s.bg} ${s.text} ${s.border}`}>
+            {s.icon} {s.label}
           </span>
-          <span className="text-xs text-text-muted">{article.sourceLogoEmoji} {article.source}</span>
-          <span className="text-xs text-text-muted ml-auto">{timeAgo(article.publishedAt)}</span>
+          <span className="text-xs text-text-muted">{item.source}</span>
+          <span className="text-xs text-text-muted ml-auto">{timeAgo(item.publishedAt)}</span>
         </div>
-        <h3 className="text-sm font-semibold text-text-primary leading-snug mb-1 group-hover:text-accent transition-colors line-clamp-2">
-          {article.title}
+        <h3 className="font-bold text-text-primary text-lg leading-snug mb-2 group-hover:text-accent transition-colors">
+          {item.title}
         </h3>
-        <p className="text-xs text-text-muted line-clamp-2 mb-2">{article.summary}</p>
-        <div className="flex items-center gap-3 flex-wrap">
-          <button onClick={onUpvote} className={`flex items-center gap-1 text-xs font-medium transition-colors ${article.upvotedBy.includes('u1') ? 'text-accent' : 'text-text-muted hover:text-accent'}`}>
-            ▲ {article.upvotes}
+        <p className="text-sm text-text-muted leading-relaxed mb-4 line-clamp-3">{item.summary}</p>
+        <div className="flex flex-wrap gap-1 mb-4">
+          {item.tags.slice(0, 5).map(t => (
+            <span key={t} className="text-[10px] px-1.5 py-0.5 rounded bg-surface-elevated border border-border text-text-muted">{t}</span>
+          ))}
+        </div>
+        <div className="flex items-center gap-3 pt-3 border-t border-border flex-wrap">
+          <button
+            onClick={onVote}
+            className={`flex items-center gap-1.5 text-sm font-semibold transition-colors ${voted ? 'text-accent' : 'text-text-muted hover:text-accent'}`}
+          >
+            ▲ {item.upvotes + (voted ? 1 : 0)}
           </button>
-          <span className="text-xs text-text-muted">⏱ {article.readTime} min</span>
-          <button onClick={onSave} className={`ml-auto text-xs transition-colors ${article.saved ? 'text-accent' : 'text-text-muted hover:text-accent'}`}>
-            {article.saved ? '🔖' : '◻ Save'}
-          </button>
+          <span className="text-xs text-text-muted">⏱ {readTime(item.summary)} min read</span>
+          <div className="ml-auto flex items-center gap-3">
+            <button
+              onClick={onSave}
+              className={`text-sm font-medium transition-colors ${saved ? 'text-accent' : 'text-text-muted hover:text-accent'}`}
+            >
+              {saved ? '🔖 Saved' : '○ Save'}
+            </button>
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-accent hover:underline"
+            >
+              Read more →
+            </a>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-// ─── WE Feed Card ──────────────────────────────────────────────────────────
+// ─── Compact card ────────────────────────────────────────────────────────────
 
-function WEItemCard({ item }: { item: WEFeedItem }) {
-  const [saved, setSaved] = useState(item.saved);
-  const [votes, setVotes] = useState(item.upvotes);
-  const [voted, setVoted] = useState(false);
+function CompactCard({ item, onVote, onSave, voted, saved }:
+  { item: WEFeedItem; onVote: () => void; onSave: () => void; voted: boolean; saved: boolean }) {
+  const s = CAT_STYLE[item.category];
   return (
-    <a
-      href={item.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex gap-4 bg-surface-card border border-border rounded-xl p-4 hover:border-accent/30 transition-colors"
-    >
+    <div className="group flex gap-4 bg-surface-card border border-border rounded-xl p-4 hover:border-accent/30 transition-colors">
       {item.image && (
-        <div className="w-20 h-20 rounded-lg overflow-hidden shrink-0 hidden sm:block">
-          <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            onError={e => { (e.currentTarget as HTMLImageElement).parentElement!.style.display = 'none'; }} />
+        <div className="w-20 h-20 rounded-lg overflow-hidden shrink-0 hidden sm:block bg-surface-base">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            onError={e => { (e.currentTarget as HTMLImageElement).parentElement!.style.display = 'none'; }}
+          />
         </div>
       )}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-1.5 mb-1 flex-wrap">
-          <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded border bg-accent/10 text-[#f2a0a0] border-accent/20">
-            🔩 WE
+          <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${s.bg} ${s.text} ${s.border}`}>
+            {s.icon} {s.label}
           </span>
-          <span className="text-[10px] text-text-muted uppercase font-medium">{item.category}</span>
+          <span className="text-[10px] text-text-muted">{item.source}</span>
           <span className="text-[10px] text-text-muted ml-auto">{timeAgo(item.publishedAt)}</span>
         </div>
-        <h3 className="text-sm font-semibold text-text-primary leading-snug mb-1 group-hover:text-accent transition-colors line-clamp-2">{item.title}</h3>
+        <h3 className="text-sm font-semibold text-text-primary leading-snug mb-1 group-hover:text-accent transition-colors line-clamp-2">
+          {item.title}
+        </h3>
         <p className="text-xs text-text-muted line-clamp-2 mb-2">{item.summary}</p>
         <div className="flex flex-wrap gap-1 mb-2">
           {item.tags.slice(0, 3).map(t => (
@@ -163,259 +143,289 @@ function WEItemCard({ item }: { item: WEFeedItem }) {
           ))}
         </div>
         <div className="flex items-center gap-3">
-          <button onClick={e => { e.preventDefault(); setVoted(v => !v); setVotes(n => voted ? n - 1 : n + 1); }}
-            className={`flex items-center gap-1 text-xs font-medium transition-colors ${voted ? 'text-accent' : 'text-text-muted hover:text-accent'}`}>
-            ▲ {votes}
+          <button
+            onClick={onVote}
+            className={`flex items-center gap-1 text-xs font-semibold transition-colors ${voted ? 'text-accent' : 'text-text-muted hover:text-accent'}`}
+          >
+            ▲ {item.upvotes + (voted ? 1 : 0)}
           </button>
-          <button onClick={e => { e.preventDefault(); setSaved(v => !v); }}
-            className={`ml-auto text-xs transition-colors ${saved ? 'text-accent' : 'text-text-muted hover:text-accent'}`}>
+          <span className="text-[10px] text-text-muted">⏱ {readTime(item.summary)} min</span>
+          <button
+            onClick={onSave}
+            className={`ml-auto text-xs transition-colors ${saved ? 'text-accent' : 'text-text-muted hover:text-accent'}`}
+          >
             {saved ? '🔖' : '◻ Save'}
           </button>
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-text-muted hover:text-accent transition-colors"
+          >
+            ↗
+          </a>
         </div>
       </div>
-    </a>
+    </div>
   );
 }
 
-// ─── Trending sidebar ───────────────────────────────────────────────────────
+// ─── Sidebar panels ──────────────────────────────────────────────────────────
 
-function TrendingPanel({ articles }: { articles: NewsArticle[] }) {
-  const top5 = [...articles].sort((a, b) => b.upvotes - a.upvotes).slice(0, 5);
+function TrendingPanel({ items }: { items: WEFeedItem[] }) {
+  const top5 = [...items].sort((a, b) => b.upvotes - a.upvotes).slice(0, 5);
   return (
     <div className="bg-surface-card border border-border rounded-xl p-4">
-      <p className="text-sm font-semibold text-text-primary mb-3">🔥 Trending Today</p>
+      <div className="flex items-center gap-2 mb-3">
+        <span className="text-sm font-bold text-text-primary">🔥 Trending</span>
+        <span className="text-[10px] text-text-muted ml-auto">by upvotes</span>
+      </div>
       <ol className="space-y-3">
-        {top5.map((a, i) => (
-          <li key={a.id} className="flex gap-2.5">
-            <span className="text-xl font-extrabold text-border shrink-0 w-5 text-center">{i + 1}</span>
-            <div>
-              <p className="text-xs font-medium text-text-primary leading-snug line-clamp-2">{a.title}</p>
-              <p className="text-[10px] text-text-muted mt-0.5">{a.sourceLogoEmoji} {a.source} · ▲ {a.upvotes}</p>
-            </div>
-          </li>
-        ))}
+        {top5.map((item, i) => {
+          const s = CAT_STYLE[item.category];
+          return (
+            <li key={item.id} className="flex gap-2.5">
+              <span className="text-xl font-black text-border/60 shrink-0 w-5 text-center leading-none pt-0.5">{i + 1}</span>
+              <div className="min-w-0">
+                <p className="text-xs font-semibold text-text-primary leading-snug line-clamp-2">{item.title}</p>
+                <div className="flex items-center gap-1.5 mt-0.5">
+                  <span className={`text-[9px] font-bold px-1 py-0.5 rounded border ${s.bg} ${s.text} ${s.border}`}>{s.icon}</span>
+                  <span className="text-[10px] text-text-muted">▲ {item.upvotes}</span>
+                </div>
+              </div>
+            </li>
+          );
+        })}
       </ol>
     </div>
   );
 }
 
-function SavedPanel({ articles }: { articles: NewsArticle[] }) {
-  const saved = articles.filter(a => a.saved);
+function SavedPanel({ items }: { items: WEFeedItem[] }) {
+  const saved = items.filter(i => i.saved);
   if (saved.length === 0) return null;
   return (
     <div className="bg-surface-card border border-border rounded-xl p-4">
-      <p className="text-sm font-semibold text-text-primary mb-3">🔖 Saved Articles</p>
+      <p className="text-sm font-bold text-text-primary mb-3">🔖 Saved</p>
       <div className="space-y-2">
-        {saved.map(a => (
-          <div key={a.id} className="flex gap-2 items-start">
-            <span className="text-xs text-accent mt-0.5">▸</span>
-            <p className="text-xs text-text-muted line-clamp-2">{a.title}</p>
-          </div>
+        {saved.map(item => (
+          <a
+            key={item.id}
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex gap-2 items-start group"
+          >
+            <span className="text-xs text-accent mt-0.5 shrink-0">▸</span>
+            <p className="text-xs text-text-muted line-clamp-2 group-hover:text-text-primary transition-colors">{item.title}</p>
+          </a>
         ))}
       </div>
     </div>
   );
 }
 
-// ─── Digest Header ─────────────────────────────────────────────────────────
-
-function DigestHeader() {
-  const today = new Date();
-  const day   = today.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+function TagsPanel({ onTagClick }: { onTagClick: (tag: string) => void }) {
   return (
-    <div className="bg-surface-card border border-border rounded-xl px-5 py-4 flex items-center gap-4 flex-wrap">
-      <div className="text-4xl">📡</div>
-      <div>
-        <h2 className="text-lg font-bold text-text-primary">Daily Electronics Digest</h2>
-        <p className="text-sm text-text-muted">{day} · Curated from EE Times, Hackaday, Embedded Computing Design & more</p>
-      </div>
-      <div className="ml-auto flex gap-4 text-xs text-text-muted">
-        <span>📰 {MOCK_NEWS.length} articles</span>
-        <span>⚡ Updated hourly</span>
+    <div className="bg-surface-card border border-border rounded-xl p-4">
+      <p className="text-sm font-bold text-text-primary mb-3">🏷 Topics</p>
+      <div className="flex flex-wrap gap-1.5">
+        {WE_TRENDING_TAGS.map(tag => (
+          <button
+            key={tag}
+            onClick={() => onTagClick(tag)}
+            className="text-[10px] px-2 py-0.5 rounded bg-surface-elevated border border-border text-text-muted hover:text-accent hover:border-accent/30 transition-colors"
+          >
+            {tag}
+          </button>
+        ))}
       </div>
     </div>
   );
 }
 
-// ─── Page ──────────────────────────────────────────────────────────────────
+function StatsPanel({ items }: { items: WEFeedItem[] }) {
+  return (
+    <div className="bg-surface-card border border-border rounded-xl p-4">
+      <p className="text-sm font-bold text-text-primary mb-3">📂 By Category</p>
+      <div className="space-y-1.5">
+        {CATEGORIES.filter(c => c.key !== 'all').map(cat => {
+          const count = items.filter(i => i.category === cat.key).length;
+          const pct   = Math.round((count / items.length) * 100);
+          return (
+            <div key={cat.key} className="flex items-center gap-2">
+              <span className="text-[10px] text-text-muted w-16 shrink-0">{cat.icon} {cat.label}</span>
+              <div className="flex-1 h-1.5 rounded-full bg-surface-base overflow-hidden">
+                <div className="h-full rounded-full bg-accent/60" style={{ width: `${pct}%` }} />
+              </div>
+              <span className="text-[10px] text-text-muted font-mono w-4 text-right">{count}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ─── Page header ─────────────────────────────────────────────────────────────
+
+function DigestHeader({ total }: { total: number }) {
+  const day = new Date().toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  return (
+    <div className="bg-surface-card border border-border rounded-xl px-5 py-4 flex items-center gap-4 flex-wrap">
+      <img
+        src="https://www.we-online.com/files/png1/favicon_we_2022.png"
+        alt="Würth Elektronik"
+        className="w-10 h-10 rounded-lg"
+        onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+      />
+      <div>
+        <h2 className="text-base font-bold text-text-primary leading-tight">Würth Elektronik News & Updates</h2>
+        <p className="text-xs text-text-muted">{day} · Official feed from we-online.com</p>
+      </div>
+      <div className="ml-auto flex items-center gap-4 text-xs text-text-muted flex-wrap">
+        <span className="flex items-center gap-1">
+          <span className="w-1.5 h-1.5 rounded-full bg-status-success animate-pulse" />
+          Live feed
+        </span>
+        <span>📄 {total} updates</span>
+        <a
+          href="https://www.we-online.com/en/news-center/overview"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent hover:underline font-medium"
+        >
+          we-online.com →
+        </a>
+      </div>
+    </div>
+  );
+}
+
+// ─── Page ────────────────────────────────────────────────────────────────────
 
 export default function NewsDigest() {
-  const { currentUser } = useAuth();
-  const [articles, setArticles]  = useState<NewsArticle[]>(MOCK_NEWS);
-  const [activeCategory, setActiveCat] = useState<NewsCategory | 'all' | 'wurth'>('all');
-  const [search, setSearch]     = useState('');
-  const [showSaved, setShowSaved] = useState(false);
+  const [activeCategory, setActiveCat] = useState<WEItemCategory | 'all'>('all');
+  const [search,         setSearch]    = useState('');
+  const [showSaved,      setShowSaved] = useState(false);
 
-  const upvote = (id: string) => {
-    setArticles(arts => arts.map(a => {
-      if (a.id !== id) return a;
-      const hasVoted = a.upvotedBy.includes(currentUser?.id ?? 'u1');
-      return {
-        ...a,
-        upvotes: hasVoted ? a.upvotes - 1 : a.upvotes + 1,
-        upvotedBy: hasVoted
-          ? a.upvotedBy.filter(uid => uid !== (currentUser?.id ?? 'u1'))
-          : [...a.upvotedBy, currentUser?.id ?? 'u1'],
-      };
-    }));
-  };
+  // Per-item voted/saved state (keyed by id)
+  const [voted, setVoted] = useState<Record<string, boolean>>({});
+  const [saved, setSaved] = useState<Record<string, boolean>>(
+    Object.fromEntries(WE_FEED_ITEMS.filter(i => i.saved).map(i => [i.id, true]))
+  );
 
-  const save = (id: string) => {
-    setArticles(arts => arts.map(a => a.id === id ? { ...a, saved: !a.saved } : a));
-  };
+  const toggleVote = (id: string) => setVoted(v => ({ ...v, [id]: !v[id] }));
+  const toggleSave = (id: string) => setSaved(s => ({ ...s, [id]: !s[id] }));
 
-  const showWurthTab = activeCategory === 'wurth';
-
-  const filtered = showWurthTab ? [] : articles.filter(a => {
-    const matchesCat    = activeCategory === 'all' || a.category === activeCategory;
-    const matchesSaved  = !showSaved || a.saved;
-    const matchesSearch = !search || a.title.toLowerCase().includes(search.toLowerCase()) || a.summary.toLowerCase().includes(search.toLowerCase()) || a.tags.some(t => t.toLowerCase().includes(search.toLowerCase()));
-    return matchesCat && matchesSaved && matchesSearch;
+  const filtered = WE_FEED_ITEMS.filter(item => {
+    const matchesCat   = activeCategory === 'all' || item.category === activeCategory;
+    const matchesSaved = !showSaved || saved[item.id];
+    const q            = search.toLowerCase();
+    const matchSearch  = !search
+      || item.title.toLowerCase().includes(q)
+      || item.summary.toLowerCase().includes(q)
+      || item.tags.some(t => t.toLowerCase().includes(q))
+      || item.source.toLowerCase().includes(q);
+    return matchesCat && matchesSaved && matchSearch;
   });
 
-  const weFiltered = (activeCategory === 'all' || showWurthTab)
-    ? WE_NEWS.filter(item =>
-        !search ||
-        item.title.toLowerCase().includes(search.toLowerCase()) ||
-        item.summary.toLowerCase().includes(search.toLowerCase()) ||
-        item.tags.some(t => t.toLowerCase().includes(search.toLowerCase()))
-      )
-    : [];
+  // Sort: saved first, then by upvotes descending
+  const sorted = [...filtered].sort((a, b) => {
+    if (saved[a.id] && !saved[b.id]) return -1;
+    if (!saved[a.id] && saved[b.id]) return 1;
+    return (b.upvotes + (voted[b.id] ? 1 : 0)) - (a.upvotes + (voted[a.id] ? 1 : 0));
+  });
 
-  const featured  = filtered[0];
-  const rest      = filtered.slice(1);
+  const featured = sorted[0];
+  const rest     = sorted.slice(1);
 
   return (
     <div className="space-y-5">
-      <DigestHeader />
+      <DigestHeader total={WE_FEED_ITEMS.length} />
 
-      {/* category tabs */}
+      {/* Category tabs */}
       <div className="flex gap-1.5 flex-wrap">
         {CATEGORIES.map(cat => (
           <button
             key={cat.key}
-            onClick={() => setActiveCat(cat.key as NewsCategory | 'all')}
-            className={`text-xs font-medium px-3 py-1.5 rounded-lg border transition-colors ${
+            onClick={() => setActiveCat(cat.key as WEItemCategory | 'all')}
+            className={[
+              'text-xs font-semibold px-3 py-1.5 rounded-lg border transition-colors',
               activeCategory === cat.key
                 ? 'bg-accent/10 text-accent border-accent/30'
-                : 'border-border text-text-muted hover:border-accent/20 hover:text-text-primary'
-            }`}
+                : 'border-border text-text-muted hover:border-accent/20 hover:text-text-primary',
+            ].join(' ')}
           >
             {cat.icon} {cat.label}
+            <span className="ml-1.5 text-[10px] opacity-60">
+              {cat.key === 'all' ? WE_FEED_ITEMS.length : WE_FEED_ITEMS.filter(i => i.category === cat.key).length}
+            </span>
           </button>
         ))}
       </div>
 
-      {/* search + saved */}
-      <div className="flex gap-2 flex-wrap items-center">
+      {/* Search + saved toggle */}
+      <div className="flex gap-2 items-center flex-wrap">
         <input
           value={search}
           onChange={e => setSearch(e.target.value)}
-          placeholder="Search articles, tags, sources…"
+          placeholder="Search articles, tags, products…"
           className="bg-surface-elevated border border-border rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 flex-1 min-w-48"
         />
         <button
           onClick={() => setShowSaved(v => !v)}
-          className={`text-sm px-3 py-2 rounded-lg border transition-colors ${showSaved ? 'bg-accent/10 text-accent border-accent/30' : 'border-border text-text-muted hover:text-text-primary'}`}
+          className={[
+            'text-sm px-3 py-2 rounded-lg border transition-colors whitespace-nowrap',
+            showSaved ? 'bg-accent/10 text-accent border-accent/30' : 'border-border text-text-muted hover:text-text-primary',
+          ].join(' ')}
         >
-          🔖 Saved only
+          🔖 Saved
         </button>
-        <span className="text-xs text-text-muted">{filtered.length} article{filtered.length !== 1 ? 's' : ''}</span>
+        <span className="text-xs text-text-muted">{filtered.length} result{filtered.length !== 1 ? 's' : ''}</span>
       </div>
 
-      {filtered.length === 0 && weFiltered.length === 0 ? (
-        <div className="text-center py-16 text-text-muted">
+      {/* Content */}
+      {filtered.length === 0 ? (
+        <div className="text-center py-16 text-text-muted bg-surface-card border border-border rounded-xl">
           <p className="text-4xl mb-3">📭</p>
-          <p className="font-medium">No articles match your filters.</p>
+          <p className="font-semibold text-text-primary">No results found</p>
+          <p className="text-sm mt-1">Try a different filter or clear your search</p>
         </div>
       ) : (
         <div className="grid lg:grid-cols-[1fr_280px] gap-5">
-          {/* main feed */}
-          <div className="space-y-4">
-            {/* Standard articles (hidden in wurth-only tab) */}
-            {!showWurthTab && featured && (
-              <ArticleCard
-                key={featured.id}
-                article={featured}
-                featured
-                onUpvote={() => upvote(featured.id)}
-                onSave={() => save(featured.id)}
+
+          {/* Main feed */}
+          <div className="space-y-4 min-w-0">
+            {featured && (
+              <FeaturedCard
+                item={featured}
+                onVote={() => toggleVote(featured.id)}
+                onSave={() => toggleSave(featured.id)}
+                voted={!!voted[featured.id]}
+                saved={!!saved[featured.id]}
               />
             )}
-            {!showWurthTab && (
-              <div className="space-y-3">
-                {rest.map(a => (
-                  <ArticleCard
-                    key={a.id}
-                    article={a}
-                    onUpvote={() => upvote(a.id)}
-                    onSave={() => save(a.id)}
-                  />
-                ))}
-              </div>
-            )}
-
-            {/* Würth Elektronik live feed section */}
-            {weFiltered.length > 0 && (
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 pt-2">
-                  <img
-                    src="https://www.we-online.com/files/png1/favicon_we_2022.png"
-                    alt="WE"
-                    className="w-4 h-4 rounded"
-                    onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-                  />
-                  <p className="text-sm font-semibold text-text-primary">Würth Elektronik Live Feed</p>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20 font-semibold">LIVE</span>
-                  <a href="https://www.we-online.com/en/" target="_blank" rel="noopener noreferrer"
-                    className="ml-auto text-xs text-text-muted hover:text-accent transition-colors">we-online.com →</a>
-                </div>
-                {weFiltered.map(item => <WEItemCard key={item.id} item={item} />)}
-              </div>
-            )}
+            <div className="space-y-3">
+              {rest.map(item => (
+                <CompactCard
+                  key={item.id}
+                  item={item}
+                  onVote={() => toggleVote(item.id)}
+                  onSave={() => toggleSave(item.id)}
+                  voted={!!voted[item.id]}
+                  saved={!!saved[item.id]}
+                />
+              ))}
+            </div>
           </div>
 
-          {/* sidebar */}
+          {/* Sidebar */}
           <div className="space-y-4">
-            {!showWurthTab && <TrendingPanel articles={articles} />}
-            {!showWurthTab && <SavedPanel articles={articles} />}
-
-            {/* category breakdown */}
-            <div className="bg-surface-card border border-border rounded-xl p-4">
-              <p className="text-sm font-semibold text-text-primary mb-3">📂 By Category</p>
-              <div className="space-y-1.5">
-                {CATEGORIES.filter(c => c.key !== 'all' && c.key !== 'wurth').map(cat => {
-                  const count = articles.filter(a => a.category === cat.key).length;
-                  if (count === 0) return null;
-                  return (
-                    <button
-                      key={cat.key}
-                      onClick={() => setActiveCat(cat.key as NewsCategory | 'all' | 'wurth')}
-                      className="w-full flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-elevated transition-colors"
-                    >
-                      <span className="text-xs text-text-muted">{cat.icon} {cat.label}</span>
-                      <span className="text-xs font-semibold text-text-primary">{count}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* tags cloud */}
-            <div className="bg-surface-card border border-border rounded-xl p-4">
-              <p className="text-sm font-semibold text-text-primary mb-3">🏷 Popular Tags</p>
-              <div className="flex flex-wrap gap-1.5">
-                {[...new Set(articles.flatMap(a => a.tags))].slice(0, 24).map(tag => (
-                  <button
-                    key={tag}
-                    onClick={() => setSearch(tag)}
-                    className="text-[10px] px-2 py-0.5 rounded-md bg-surface-elevated border border-border text-text-muted hover:text-accent hover:border-accent/30 transition-colors"
-                  >
-                    {tag}
-                  </button>
-                ))}
-              </div>
-            </div>
+            <TrendingPanel items={WE_FEED_ITEMS} />
+            <SavedPanel    items={WE_FEED_ITEMS.map(i => ({ ...i, saved: !!saved[i.id] }))} />
+            <StatsPanel    items={WE_FEED_ITEMS} />
+            <TagsPanel     onTagClick={tag => setSearch(tag)} />
           </div>
         </div>
       )}
