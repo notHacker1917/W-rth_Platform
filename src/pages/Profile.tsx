@@ -192,7 +192,175 @@ function CertificateCard({ cert }: { cert: Certificate }) {
 
 // ─── Page ──────────────────────────────────────────────────────────────────
 
-type ProfileTab = 'overview' | 'badges' | 'achievements' | 'certificates' | 'github-portfolio';
+type ProfileTab = 'overview' | 'badges' | 'achievements' | 'certificates' | 'github-portfolio' | 'redexpert';
+
+// ─── REDEXPERT Digital Twin Panel ──────────────────────────────────────────
+
+const RE_TELEMETRY = [
+  { label: 'Impedance @ 100MHz',  value: '47.2 Ω',    delta: '-0.3 Ω', ok: true  },
+  { label: 'Thermal Rise ΔT',     value: '12.4 °C',   delta: '+0.8°',  ok: true  },
+  { label: 'Power Loss',          value: '38 mW',     delta: '+2 mW',  ok: false },
+  { label: 'Inductance L0',       value: '4.7 µH',    delta: '±0.1',   ok: true  },
+  { label: 'DC Resistance DCR',   value: '18.2 mΩ',   delta: '0',      ok: true  },
+  { label: 'SRF',                 value: '320 MHz',   delta: '+5 MHz', ok: true  },
+];
+
+const RE_RECS = [
+  { icon: '🔩', title: 'WE-PD Power Inductor 744024',    desc: 'Matched impedance profile — 4.7 µH, 38 mΩ DCR'   },
+  { icon: '🔩', title: 'WE-CMB EMI Filter 744821',       desc: 'Recommended for PCB EMI mitigation at 100 MHz'    },
+  { icon: '🔩', title: 'WE-CBF Cap-Bead Filter 742792', desc: 'Optimal for power-loss optimisation in this design' },
+];
+
+const RE_GITHUB_STATS = {
+  contributions: 1247,
+  repos: 6,
+  stars: 143,
+  pullRequests: 28,
+  languages: ['C++', 'Python', 'VHDL', 'KiCad'],
+};
+
+function REDEXPERTPanel({ user }: { user: User }) {
+  const [activeMetric, setActiveMetric] = useState<number | null>(null);
+
+  return (
+    <div className="space-y-5">
+      {/* Header bar */}
+      <div className="bg-surface-card border border-border rounded-xl p-4 flex items-center justify-between gap-4 flex-wrap">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-[#e63312]/10 border border-[#e63312]/30 flex items-center justify-center">
+            <span className="text-lg">🔩</span>
+          </div>
+          <div>
+            <p className="text-sm font-bold text-text-primary">REDEXPERT Digital Twin</p>
+            <p className="text-[10px] text-text-muted">Würth Elektronik simulation engine · NexusOS integration</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+          <span className="text-[10px] text-text-muted">Live telemetry</span>
+          <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#e63312]/10 border border-[#e63312]/30 text-[#e63312] font-semibold">
+            REDEXPERT v5.0
+          </span>
+        </div>
+      </div>
+
+      <div className="grid lg:grid-cols-[1fr_300px] gap-4">
+        {/* Telemetry grid */}
+        <div className="space-y-3">
+          <h2 className="text-sm font-semibold text-text-primary">Hardware Telemetry — {user.name}</h2>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {RE_TELEMETRY.map((m, i) => (
+              <button key={i} onClick={() => setActiveMetric(activeMetric === i ? null : i)}
+                className={`text-left p-4 rounded-xl border transition-colors
+                  ${activeMetric === i ? 'border-accent/30 bg-accent/5' : 'bg-surface-card border-border hover:border-border'}`}>
+                <div className="flex items-start justify-between gap-2">
+                  <p className="text-[10px] text-text-muted leading-snug">{m.label}</p>
+                  <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded-full ${m.ok ? 'bg-green-400/10 text-green-400' : 'bg-yellow-400/10 text-yellow-400'}`}>
+                    {m.ok ? '✓ OK' : '⚠ Warn'}
+                  </span>
+                </div>
+                <p className="text-lg font-bold text-text-primary mt-1">{m.value}</p>
+                <p className="text-[10px] text-text-muted">{m.delta}</p>
+                {activeMetric === i && (
+                  <p className="text-[10px] text-accent mt-2 border-t border-border/50 pt-2">
+                    Click REDEXPERT to view full simulation curve →
+                  </p>
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Mini SVG bar chart — thermal */}
+          <div className="bg-surface-card border border-border rounded-xl p-4">
+            <p className="text-xs font-semibold text-text-primary mb-3">Thermal Profile (0 → 100% load)</p>
+            <svg viewBox="0 0 300 60" className="w-full">
+              {[10, 14, 18, 22, 28, 34, 38, 40, 42, 44].map((v, i) => {
+                const x = 10 + i * 28;
+                const h = v * 1.2;
+                return (
+                  <g key={i}>
+                    <rect x={x} y={60 - h} width={16} height={h}
+                      fill={v > 35 ? 'var(--color-accent)' : 'var(--color-accent)'}
+                      opacity={v > 35 ? 0.8 : 0.35} rx="2" />
+                    <text x={x + 8} y={58} textAnchor="middle" fontSize="6" fill="var(--color-text-muted)">
+                      {i * 10}%
+                    </text>
+                  </g>
+                );
+              })}
+            </svg>
+          </div>
+        </div>
+
+        {/* Right col */}
+        <div className="space-y-3">
+          {/* GitHub stats */}
+          <div className="bg-surface-card border border-border rounded-xl p-4">
+            <p className="text-xs font-semibold text-text-primary mb-3">⚡ Engineering Portfolio</p>
+            <div className="grid grid-cols-2 gap-2">
+              {[
+                { label: 'Contributions', value: RE_GITHUB_STATS.contributions.toLocaleString() },
+                { label: 'Repositories',  value: RE_GITHUB_STATS.repos },
+                { label: 'Stars Earned',  value: RE_GITHUB_STATS.stars },
+                { label: 'Pull Requests', value: RE_GITHUB_STATS.pullRequests },
+              ].map(s => (
+                <div key={s.label} className="bg-surface-elevated border border-border rounded-lg p-2.5">
+                  <p className="text-sm font-bold text-text-primary">{s.value}</p>
+                  <p className="text-[9px] text-text-muted">{s.label}</p>
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-1.5 mt-3">
+              {RE_GITHUB_STATS.languages.map(l => (
+                <span key={l} className="text-[10px] px-2 py-0.5 rounded-full bg-surface-elevated border border-border text-text-muted">{l}</span>
+              ))}
+            </div>
+          </div>
+
+          {/* Component recommendations */}
+          <div className="bg-surface-card border border-border rounded-xl p-4">
+            <div className="flex items-center gap-2 mb-3">
+              <p className="text-xs font-semibold text-text-primary">AI Component Recommendations</p>
+              <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#e63312]/10 border border-[#e63312]/30 text-[#e63312]">WE</span>
+            </div>
+            <div className="space-y-2.5">
+              {RE_RECS.map(r => (
+                <div key={r.title} className="flex gap-2.5 text-xs">
+                  <span className="text-base shrink-0">{r.icon}</span>
+                  <div>
+                    <p className="font-semibold text-text-primary text-[11px] leading-tight">{r.title}</p>
+                    <p className="text-[10px] text-text-muted mt-0.5">{r.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <a href="https://www.we-online.com/en/tools/redexpert" target="_blank" rel="noreferrer"
+              className="mt-3 flex items-center justify-center gap-1.5 text-[10px] text-[#e63312] hover:underline">
+              Open REDEXPERT Simulation →
+            </a>
+          </div>
+
+          {/* NexusOS XP from hardware */}
+          <div className="bg-surface-card border border-border rounded-xl p-4">
+            <p className="text-xs font-semibold text-text-primary mb-2">🏆 NexusOS Hardware XP</p>
+            <div className="space-y-1.5 text-xs">
+              {[
+                { label: 'Simulation runs', xp: '+120 XP' },
+                { label: 'Components matched', xp: '+85 XP' },
+                { label: 'Thermal optimisations', xp: '+60 XP' },
+              ].map(x => (
+                <div key={x.label} className="flex justify-between">
+                  <span className="text-text-muted">{x.label}</span>
+                  <span className="text-green-400 font-semibold">{x.xp}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Profile() {
   const { userId }      = useParams<{ userId?: string }>();
@@ -219,12 +387,15 @@ export default function Profile() {
   const achs      = user.achievements ?? [];
   const certs     = user.certificates ?? [];
 
+  const isStudent = user.role === 'student';
+
   const TABS: { key: ProfileTab; label: string; count?: number }[] = [
-    { key: 'overview',     label: 'Overview'                  },
-    { key: 'github-portfolio', label: 'GitHub Portfolio'     },
-    { key: 'badges',       label: 'Badges',       count: badges.length },
-    { key: 'achievements', label: 'Achievements', count: achs.length   },
-    { key: 'certificates', label: 'Certificates', count: certs.length  },
+    { key: 'overview',          label: 'Overview'                          },
+    { key: 'github-portfolio',  label: 'GitHub Portfolio'                  },
+    { key: 'badges',            label: 'Badges',       count: badges.length },
+    { key: 'achievements',      label: 'Achievements', count: achs.length   },
+    { key: 'certificates',      label: 'Certificates', count: certs.length  },
+    ...(isStudent ? [{ key: 'redexpert' as ProfileTab, label: '🔩 Digital Twin' }] : []),
   ];
 
   return (
@@ -440,6 +611,7 @@ export default function Profile() {
           ) : certs.map(c => <CertificateCard key={c.id} cert={c} />)}
         </div>
       )}
+      {tab === 'redexpert' && isStudent && <REDEXPERTPanel user={user} />}
     </div>
   );
 }

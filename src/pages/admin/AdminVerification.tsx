@@ -2,305 +2,128 @@ import { useState } from 'react';
 import { useAdminActions } from '../../hooks/useAdminActions';
 import type { ProjectValidation } from '../../types/admin';
 import { MOCK_VERIFICATION_AUDIT_TRAIL } from '../../data/adminMockData';
-import './AdminVerification.css';
 
-/**
- * AdminVerificationHub: Institutional Veracity Hub
- * 
- * Project validation and institutional audit trail management.
- * Features:
- * - Pending project review queue
- * - Approval/rejection/revision workflows
- * - Verification audit trail
- * - Institutional integrity tracking
- */
-export default function AdminVerificationHub() {
-  const { projectValidations, approveProjectValidation, rejectProjectValidation, requestProjectRevision } = useAdminActions();
-  const [selectedProject, setSelectedProject] = useState<string | null>(null);
-  const [selectedStatus, setSelectedStatus] = useState<ProjectValidation['status'] | 'all'>('all');
-  const [noteText, setNoteText] = useState('');
-  const auditTrail = MOCK_VERIFICATION_AUDIT_TRAIL;
+type VStatus = ProjectValidation['status'];
 
-  const filteredValidations =
-    selectedStatus === 'all'
-      ? projectValidations
-      : projectValidations.filter(v => v.status === selectedStatus);
+const STATUS_META: Record<VStatus, { icon: string; cls: string; dot: string }> = {
+  pending:          { icon: '⏳', cls: 'text-yellow-400 border-yellow-400/30 bg-yellow-400/10', dot: 'bg-yellow-400' },
+  approved:         { icon: '✅', cls: 'text-green-400  border-green-400/30  bg-green-400/10',  dot: 'bg-green-400' },
+  rejected:         { icon: '❌', cls: 'text-red-400    border-red-400/30    bg-red-400/10',    dot: 'bg-red-400'   },
+  'needs-revision': { icon: '🔄', cls: 'text-blue-400   border-blue-400/30   bg-blue-400/10',   dot: 'bg-blue-400'  },
+};
 
-  const selectedProjectData = selectedProject
-    ? projectValidations.find(p => p.id === selectedProject)
-    : null;
+const SEVERITY_CLS: Record<string, string> = {
+  low:    'bg-green-400',
+  medium: 'bg-yellow-400',
+  high:   'bg-red-400',
+};
 
-  const handleApprove = () => {
-    if (selectedProject) {
-      approveProjectValidation(selectedProject, noteText);
-      setNoteText('');
-      setSelectedProject(null);
-    }
-  };
+// ─── Project Card ─────────────────────────────────────────────────────────────
 
-  const handleReject = () => {
-    if (selectedProject && noteText.trim()) {
-      rejectProjectValidation(selectedProject, noteText);
-      setNoteText('');
-      setSelectedProject(null);
-    }
-  };
-
-  const handleRequestRevision = () => {
-    if (selectedProject && noteText.trim()) {
-      requestProjectRevision(selectedProject, noteText);
-      setNoteText('');
-      setSelectedProject(null);
-    }
-  };
-
-  return (
-    <div className="admin-verification">
-      <header className="verification-header">
-        <h2>Institutional Veracity Hub</h2>
-        <p>Review and validate student projects, maintain audit trails, and ensure institutional integrity</p>
-      </header>
-
-      <div className="verification-container">
-        {/* Left: Validation Queue */}
-        <section className="validation-queue">
-          <div className="queue-header">
-            <h3 className="section-title">Project Review Queue</h3>
-            <div className="status-filters">
-              {(['all', 'pending', 'approved', 'rejected', 'needs-revision'] as const).map(
-                status => (
-                  <button
-                    key={status}
-                    className={`status-filter ${selectedStatus === status ? 'active' : ''}`}
-                    onClick={() => setSelectedStatus(status)}
-                  >
-                    {status === 'all' ? 'All' : status.replace('-', ' ')}
-                    <span className="filter-count">
-                      {status === 'all'
-                        ? projectValidations.length
-                        : projectValidations.filter(v => v.status === status).length}
-                    </span>
-                  </button>
-                )
-              )}
-            </div>
-          </div>
-
-          <div className="projects-list">
-            {filteredValidations.map(project => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                isSelected={selectedProject === project.id}
-                onSelect={() => setSelectedProject(project.id)}
-              />
-            ))}
-            {filteredValidations.length === 0 && (
-              <div className="empty-state">
-                <p>No projects in this category</p>
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* Right: Review Panel */}
-        <section className="review-panel">
-          {selectedProjectData ? (
-            <ReviewForm
-              project={selectedProjectData}
-              noteText={noteText}
-              onNoteChange={setNoteText}
-              onApprove={handleApprove}
-              onReject={handleReject}
-              onRequestRevision={handleRequestRevision}
-            />
-          ) : (
-            <div className="no-selection">
-              <p>Select a project to review</p>
-            </div>
-          )}
-        </section>
-      </div>
-
-      {/* Audit Trail Section */}
-      <section className="audit-section">
-        <h3 className="section-title">Verification Audit Trail</h3>
-        <div className="audit-timeline">
-          {auditTrail.slice(0, 6).map(entry => (
-            <AuditEntry key={entry.id} entry={entry} />
-          ))}
-        </div>
-      </section>
-
-      {/* Verification Stats */}
-      <section className="verification-stats">
-        <h3 className="section-title">Verification Statistics</h3>
-        <div className="stats-grid">
-          <StatBox
-            label="Total Reviewed"
-            value={projectValidations.filter(p => p.status !== 'pending').length}
-            color="#0066cc"
-          />
-          <StatBox
-            label="Pending Review"
-            value={projectValidations.filter(p => p.status === 'pending').length}
-            color="#f59e0b"
-          />
-          <StatBox
-            label="Approved"
-            value={projectValidations.filter(p => p.status === 'approved').length}
-            color="#059669"
-          />
-          <StatBox
-            label="Rejected"
-            value={projectValidations.filter(p => p.status === 'rejected').length}
-            color="#ef4444"
-          />
-          <StatBox
-            label="Needs Revision"
-            value={projectValidations.filter(p => p.status === 'needs-revision').length}
-            color="#9ca3af"
-          />
-          <StatBox
-            label="Avg Review Time"
-            value="2.4 days"
-            color="#0066cc"
-          />
-        </div>
-      </section>
-    </div>
-  );
-}
-
-/**
- * ProjectCard: Individual project in review queue
- */
-function ProjectCard({
-  project,
-  isSelected,
-  onSelect,
-}: {
-  project: ProjectValidation;
-  isSelected: boolean;
-  onSelect: () => void;
+function ProjectCard({ project, selected, onSelect }: {
+  project: ProjectValidation; selected: boolean; onSelect: () => void;
 }) {
-  const statusIcon = {
-    pending: '⏳',
-    approved: '✅',
-    rejected: '❌',
-    'needs-revision': '🔄',
-  };
-
-  const statusColor = {
-    pending: '#f59e0b',
-    approved: '#059669',
-    rejected: '#ef4444',
-    'needs-revision': '#9ca3af',
-  };
-
+  const meta = STATUS_META[project.status];
   return (
-    <button
-      className={`project-card ${isSelected ? 'selected' : ''}`}
-      onClick={onSelect}
-      style={isSelected ? { borderLeftColor: statusColor[project.status] } : {}}
-    >
-      <div className="card-status">{statusIcon[project.status]}</div>
-      <div className="card-content">
-        <h4 className="card-title">{project.projectTitle}</h4>
-        <p className="card-author">{project.authorName}</p>
-        <span className="card-date">
+    <button onClick={onSelect}
+      className={`w-full text-left p-3 rounded-xl border transition-colors flex gap-3 items-start
+        ${selected ? 'border-accent/30 bg-accent/5' : 'border-border hover:border-border hover:bg-surface-elevated'}`}>
+      <span className="text-base mt-0.5">{meta.icon}</span>
+      <div className="flex-1 min-w-0">
+        <p className="text-xs font-semibold text-text-primary truncate">{project.projectTitle}</p>
+        <p className="text-[10px] text-text-muted">{project.authorName}</p>
+        <p className="text-[9px] text-text-muted mt-0.5">
           Submitted {new Date(project.submittedAt).toLocaleDateString()}
-        </span>
+        </p>
       </div>
+      <span className={`text-[9px] px-1.5 py-0.5 rounded-full border shrink-0 font-semibold ${meta.cls}`}>
+        {project.status.replace('-', ' ')}
+      </span>
     </button>
   );
 }
 
-/**
- * ReviewForm: Project review and decision panel
- */
-function ReviewForm({
-  project,
-  noteText,
-  onNoteChange,
-  onApprove,
-  onReject,
-  onRequestRevision,
-}: {
+// ─── Review Panel ─────────────────────────────────────────────────────────────
+
+function ReviewPanel({ project, onApprove, onReject, onRevision }: {
   project: ProjectValidation;
-  noteText: string;
-  onNoteChange: (text: string) => void;
-  onApprove: () => void;
-  onReject: () => void;
-  onRequestRevision: () => void;
+  onApprove: (note: string) => void;
+  onReject: (note: string) => void;
+  onRevision: (note: string) => void;
 }) {
+  const [note, setNote] = useState('');
+  const meta = STATUS_META[project.status];
+
   return (
-    <div className="review-form">
-      <div className="review-header">
-        <h4>Review: {project.projectTitle}</h4>
-        <span className={`status-badge status-${project.status}`}>
-          {project.status.replace('-', ' ')}
+    <div className="space-y-4">
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <h3 className="text-sm font-semibold text-text-primary">{project.projectTitle}</h3>
+          <p className="text-xs text-text-muted">{project.authorName}</p>
+        </div>
+        <span className={`text-[10px] px-2 py-1 rounded-full border font-semibold shrink-0 ${meta.cls}`}>
+          {meta.icon} {project.status.replace('-', ' ')}
         </span>
       </div>
 
-      <div className="review-info">
-        <div className="info-row">
-          <span className="label">Author:</span>
-          <span className="value">{project.authorName}</span>
+      <div className="space-y-2 text-xs bg-surface-elevated border border-border rounded-xl p-3">
+        <div className="flex justify-between">
+          <span className="text-text-muted">Author</span>
+          <span className="text-text-primary font-medium">{project.authorName}</span>
         </div>
-        <div className="info-row">
-          <span className="label">Submitted:</span>
-          <span className="value">
-            {new Date(project.submittedAt).toLocaleString()}
-          </span>
+        <div className="flex justify-between">
+          <span className="text-text-muted">Submitted</span>
+          <span className="text-text-primary">{new Date(project.submittedAt).toLocaleString()}</span>
         </div>
-        {project.validatedAt && (
-          <div className="info-row">
-            <span className="label">Reviewed by:</span>
-            <span className="value">{project.validatedBy}</span>
+        {project.validatedBy && (
+          <div className="flex justify-between">
+            <span className="text-text-muted">Reviewed by</span>
+            <span className="text-text-primary">{project.validatedBy}</span>
           </div>
         )}
       </div>
 
       {project.validationNotes && (
-        <div className="review-notes">
-          <h5>Review Notes</h5>
-          <p>{project.validationNotes}</p>
+        <div className="bg-surface-elevated border border-border rounded-xl p-3">
+          <p className="text-[10px] font-semibold text-text-muted mb-1">Review Notes</p>
+          <p className="text-xs text-text-primary">{project.validationNotes}</p>
         </div>
       )}
 
       {project.attachments.length > 0 && (
-        <div className="review-attachments">
-          <h5>Attachments</h5>
-          <ul>
-            {project.attachments.map((file, idx) => (
-              <li key={idx}>📎 {file}</li>
-            ))}
-          </ul>
+        <div className="space-y-1">
+          <p className="text-[10px] font-semibold text-text-muted">Attachments</p>
+          {project.attachments.map((f, i) => (
+            <p key={i} className="text-xs text-text-muted flex items-center gap-1.5">📎 {f}</p>
+          ))}
         </div>
       )}
 
       {project.status === 'pending' && (
-        <div className="review-actions">
-          <div className="notes-section">
-            <label htmlFor="review-notes">Review Notes:</label>
+        <div className="space-y-3">
+          <div>
+            <label className="text-[10px] font-semibold text-text-muted block mb-1">Review Notes</label>
             <textarea
-              id="review-notes"
-              className="review-textarea"
+              value={note}
+              onChange={e => setNote(e.target.value)}
               placeholder="Add feedback or reason for decision..."
-              value={noteText}
-              onChange={e => onNoteChange(e.target.value)}
+              rows={3}
+              className="w-full text-xs bg-surface-elevated border border-border rounded-xl p-3 text-text-primary placeholder:text-text-muted resize-none focus:outline-none focus:border-accent/30"
             />
           </div>
-
-          <div className="action-buttons">
-            <button className="btn-approve" onClick={onApprove}>
+          <div className="grid grid-cols-3 gap-2">
+            <button onClick={() => { onApprove(note); setNote(''); }}
+              className="py-2 rounded-xl bg-green-400/10 border border-green-400/30 text-green-400 text-xs hover:bg-green-400/20 transition-colors">
               ✅ Approve
             </button>
-            <button className="btn-revision" onClick={onRequestRevision} disabled={!noteText.trim()}>
-              🔄 Request Revision
+            <button onClick={() => { if (note.trim()) { onRevision(note); setNote(''); } }}
+              disabled={!note.trim()}
+              className="py-2 rounded-xl bg-blue-400/10 border border-blue-400/30 text-blue-400 text-xs hover:bg-blue-400/20 transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
+              🔄 Revise
             </button>
-            <button className="btn-reject" onClick={onReject} disabled={!noteText.trim()}>
+            <button onClick={() => { if (note.trim()) { onReject(note); setNote(''); } }}
+              disabled={!note.trim()}
+              className="py-2 rounded-xl bg-red-400/10 border border-red-400/30 text-red-400 text-xs hover:bg-red-400/20 transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
               ❌ Reject
             </button>
           </div>
@@ -308,78 +131,125 @@ function ReviewForm({
       )}
 
       {project.status !== 'pending' && (
-        <div className="review-closed">
-          <p>Review is complete. Project status: <strong>{project.status}</strong></p>
+        <div className="bg-surface-elevated border border-border rounded-xl p-3 text-center">
+          <p className="text-xs text-text-muted">Review complete · status: <strong className="text-text-primary">{project.status}</strong></p>
         </div>
       )}
     </div>
   );
 }
 
-/**
- * AuditEntry: Individual audit trail entry
- */
-function AuditEntry({
-  entry,
-}: {
-  entry: {
-    id: string;
-    entityType: string;
-    entityName: string;
-    action: string;
-    reviewedBy: string;
-    timestamp: string;
-    severity: string;
-  };
-}) {
-  const severityColor = {
-    low: '#10b981',
-    medium: '#f59e0b',
-    high: '#ef4444',
-  };
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
+export default function AdminVerificationHub() {
+  const { projectValidations, approveProjectValidation, rejectProjectValidation, requestProjectRevision } = useAdminActions();
+  const [selectedId, setSelectedId]   = useState<string | null>(null);
+  const [statusFilter, setStatusFilter] = useState<VStatus | 'all'>('all');
+  const [note, setNote]               = useState('');
+  const auditTrail                    = MOCK_VERIFICATION_AUDIT_TRAIL;
+
+  const filtered = statusFilter === 'all'
+    ? projectValidations
+    : projectValidations.filter(v => v.status === statusFilter);
+
+  const selected = selectedId ? projectValidations.find(p => p.id === selectedId) : null;
+
+  const handleApprove  = (n: string) => { approveProjectValidation(selectedId!, n);       setSelectedId(null); };
+  const handleReject   = (n: string) => { rejectProjectValidation(selectedId!, n);        setSelectedId(null); };
+  const handleRevision = (n: string) => { requestProjectRevision(selectedId!, n);         setSelectedId(null); };
+
+  const filterTabs = ['all', 'pending', 'approved', 'rejected', 'needs-revision'] as const;
 
   return (
-    <div className="audit-entry-item">
-      <div className="timeline-dot" style={{ backgroundColor: severityColor[entry.severity as keyof typeof severityColor] }} />
-      <div className="entry-content">
-        <div className="entry-header">
-          <span className="entry-action">{entry.action}</span>
-          <span className="entry-type">{entry.entityType}</span>
-        </div>
-        <p className="entry-entity">{entry.entityName}</p>
-        <div className="entry-footer">
-          <span className="entry-reviewer">{entry.reviewedBy}</span>
-          <span className="entry-date">
-            {new Date(entry.timestamp).toLocaleString()}
-          </span>
-        </div>
+    <div className="space-y-6 max-w-5xl">
+      {/* Header */}
+      <div>
+        <h1 className="text-2xl font-bold text-text-primary">Institutional Veracity Hub</h1>
+        <p className="text-sm text-text-muted mt-0.5">Project validation, institutional audits and verification</p>
       </div>
-    </div>
-  );
-}
 
-/**
- * StatBox: Statistics box
- */
-function StatBox({
-  label,
-  value,
-  color,
-}: {
-  label: string;
-  value: string | number;
-  color: string;
-}) {
-  return (
-    <div className="stat-box">
-      <div className="stat-icon" style={{ backgroundColor: color + '20', color }}>
-        📊
+      {/* Stats */}
+      <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
+        {[
+          { label: 'Total',          val: projectValidations.length,                                             cls: 'text-text-primary' },
+          { label: 'Pending',        val: projectValidations.filter(p => p.status === 'pending').length,         cls: 'text-yellow-400'   },
+          { label: 'Approved',       val: projectValidations.filter(p => p.status === 'approved').length,        cls: 'text-green-400'    },
+          { label: 'Rejected',       val: projectValidations.filter(p => p.status === 'rejected').length,        cls: 'text-red-400'      },
+          { label: 'Needs Revision', val: projectValidations.filter(p => p.status === 'needs-revision').length,  cls: 'text-blue-400'     },
+          { label: 'Avg Time',       val: '2.4d',                                                                cls: 'text-text-muted'   },
+        ].map(c => (
+          <div key={c.label} className="bg-surface-card border border-border rounded-xl p-3 text-center">
+            <p className={`text-xl font-bold ${c.cls}`}>{c.val}</p>
+            <p className="text-[9px] text-text-muted">{c.label}</p>
+          </div>
+        ))}
       </div>
-      <div className="stat-info">
-        <span className="stat-label">{label}</span>
-        <span className="stat-value" style={{ color }}>
-          {value}
-        </span>
+
+      <div className="grid lg:grid-cols-[260px_1fr] gap-4">
+        {/* Left: queue */}
+        <div className="space-y-3">
+          {/* Filter tabs */}
+          <div className="flex flex-wrap gap-1.5">
+            {filterTabs.map(t => (
+              <button key={t} onClick={() => { setStatusFilter(t); setSelectedId(null); }}
+                className={`px-2.5 py-1 rounded-lg text-[10px] font-medium border transition-colors
+                  ${statusFilter === t ? 'bg-accent/10 border-accent/30 text-accent' : 'border-border text-text-muted hover:border-accent/20'}`}>
+                {t === 'all' ? 'All' : t.replace('-', ' ')}
+                <span className="ml-1 opacity-60">
+                  {t === 'all' ? projectValidations.length : projectValidations.filter(v => v.status === t).length}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          <div className="space-y-2">
+            {filtered.map(p => (
+              <ProjectCard key={p.id} project={p} selected={selectedId === p.id} onSelect={() => setSelectedId(p.id)} />
+            ))}
+            {filtered.length === 0 && (
+              <p className="text-xs text-text-muted text-center py-4">No projects in this category</p>
+            )}
+          </div>
+        </div>
+
+        {/* Right: review panel */}
+        <div className="bg-surface-card border border-border rounded-xl p-5 min-h-[300px]">
+          {selected
+            ? <ReviewPanel project={selected} onApprove={handleApprove} onReject={handleReject} onRevision={handleRevision} />
+            : (
+              <div className="flex flex-col items-center justify-center h-full text-center gap-2 py-8">
+                <span className="text-3xl">📋</span>
+                <p className="text-sm text-text-muted">Select a project to review</p>
+              </div>
+            )
+          }
+        </div>
+      </div>
+
+      {/* Audit trail */}
+      <div>
+        <h2 className="text-sm font-semibold text-text-primary mb-3">Verification Audit Trail</h2>
+        <div className="bg-surface-card border border-border rounded-xl divide-y divide-border">
+          {auditTrail.slice(0, 6).map((e) => {
+            const entry = e as { id: string; entityType: string; entityName: string; action: string; reviewedBy: string; timestamp: string; severity: string };
+            return (
+              <div key={entry.id} className="flex items-start gap-4 p-4">
+                <span className={`w-2 h-2 rounded-full shrink-0 mt-1.5 ${SEVERITY_CLS[entry.severity] ?? 'bg-text-muted'}`} />
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-xs font-semibold text-text-primary">{entry.action}</span>
+                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-surface-elevated border border-border text-text-muted">{entry.entityType}</span>
+                  </div>
+                  <p className="text-xs text-text-muted">{entry.entityName}</p>
+                  <p className="text-[10px] text-text-muted">{entry.reviewedBy}</p>
+                </div>
+                <span className="text-[10px] text-text-muted shrink-0 whitespace-nowrap">
+                  {new Date(entry.timestamp).toLocaleDateString()}
+                </span>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
