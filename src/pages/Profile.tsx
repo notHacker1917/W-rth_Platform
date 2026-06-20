@@ -4,6 +4,8 @@ import { useAuth } from '../context/AuthContext';
 import { getUserById } from '../data/mockData';
 import { GitHubPortfolioWidget } from '../components/github/GitHubPortfolioWidget';
 import type { User, Badge, Achievement, Certificate, BadgeTier } from '../types';
+import { getJobRecommendationsForUser } from '../data/jobRecommendationsMockData';
+
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
 
@@ -370,6 +372,31 @@ export default function Profile() {
                     <span key={s} className="text-xs px-2.5 py-1 rounded-lg bg-surface-elevated border border-border text-text-muted">
                       {s}
                     </span>
+                  ))}
+                </div>
+              </div>
+            )}
+            {/* Smart Job Matches */}
+            {isOwn && user.role === 'student' && (
+              <div className="bg-surface-card border border-border rounded-xl p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-sm font-semibold text-text-primary">✨ NLP Smart Job Matches</p>
+                  <a href="/jobs" className="text-xs text-accent hover:underline">View all jobs</a>
+                </div>
+                <div className="space-y-3">
+                  {getJobRecommendationsForUser(user.id).slice(0, 3).map(rec => (
+                    <div key={rec.jobId} className="p-3 bg-surface-elevated border border-border rounded-lg flex items-center justify-between gap-4">
+                      <div>
+                        <p className="text-sm font-bold text-text-primary">{rec.title}</p>
+                        <p className="text-xs text-text-muted">{rec.companyName}</p>
+                        <p className="text-[11px] text-text-secondary mt-1">{rec.explanation}</p>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <span className="inline-block text-xs font-bold text-green-500 bg-green-500/10 px-2 py-0.5 rounded border border-green-500/20">
+                          {rec.matchPercentage}% Match
+                        </span>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>

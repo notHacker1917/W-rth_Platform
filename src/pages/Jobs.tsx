@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { useJobFilter } from '../hooks/useJobFilter';
 import { jobListings } from '../data/jobsMockData';
 import { WE_EVENTS } from '../data/weFeed';
 import type { WEFeedItem } from '../data/weFeed';
+import { useAuth } from '../context/AuthContext';
+import { getJobRecommendationsForUser } from '../data/jobRecommendationsMockData';
 
 // Inline type definitions to avoid Vite module resolution issues
 type JobCategory = 'Working Student' | 'Internship' | 'Research Assistant' | 'HiWi';
@@ -11,6 +14,10 @@ const JOB_CATEGORIES: JobCategory[] = ['Working Student', 'Internship', 'Researc
 const DEPARTMENTS: Department[] = ['Power Modules', 'Wireless Connectivity & Sensors', 'Embedded Systems'];
 
 export default function Jobs() {
+  const { currentUser } = useAuth();
+  const [useRecommendations, setUseRecommendations] = useState(false);
+  const recommendations = currentUser ? getJobRecommendationsForUser(currentUser.id) : [];
+
   const {
     filteredJobs,
     searchQuery,
@@ -21,6 +28,26 @@ export default function Jobs() {
     toggleDepartment,
     clearFilters,
   } = useJobFilter(jobListings);
+
+  // Helper to get recommendation for a job
+  const getRecForJob = (jobId: string) => {
+    return recommendations.find(r => r.jobId === jobId);
+  };
+
+  // Sort and filter display jobs
+  const displayJobs = useRecommendations
+    ? [...filteredJobs]
+        .map(job => {
+          const rec = getRecForJob(job.id);
+          return {
+            ...job,
+            rec,
+            matchPercentage: rec ? rec.matchPercentage : Math.floor(Math.random() * 20) + 10 // baseline match
+          };
+        })
+        .sort((a, b) => b.matchPercentage - a.matchPercentage)
+    : filteredJobs;
+
 
   return (
     <div className="min-h-screen bg-surface-background">
@@ -108,83 +135,167 @@ export default function Jobs() {
 
         {/* Main Content - Job Grid */}
         <main className="flex-1">
-          {/* Results Count */}
-          <div className="mb-6">
+          {/* Results Count and NLP Toggle */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <p className="text-text-muted text-sm">
-              Showing <span className="font-semibold text-text-primary">{filteredJobs.length}</span> of{' '}
+              Showing <span className="font-semibold text-text-primary">{displayJobs.length}</span> of{' '}
               <span className="font-semibold text-text-primary">{jobListings.length}</span> opportunities
             </p>
+            {currentUser?.role === 'student' && (
+              <div className="flex p-1 bg-surface-card border border-border rounded-lg text-xs font-medium w-fit">
+                <button
+                  onClick={() => setUseRecommendations(false)}
+                  className={`px-3 py-1.5 rounded-md transition-all ${
+                    !useRecommendations
+                      ? 'bg-accent-primary text-white shadow-sm'
+                      : 'text-text-muted hover:text-text-primary'
+                  }`}
+                >
+                  All Opportunities
+                </button>
+                <button
+                  onClick={() => setUseRecommendations(true)}
+                  className={`px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 ${
+                    useRecommendations
+                      ? 'bg-gradient-to-r from-accent-primary to-orange-600 text-white shadow-sm'
+                      : 'text-text-muted hover:text-text-primary'
+                  }`}
+                >
+                  ✨ NLP Smart Match
+                </button>
+              </div>
+            )}
           </div>
 
-          {filteredJobs.length > 0 ? (
+          {displayJobs.length > 0 ? (
             <div className="grid grid-cols-1 gap-6">
-              {filteredJobs.map((job) => (
-                <div
-                  key={job.id}
-                  className="bg-surface-card border border-border rounded-lg p-6 hover:border-accent-primary/50 hover:shadow-lg transition"
-                >
-                  {/* Header with Title and Type Badge */}
-                  <div className="flex items-start justify-between mb-3 gap-4">
-                    <div className="flex-1">
-                      <h2 className="text-xl font-bold text-text-primary mb-2">{job.title}</h2>
-                      <p className="text-text-muted text-sm mb-3">{job.location}</p>
-                    </div>
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${getTypeBadgeStyle(job.type)}`}>
-                      {job.type}
-                    </span>
-                  </div>
+              {displayJobs.map((jobOrRec) => {
+                const job = jobOrRec as typeof jobListings[0] & { matchPercentage?: number; rec?: any };
+                const isMatched = useRecommendations && job.matchPercentage !== undefined;
+                const rec = job.rec;
 
-                  {/* Department and Description */}
-                  <div className="mb-4">
-                    <div className="inline-block px-2 py-1 bg-surface-background border border-border rounded text-xs font-medium text-text-primary mb-3">
-                      {job.department}
-                    </div>
-                    <p className="text-text-secondary text-sm leading-relaxed">{job.description}</p>
-                  </div>
-
-                  {/* Required Skills */}
-                  <div className="mb-4">
-                    <p className="text-xs font-semibold text-text-primary mb-2">Required Skills:</p>
-                    <div className="flex flex-wrap gap-2">
-                      {job.requiredSkills.map((skill, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2 py-1 bg-accent-primary/10 text-accent-primary rounded text-xs font-medium"
+                return (
+                  <div
+                    key={job.id}
+                    className={`bg-surface-card border rounded-lg p-6 transition relative overflow-hidden ${
+                      isMatched && job.matchPercentage && job.matchPercentage >= 75
+                        ? 'border-green-500/40 hover:border-green-500/60 shadow-[0_0_12px_rgba(34,197,94,0.05)]'
+                        : 'border-border hover:border-accent-primary/50 hover:shadow-lg'
+                    }`}
+                  >
+                    {/* Visual match badge */}
+                    {isMatched && job.matchPercentage && (
+                      <div className="absolute top-0 right-0">
+                        <div
+                          className={`text-[10px] uppercase font-bold tracking-wider px-3 py-1.5 rounded-bl-lg text-white ${
+                            job.matchPercentage >= 80
+                              ? 'bg-gradient-to-r from-green-600 to-emerald-500'
+                              : job.matchPercentage >= 60
+                              ? 'bg-gradient-to-r from-yellow-600 to-amber-500'
+                              : 'bg-gradient-to-r from-gray-600 to-slate-500'
+                          }`}
                         >
-                          {skill}
+                          🎯 {job.matchPercentage}% Match
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Header with Title and Type Badge */}
+                    <div className="flex items-start justify-between mb-3 gap-4">
+                      <div className="flex-1 pr-16">
+                        <h2 className="text-xl font-bold text-text-primary mb-2 flex items-center gap-2">
+                          {job.title}
+                        </h2>
+                        <p className="text-text-muted text-sm mb-3">{job.location}</p>
+                      </div>
+                      {!isMatched && (
+                        <span className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${getTypeBadgeStyle(job.type)}`}>
+                          {job.type}
                         </span>
-                      ))}
+                      )}
+                    </div>
+
+                    {/* Department and Description */}
+                    <div className="mb-4">
+                      <div className="inline-flex gap-2 mb-3 items-center">
+                        <div className="px-2 py-1 bg-surface-background border border-border rounded text-xs font-medium text-text-primary">
+                          {job.department}
+                        </div>
+                        {isMatched && (
+                          <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${getTypeBadgeStyle(job.type)}`}>
+                            {job.type}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-text-secondary text-sm leading-relaxed">{job.description}</p>
+                    </div>
+
+                    {/* NLP Reasoning Block if matched */}
+                    {isMatched && rec && (
+                      <div className="mb-4 p-3 bg-surface-background border border-border rounded-lg text-xs leading-relaxed text-text-secondary">
+                        <div className="font-semibold text-text-primary mb-1 flex items-center gap-1">
+                          🤖 NLP Match Insight:
+                        </div>
+                        {rec.explanation}
+                      </div>
+                    )}
+
+                    {/* Required / Matched Skills */}
+                    <div className="mb-4">
+                      <p className="text-xs font-semibold text-text-primary mb-2">
+                        {isMatched ? 'Skills Alignment:' : 'Required Skills:'}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {job.requiredSkills.map((skill, idx) => {
+                          const isSkillMatched = rec?.matchedSkills?.includes(skill) || 
+                            (!rec && currentUser?.skills?.includes(skill));
+                          return (
+                            <span
+                              key={idx}
+                              className={`px-2 py-1 rounded text-xs font-medium border flex items-center gap-1 ${
+                                isMatched
+                                  ? isSkillMatched
+                                    ? 'bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/30'
+                                    : 'bg-gray-500/10 text-text-muted border-border line-through'
+                                  : 'bg-accent-primary/10 text-accent-primary border-accent-primary/20'
+                              }`}
+                            >
+                              {isMatched && (isSkillMatched ? '✓' : '×')} {skill}
+                            </span>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Hardware Stack - Industry Theme */}
+                    <div className="mb-4">
+                      <p className="text-xs font-semibold text-text-primary mb-2">Hardware Stack:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {job.hardwareStack.map((hardware, idx) => (
+                          <span
+                            key={idx}
+                            className="px-2 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 text-blue-600 dark:text-blue-400 rounded text-xs font-medium"
+                          >
+                            ⚡ {hardware}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Action Button */}
+                    <div className="pt-4 border-t border-border flex justify-end">
+                      <a
+                        href={job.applicationUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-5 py-2 bg-accent-primary text-white rounded-lg hover:bg-accent-primary/90 transition font-medium text-sm"
+                      >
+                        Apply Now →
+                      </a>
                     </div>
                   </div>
-
-                  {/* Hardware Stack - Industry Theme */}
-                  <div className="mb-4">
-                    <p className="text-xs font-semibold text-text-primary mb-2">Hardware Stack:</p>
-                    <div className="flex flex-wrap gap-2">
-                      {job.hardwareStack.map((hardware, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 text-blue-600 dark:text-blue-400 rounded text-xs font-medium"
-                        >
-                          ⚡ {hardware}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Action Button */}
-                  <div className="pt-4 border-t border-border flex justify-end">
-                    <a
-                      href={job.applicationUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-5 py-2 bg-accent-primary text-white rounded-lg hover:bg-accent-primary/90 transition font-medium text-sm"
-                    >
-                      Apply Now →
-                    </a>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           ) : (
             <div className="bg-surface-card border border-border rounded-lg p-12 text-center">
