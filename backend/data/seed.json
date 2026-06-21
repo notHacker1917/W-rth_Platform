@@ -1,0 +1,5427 @@
+{
+  "badges": [
+    {
+      "id": "bg-first-post",
+      "name": "First Post",
+      "description": "Published your first post on the platform",
+      "icon": "✍️",
+      "tier": "bronze",
+      "category": "contribution"
+    },
+    {
+      "id": "bg-bounty-hunter",
+      "name": "Bounty Hunter",
+      "description": "Applied to and completed your first bounty",
+      "icon": "🎯",
+      "tier": "silver",
+      "category": "contribution"
+    },
+    {
+      "id": "bg-eagle-scout",
+      "name": "Eagle Scout",
+      "description": "Completed 5 or more bounties",
+      "icon": "🦅",
+      "tier": "gold",
+      "category": "contribution"
+    },
+    {
+      "id": "bg-top-solver",
+      "name": "Top Solver",
+      "description": "Ranked #1 on the monthly leaderboard",
+      "icon": "🏆",
+      "tier": "platinum",
+      "category": "contribution"
+    },
+    {
+      "id": "bg-code-wizard",
+      "name": "Code Wizard",
+      "description": "Submitted a bounty that was accepted without revisions",
+      "icon": "🧙",
+      "tier": "gold",
+      "category": "contribution"
+    },
+    {
+      "id": "bg-community-start",
+      "name": "Founder",
+      "description": "Created a community with 50+ members",
+      "icon": "🏛️",
+      "tier": "silver",
+      "category": "community"
+    },
+    {
+      "id": "bg-connector",
+      "name": "Connector",
+      "description": "Member of 5 or more communities simultaneously",
+      "icon": "🔗",
+      "tier": "bronze",
+      "category": "community"
+    },
+    {
+      "id": "bg-event-host",
+      "name": "Event Host",
+      "description": "Organised a workshop or talk with 20+ attendees",
+      "icon": "🎤",
+      "tier": "silver",
+      "category": "community"
+    },
+    {
+      "id": "bg-helpful",
+      "name": "Most Helpful",
+      "description": "Answered 10 open Q&A questions",
+      "icon": "🙌",
+      "tier": "gold",
+      "category": "community"
+    },
+    {
+      "id": "bg-news-hound",
+      "name": "News Hound",
+      "description": "Read 20 electronics industry news articles",
+      "icon": "📰",
+      "tier": "bronze",
+      "category": "learning"
+    },
+    {
+      "id": "bg-cert-pro",
+      "name": "Certified Pro",
+      "description": "Earned your first professional certificate on the platform",
+      "icon": "📜",
+      "tier": "silver",
+      "category": "learning"
+    },
+    {
+      "id": "bg-deep-diver",
+      "name": "Deep Diver",
+      "description": "Completed all materials for a full course track",
+      "icon": "🤿",
+      "tier": "gold",
+      "category": "learning"
+    },
+    {
+      "id": "bg-rising-star",
+      "name": "Rising Star",
+      "description": "Earned 500 XP within your first 30 days",
+      "icon": "⭐",
+      "tier": "silver",
+      "category": "achievement"
+    },
+    {
+      "id": "bg-innovator",
+      "name": "Innovator",
+      "description": "Project received institutional endorsement",
+      "icon": "💡",
+      "tier": "gold",
+      "category": "achievement"
+    },
+    {
+      "id": "bg-veteran",
+      "name": "Veteran",
+      "description": "Active on the platform for over 1 year",
+      "icon": "🎖️",
+      "tier": "silver",
+      "category": "achievement"
+    },
+    {
+      "id": "bg-og",
+      "name": "OG",
+      "description": "Joined during the platform beta",
+      "icon": "🌟",
+      "tier": "platinum",
+      "category": "special"
+    },
+    {
+      "id": "bg-mentor",
+      "name": "Mentor",
+      "description": "Successfully mentored 3+ students to completion",
+      "icon": "🧑‍🏫",
+      "tier": "gold",
+      "category": "special"
+    },
+    {
+      "id": "bg-hardware-hacker",
+      "name": "Hardware Hacker",
+      "description": "Built and shipped a physical electronics prototype",
+      "icon": "🔧",
+      "tier": "silver",
+      "category": "special"
+    }
+  ],
+  "users": [
+    {
+      "id": "u1",
+      "role": "student",
+      "name": "Priya Nair",
+      "avatarUrl": "https://api.dicebear.com/7.x/avataaars/svg?seed=Priya",
+      "headline": "CS Senior @ Carnegie Mellon · Full-stack & ML",
+      "location": "Pittsburgh, PA",
+      "university": "Carnegie Mellon University",
+      "graduationYear": 2026,
+      "skills": [
+        "TypeScript",
+        "React",
+        "Python",
+        "PyTorch",
+        "PostgreSQL"
+      ],
+      "followersCount": 412,
+      "followingCount": 188,
+      "bio": "Building things at the intersection of systems and intelligence. Open to SWE and ML internships for Summer 2026.",
+      "joinedAt": "2024-09-01",
+      "points": 1840,
+      "interests": [
+        "distributed-systems",
+        "machine-learning",
+        "open-source",
+        "power-electronics"
+      ],
+      "badges": [
+        {
+          "id": "bg-og",
+          "name": "OG",
+          "description": "Joined during the platform beta",
+          "icon": "🌟",
+          "tier": "platinum",
+          "category": "special",
+          "earnedAt": "2024-09-01"
+        },
+        {
+          "id": "bg-first-post",
+          "name": "First Post",
+          "description": "Published your first post on the platform",
+          "icon": "✍️",
+          "tier": "bronze",
+          "category": "contribution",
+          "earnedAt": "2024-09-03"
+        },
+        {
+          "id": "bg-bounty-hunter",
+          "name": "Bounty Hunter",
+          "description": "Applied to and completed your first bounty",
+          "icon": "🎯",
+          "tier": "silver",
+          "category": "contribution",
+          "earnedAt": "2025-02-10"
+        },
+        {
+          "id": "bg-rising-star",
+          "name": "Rising Star",
+          "description": "Earned 500 XP within your first 30 days",
+          "icon": "⭐",
+          "tier": "silver",
+          "category": "achievement",
+          "earnedAt": "2024-10-01"
+        },
+        {
+          "id": "bg-innovator",
+          "name": "Innovator",
+          "description": "Project received institutional endorsement",
+          "icon": "💡",
+          "tier": "gold",
+          "category": "achievement",
+          "earnedAt": "2026-03-15"
+        },
+        {
+          "id": "bg-connector",
+          "name": "Connector",
+          "description": "Member of 5 or more communities simultaneously",
+          "icon": "🔗",
+          "tier": "bronze",
+          "category": "community",
+          "earnedAt": "2026-01-20"
+        }
+      ],
+      "achievements": [
+        {
+          "id": "ach1",
+          "name": "Bounty Accepted",
+          "description": "Carbon Footprint Calculator bounty accepted by GreenPulse",
+          "icon": "🎯",
+          "points": 300,
+          "unlockedAt": "2026-03-01T00:00:00Z"
+        },
+        {
+          "id": "ach2",
+          "name": "VoltForge Endorsed",
+          "description": "Team VoltForge project received institutional endorsement",
+          "icon": "✅",
+          "points": 500,
+          "unlockedAt": "2026-05-20T00:00:00Z"
+        },
+        {
+          "id": "ach3",
+          "name": "400 Followers",
+          "description": "Reached 400 followers on the platform",
+          "icon": "👥",
+          "points": 200,
+          "unlockedAt": "2026-04-01T00:00:00Z"
+        },
+        {
+          "id": "ach4",
+          "name": "Q&A Helper",
+          "description": "Answered 5 open Q&A questions this week",
+          "icon": "💬",
+          "points": 150,
+          "unlockedAt": "2026-06-15T00:00:00Z"
+        }
+      ],
+      "certificates": [
+        {
+          "id": "cert1",
+          "title": "Power Electronics Fundamentals",
+          "issuer": "TU Munich · Prof. Elena Hartmann",
+          "issuedAt": "2026-06-01",
+          "credentialId": "TUM-EE401-2026-U1",
+          "skills": [
+            "MOSFET",
+            "Gate Drive",
+            "Magnetics",
+            "Thermal Design"
+          ],
+          "badgeUrl": "🏅"
+        }
+      ]
+    },
+    {
+      "id": "u2",
+      "role": "student",
+      "name": "Marcus Webb",
+      "avatarUrl": "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
+      "headline": "Product Design · UC San Diego · 2025",
+      "location": "San Diego, CA",
+      "university": "UC San Diego",
+      "graduationYear": 2025,
+      "skills": [
+        "Figma",
+        "React",
+        "CSS",
+        "User Research",
+        "Prototyping"
+      ],
+      "followersCount": 289,
+      "followingCount": 143,
+      "bio": "Designer who codes. Interested in how interfaces shape behavior at scale.",
+      "joinedAt": "2024-01-15",
+      "points": 920,
+      "interests": [
+        "ux-design",
+        "product",
+        "prototyping",
+        "accessibility"
+      ],
+      "badges": [
+        {
+          "id": "bg-og",
+          "name": "OG",
+          "description": "Joined during the platform beta",
+          "icon": "🌟",
+          "tier": "platinum",
+          "category": "special",
+          "earnedAt": "2024-01-15"
+        },
+        {
+          "id": "bg-first-post",
+          "name": "First Post",
+          "description": "Published your first post on the platform",
+          "icon": "✍️",
+          "tier": "bronze",
+          "category": "contribution",
+          "earnedAt": "2024-01-20"
+        },
+        {
+          "id": "bg-veteran",
+          "name": "Veteran",
+          "description": "Active on the platform for over 1 year",
+          "icon": "🎖️",
+          "tier": "silver",
+          "category": "achievement",
+          "earnedAt": "2025-01-15"
+        },
+        {
+          "id": "bg-news-hound",
+          "name": "News Hound",
+          "description": "Read 20 electronics industry news articles",
+          "icon": "📰",
+          "tier": "bronze",
+          "category": "learning",
+          "earnedAt": "2026-04-01"
+        }
+      ],
+      "achievements": [
+        {
+          "id": "ach5",
+          "name": "Storybook Award",
+          "description": "Aria Design System featured in platform showcase",
+          "icon": "📚",
+          "points": 250,
+          "unlockedAt": "2026-02-10T00:00:00Z"
+        },
+        {
+          "id": "ach6",
+          "name": "Bounty Applied",
+          "description": "Applied to Stackform onboarding redesign bounty",
+          "icon": "🎯",
+          "points": 50,
+          "unlockedAt": "2026-06-12T00:00:00Z"
+        }
+      ],
+      "certificates": []
+    },
+    {
+      "id": "u3",
+      "role": "student",
+      "name": "Aisha Kamara",
+      "avatarUrl": "https://api.dicebear.com/7.x/avataaars/svg?seed=Aisha",
+      "headline": "Data Science @ UT Austin · Class of 2026",
+      "location": "Austin, TX",
+      "university": "University of Texas at Austin",
+      "graduationYear": 2026,
+      "skills": [
+        "Python",
+        "SQL",
+        "Tableau",
+        "R",
+        "Machine Learning"
+      ],
+      "followersCount": 174,
+      "followingCount": 96,
+      "bio": "Turning messy data into clear decisions. Passionate about climate tech and civic data.",
+      "joinedAt": "2024-03-10",
+      "points": 610,
+      "interests": [
+        "data-science",
+        "climate",
+        "geospatial",
+        "open-source"
+      ],
+      "badges": [
+        {
+          "id": "bg-first-post",
+          "name": "First Post",
+          "description": "Published your first post on the platform",
+          "icon": "✍️",
+          "tier": "bronze",
+          "category": "contribution",
+          "earnedAt": "2024-03-15"
+        },
+        {
+          "id": "bg-news-hound",
+          "name": "News Hound",
+          "description": "Read 20 electronics industry news articles",
+          "icon": "📰",
+          "tier": "bronze",
+          "category": "learning",
+          "earnedAt": "2025-11-01"
+        },
+        {
+          "id": "bg-connector",
+          "name": "Connector",
+          "description": "Member of 5 or more communities simultaneously",
+          "icon": "🔗",
+          "tier": "bronze",
+          "category": "community",
+          "earnedAt": "2026-02-01"
+        }
+      ],
+      "achievements": [
+        {
+          "id": "ach7",
+          "name": "AirView Featured",
+          "description": "AirView Austin project featured in community spotlight",
+          "icon": "🌿",
+          "points": 300,
+          "unlockedAt": "2026-06-14T00:00:00Z"
+        },
+        {
+          "id": "ach8",
+          "name": "Data Deep Diver",
+          "description": "Published a Jupyter notebook with reproducible analysis",
+          "icon": "📊",
+          "points": 150,
+          "unlockedAt": "2026-03-01T00:00:00Z"
+        }
+      ],
+      "certificates": []
+    },
+    {
+      "id": "u4",
+      "role": "company",
+      "name": "Meridian Labs",
+      "avatarUrl": "https://api.dicebear.com/7.x/initials/svg?seed=ML&backgroundColor=2563eb",
+      "headline": "Developer tools for the next generation of engineers",
+      "location": "San Francisco, CA",
+      "industry": "Developer Tools / SaaS",
+      "size": "51–200 employees",
+      "website": "https://meridianlabs.dev",
+      "followersCount": 3820,
+      "followingCount": 41,
+      "bio": "We build infrastructure that helps engineering teams ship faster. Always looking for curious people.",
+      "joinedAt": "2023-06-01",
+      "points": 2400,
+      "badges": [
+        {
+          "id": "bg-og",
+          "name": "OG",
+          "description": "Joined during the platform beta",
+          "icon": "🌟",
+          "tier": "platinum",
+          "category": "special",
+          "earnedAt": "2023-06-01"
+        },
+        {
+          "id": "bg-helpful",
+          "name": "Most Helpful",
+          "description": "Answered 10 open Q&A questions",
+          "icon": "🙌",
+          "tier": "gold",
+          "category": "community",
+          "earnedAt": "2024-06-01"
+        },
+        {
+          "id": "bg-event-host",
+          "name": "Event Host",
+          "description": "Organised a workshop or talk with 20+ attendees",
+          "icon": "🎤",
+          "tier": "silver",
+          "category": "community",
+          "earnedAt": "2025-03-01"
+        },
+        {
+          "id": "bg-top-solver",
+          "name": "Top Solver",
+          "description": "Ranked #1 on the monthly leaderboard",
+          "icon": "🏆",
+          "tier": "platinum",
+          "category": "contribution",
+          "earnedAt": "2026-01-01"
+        }
+      ],
+      "achievements": [],
+      "certificates": []
+    },
+    {
+      "id": "u5",
+      "role": "company",
+      "name": "GreenPulse",
+      "avatarUrl": "https://api.dicebear.com/7.x/initials/svg?seed=GP&backgroundColor=16a34a",
+      "headline": "Climate tech powering a sustainable future",
+      "location": "Boston, MA",
+      "industry": "Climate Tech",
+      "size": "11–50 employees",
+      "website": "https://greenpulse.io",
+      "followersCount": 1240,
+      "followingCount": 22,
+      "bio": "Our platform helps cities track and reduce carbon emissions in real time.",
+      "joinedAt": "2023-11-15",
+      "points": 1180,
+      "badges": [
+        {
+          "id": "bg-innovator",
+          "name": "Innovator",
+          "description": "Project received institutional endorsement",
+          "icon": "💡",
+          "tier": "gold",
+          "category": "achievement",
+          "earnedAt": "2024-05-01"
+        },
+        {
+          "id": "bg-connector",
+          "name": "Connector",
+          "description": "Member of 5 or more communities simultaneously",
+          "icon": "🔗",
+          "tier": "bronze",
+          "category": "community",
+          "earnedAt": "2025-01-01"
+        }
+      ],
+      "achievements": [],
+      "certificates": []
+    },
+    {
+      "id": "u6",
+      "role": "company",
+      "name": "Stackform",
+      "avatarUrl": "https://api.dicebear.com/7.x/initials/svg?seed=SF&backgroundColor=7c3aed",
+      "headline": "No-code infrastructure, built for teams",
+      "location": "New York, NY",
+      "industry": "Enterprise SaaS",
+      "size": "201–500 employees",
+      "website": "https://stackform.com",
+      "followersCount": 6110,
+      "followingCount": 80,
+      "bio": "Stackform replaces your tangled internal tools with one coherent platform. Used by 4,000+ teams worldwide.",
+      "joinedAt": "2022-04-10",
+      "points": 3250,
+      "badges": [
+        {
+          "id": "bg-og",
+          "name": "OG",
+          "description": "Joined during the platform beta",
+          "icon": "🌟",
+          "tier": "platinum",
+          "category": "special",
+          "earnedAt": "2022-04-10"
+        },
+        {
+          "id": "bg-top-solver",
+          "name": "Top Solver",
+          "description": "Ranked #1 on the monthly leaderboard",
+          "icon": "🏆",
+          "tier": "platinum",
+          "category": "contribution",
+          "earnedAt": "2023-01-01"
+        },
+        {
+          "id": "bg-event-host",
+          "name": "Event Host",
+          "description": "Organised a workshop or talk with 20+ attendees",
+          "icon": "🎤",
+          "tier": "silver",
+          "category": "community",
+          "earnedAt": "2023-06-01"
+        },
+        {
+          "id": "bg-eagle-scout",
+          "name": "Eagle Scout",
+          "description": "Completed 5 or more bounties",
+          "icon": "🦅",
+          "tier": "gold",
+          "category": "contribution",
+          "earnedAt": "2024-03-01"
+        },
+        {
+          "id": "bg-code-wizard",
+          "name": "Code Wizard",
+          "description": "Submitted a bounty that was accepted without revisions",
+          "icon": "🧙",
+          "tier": "gold",
+          "category": "contribution",
+          "earnedAt": "2024-08-01"
+        }
+      ],
+      "achievements": [],
+      "certificates": []
+    },
+    {
+      "id": "u7",
+      "role": "educator",
+      "name": "Prof. Elena Hartmann",
+      "avatarUrl": "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+      "headline": "Chair of Electrical Engineering · TU Munich",
+      "location": "Munich, Germany",
+      "university": "Technical University of Munich",
+      "followersCount": 1847,
+      "followingCount": 63,
+      "bio": "Professor and department chair overseeing 14 research groups. Bridging academia and industry through student-industry collaboration programmes since 2018.",
+      "joinedAt": "2023-10-01",
+      "points": 2900,
+      "badges": [
+        {
+          "id": "bg-mentor",
+          "name": "Mentor",
+          "description": "Successfully mentored 3+ students to completion",
+          "icon": "🧑‍🏫",
+          "tier": "gold",
+          "category": "special",
+          "earnedAt": "2024-06-01"
+        },
+        {
+          "id": "bg-event-host",
+          "name": "Event Host",
+          "description": "Organised a workshop or talk with 20+ attendees",
+          "icon": "🎤",
+          "tier": "silver",
+          "category": "community",
+          "earnedAt": "2024-09-01"
+        },
+        {
+          "id": "bg-deep-diver",
+          "name": "Deep Diver",
+          "description": "Completed all materials for a full course track",
+          "icon": "🤿",
+          "tier": "gold",
+          "category": "learning",
+          "earnedAt": "2025-01-01"
+        },
+        {
+          "id": "bg-cert-pro",
+          "name": "Certified Pro",
+          "description": "Earned your first professional certificate on the platform",
+          "icon": "📜",
+          "tier": "silver",
+          "category": "learning",
+          "earnedAt": "2025-06-01"
+        },
+        {
+          "id": "bg-helpful",
+          "name": "Most Helpful",
+          "description": "Answered 10 open Q&A questions",
+          "icon": "🙌",
+          "tier": "gold",
+          "category": "community",
+          "earnedAt": "2026-01-01"
+        },
+        {
+          "id": "bg-community-start",
+          "name": "Founder",
+          "description": "Created a community with 50+ members",
+          "icon": "🏛️",
+          "tier": "silver",
+          "category": "community",
+          "earnedAt": "2024-03-01"
+        }
+      ],
+      "achievements": [
+        {
+          "id": "ach9",
+          "name": "100 Certificates Issued",
+          "description": "Issued over 100 student certificates through the platform",
+          "icon": "📜",
+          "points": 1000,
+          "unlockedAt": "2026-05-01T00:00:00Z"
+        },
+        {
+          "id": "ach10",
+          "name": "Research Spotlight",
+          "description": "Featured in the monthly educator spotlight",
+          "icon": "🔬",
+          "points": 500,
+          "unlockedAt": "2026-03-01T00:00:00Z"
+        }
+      ],
+      "certificates": []
+    },
+    {
+      "id": "admin-001",
+      "role": "corporate_admin",
+      "name": "System Administrator",
+      "avatarUrl": "https://api.dicebear.com/7.x/initials/svg?seed=SA&backgroundColor=1f2937",
+      "headline": "Platform Administrator",
+      "location": "Virtual",
+      "followersCount": 0,
+      "followingCount": 0,
+      "bio": "Platform administration and oversight.",
+      "joinedAt": "2024-01-01",
+      "points": 0,
+      "badges": [],
+      "achievements": [],
+      "certificates": []
+    }
+  ],
+  "posts": [
+    {
+      "id": "p1",
+      "authorId": "u4",
+      "type": "text",
+      "content": "We're opening 3 summer internship spots for backend engineers. If you've shipped something real and enjoy working close to the metal — apply. We move fast and give interns real ownership.\n\n👇 Link in the Jobs tab.",
+      "likes": 184,
+      "likedBy": [
+        "u1",
+        "u3"
+      ],
+      "comments": [
+        {
+          "id": "c1",
+          "authorId": "u1",
+          "content": "Just applied! Love what you all are building with the CI pipeline tooling.",
+          "createdAt": "2026-06-18T10:22:00Z",
+          "likes": 4
+        }
+      ],
+      "shares": 27,
+      "createdAt": "2026-06-18T08:00:00Z",
+      "tags": [
+        "hiring",
+        "internship",
+        "backend"
+      ]
+    },
+    {
+      "id": "p2",
+      "authorId": "u1",
+      "type": "image",
+      "content": "Shipped my final project for Advanced Systems this semester — a distributed key-value store written in Go with Raft consensus. 4 weeks, a lot of late nights, and exactly zero memory leaks (eventually).",
+      "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+      "likes": 312,
+      "likedBy": [
+        "u2",
+        "u4",
+        "u5"
+      ],
+      "comments": [
+        {
+          "id": "c2",
+          "authorId": "u4",
+          "content": "This is impressive work — have you considered Go for backend roles? We use it heavily.",
+          "createdAt": "2026-06-17T14:05:00Z",
+          "likes": 7
+        },
+        {
+          "id": "c3",
+          "authorId": "u2",
+          "content": "Congrats Priya!! 🎉",
+          "createdAt": "2026-06-17T14:30:00Z",
+          "likes": 2
+        }
+      ],
+      "shares": 44,
+      "createdAt": "2026-06-17T12:00:00Z",
+      "tags": [
+        "Go",
+        "distributed-systems",
+        "projects"
+      ]
+    },
+    {
+      "id": "p3",
+      "authorId": "u5",
+      "type": "link",
+      "content": "We just published our 2026 Climate Tech Talent Report. One finding that stood out: 68% of climate startups say hiring is their #1 bottleneck. Platforms like this one are part of the solution.",
+      "linkPreview": {
+        "url": "https://greenpulse.io/report-2026",
+        "title": "2026 Climate Tech Talent Report — GreenPulse",
+        "description": "Key hiring trends, salary benchmarks, and the skills gap facing climate-focused companies.",
+        "imageUrl": "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&q=80"
+      },
+      "likes": 97,
+      "likedBy": [
+        "u3"
+      ],
+      "comments": [],
+      "shares": 33,
+      "createdAt": "2026-06-16T09:30:00Z",
+      "tags": [
+        "climate",
+        "hiring",
+        "report"
+      ]
+    },
+    {
+      "id": "p4",
+      "authorId": "u2",
+      "type": "text",
+      "content": "Hot take: most onboarding flows treat first-time users like they already know what the product does. The best ones I've seen start with a single question — 'what are you trying to accomplish?' — and build from there.\n\nWhat's the most thoughtful onboarding you've encountered?",
+      "likes": 228,
+      "likedBy": [
+        "u1",
+        "u6"
+      ],
+      "comments": [
+        {
+          "id": "c4",
+          "authorId": "u6",
+          "content": "Notion's early onboarding was the gold standard for us — they got out of the way immediately.",
+          "createdAt": "2026-06-15T20:10:00Z",
+          "likes": 11
+        }
+      ],
+      "shares": 19,
+      "createdAt": "2026-06-15T18:00:00Z",
+      "tags": [
+        "design",
+        "ux",
+        "product"
+      ]
+    },
+    {
+      "id": "p5",
+      "authorId": "u3",
+      "type": "text",
+      "content": "Built a dashboard in a weekend that tracks Austin's real-time air quality + overlays it against traffic and weather data. Surprised by how strongly particulate matter correlates with Tuesday morning rush hour specifically.\n\nOpen-sourcing it next week.",
+      "likes": 157,
+      "likedBy": [
+        "u1",
+        "u5"
+      ],
+      "comments": [],
+      "shares": 22,
+      "createdAt": "2026-06-14T11:00:00Z",
+      "tags": [
+        "data",
+        "climate",
+        "open-source"
+      ]
+    },
+    {
+      "id": "p6",
+      "authorId": "u6",
+      "type": "text",
+      "content": "We crossed 4,000 teams on Stackform this month. When we started, our bet was that internal tooling was broken in a way nobody wanted to talk about. Turns out, a lot of people wanted to talk about it.\n\nHuge thanks to the engineering team and to every team that gave us candid feedback early.",
+      "likes": 541,
+      "likedBy": [
+        "u2"
+      ],
+      "comments": [
+        {
+          "id": "c5",
+          "authorId": "u2",
+          "content": "Big congrats! Stackform's component library was genuinely the best DX I've used for internal tools.",
+          "createdAt": "2026-06-13T16:00:00Z",
+          "likes": 14
+        }
+      ],
+      "shares": 88,
+      "createdAt": "2026-06-13T14:00:00Z",
+      "tags": [
+        "milestone",
+        "product"
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "j1",
+      "companyId": "u4",
+      "title": "Backend Engineering Intern",
+      "location": "San Francisco, CA (Hybrid)",
+      "type": "Internship",
+      "salary": "$45–55 / hr",
+      "description": "Join our core platform team to help build the infrastructure that thousands of engineering teams rely on daily.",
+      "requirements": [
+        "Enrolled in a CS or related degree program",
+        "Proficiency in Go, Rust, or C++",
+        "Familiarity with distributed systems concepts",
+        "Strong debugging and systems-thinking skills"
+      ],
+      "tags": [
+        "Go",
+        "Rust",
+        "Distributed Systems",
+        "Backend",
+        "Internship"
+      ],
+      "postedAt": "2026-06-18T08:00:00Z",
+      "applicationCount": 38,
+      "appliedBy": []
+    },
+    {
+      "id": "j2",
+      "companyId": "u5",
+      "title": "Data Engineer (Full-time)",
+      "location": "Boston, MA (On-site)",
+      "type": "Full-time",
+      "salary": "$120,000–$145,000",
+      "description": "GreenPulse is hiring a Data Engineer to expand our real-time emissions tracking pipeline.",
+      "requirements": [
+        "2+ years of data engineering experience",
+        "Strong Python and SQL",
+        "Experience with streaming systems (Kafka, Flink, or similar)",
+        "Passion for climate or civic tech a strong plus"
+      ],
+      "tags": [
+        "Python",
+        "SQL",
+        "Kafka",
+        "Data Engineering",
+        "Climate"
+      ],
+      "postedAt": "2026-06-15T09:00:00Z",
+      "applicationCount": 24,
+      "appliedBy": []
+    },
+    {
+      "id": "j3",
+      "companyId": "u6",
+      "title": "Product Design Intern",
+      "location": "New York, NY (Hybrid)",
+      "type": "Internship",
+      "salary": "$38–46 / hr",
+      "description": "Stackform is looking for a product design intern to join the platform experience team.",
+      "requirements": [
+        "Portfolio demonstrating product design craft",
+        "Proficiency in Figma",
+        "Experience with user research or usability testing",
+        "Can articulate design decisions clearly"
+      ],
+      "tags": [
+        "Figma",
+        "Product Design",
+        "UX Research",
+        "Internship"
+      ],
+      "postedAt": "2026-06-12T11:00:00Z",
+      "applicationCount": 61,
+      "appliedBy": []
+    },
+    {
+      "id": "j4",
+      "companyId": "u4",
+      "title": "Developer Advocate (Contract)",
+      "location": "Remote",
+      "type": "Contract",
+      "salary": "$80–100 / hr",
+      "description": "Help us reach developer communities through technical content, talks, and open-source contributions.",
+      "requirements": [
+        "Strong technical writing and communication",
+        "Active presence in developer communities",
+        "Experience building demo projects or tutorials",
+        "Comfortable with public speaking / streaming"
+      ],
+      "tags": [
+        "DevRel",
+        "Technical Writing",
+        "Open Source",
+        "Remote"
+      ],
+      "postedAt": "2026-06-10T10:00:00Z",
+      "applicationCount": 17,
+      "appliedBy": []
+    },
+    {
+      "id": "j5",
+      "companyId": "u5",
+      "title": "Climate Data Analyst Intern",
+      "location": "Remote",
+      "type": "Internship",
+      "salary": "$28–35 / hr",
+      "description": "Analyze emissions datasets, build reporting pipelines, and help surface insights that city partners use to make policy decisions.",
+      "requirements": [
+        "Python and SQL proficiency",
+        "Experience with data visualization (Tableau, Plotly, or similar)",
+        "Interest in climate policy or sustainability",
+        "Strong written communication for stakeholder reports"
+      ],
+      "tags": [
+        "Python",
+        "Data Analysis",
+        "Climate",
+        "Internship",
+        "Remote"
+      ],
+      "postedAt": "2026-06-08T08:00:00Z",
+      "applicationCount": 49,
+      "appliedBy": []
+    }
+  ],
+  "bounties": [
+    {
+      "id": "b1",
+      "companyId": "u4",
+      "title": "Build a CI/CD Pipeline Visualizer Widget",
+      "description": "Meridian Labs is looking for a developer to build an embeddable React widget that visualizes CI/CD pipeline runs in real time.",
+      "submissionRequirements": "Submit a GitHub repo with the widget source, a README with usage instructions, and a live Stackblitz or CodeSandbox demo.",
+      "requirements": [
+        "Strong React + TypeScript skills",
+        "Experience with SVG or canvas-based rendering",
+        "Understanding of CI/CD concepts",
+        "Ability to write clean, documented code"
+      ],
+      "tags": [
+        "React",
+        "TypeScript",
+        "D3",
+        "SVG",
+        "CI/CD",
+        "npm"
+      ],
+      "reward": "$750 cash",
+      "duration": "2–3 weeks",
+      "deadline": "2026-07-15T23:59:00Z",
+      "postedAt": "2026-06-18T09:00:00Z",
+      "applicationCount": 12,
+      "appliedBy": [],
+      "status": "open"
+    },
+    {
+      "id": "b2",
+      "companyId": "u4",
+      "title": "Write a 5-Part Tutorial Series on Distributed Tracing",
+      "description": "We want a well-structured, technically accurate tutorial series explaining distributed tracing from first principles through to production implementation.",
+      "submissionRequirements": "Submit all 5 articles in Markdown format with working code samples in a companion GitHub repo.",
+      "requirements": [
+        "Strong technical writing",
+        "Backend engineering experience (Go or Python)",
+        "Hands-on experience with OpenTelemetry",
+        "Ability to explain distributed systems concepts"
+      ],
+      "tags": [
+        "Technical Writing",
+        "Go",
+        "Python",
+        "OpenTelemetry",
+        "Distributed Systems"
+      ],
+      "reward": "$500 + byline credit",
+      "duration": "3–4 weeks",
+      "deadline": "2026-07-25T23:59:00Z",
+      "postedAt": "2026-06-15T10:00:00Z",
+      "applicationCount": 8,
+      "appliedBy": [],
+      "status": "open"
+    },
+    {
+      "id": "b3",
+      "companyId": "u5",
+      "title": "Carbon Footprint Calculator — React Component",
+      "description": "GreenPulse needs a standalone React component that lets users estimate their household carbon footprint.",
+      "submissionRequirements": "Deliver a published npm package with full TypeScript types, unit tests (>80% coverage), and Storybook stories.",
+      "requirements": [
+        "React + TypeScript",
+        "Familiarity with carbon accounting",
+        "Component design skills",
+        "Jest or Vitest for testing"
+      ],
+      "tags": [
+        "React",
+        "TypeScript",
+        "Storybook",
+        "Climate",
+        "Accessibility"
+      ],
+      "reward": "$600 cash",
+      "duration": "3 weeks",
+      "deadline": "2026-07-20T23:59:00Z",
+      "postedAt": "2026-06-14T11:00:00Z",
+      "applicationCount": 19,
+      "appliedBy": [
+        "u1"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "b4",
+      "companyId": "u5",
+      "title": "Urban Tree Coverage vs Urban Heat Island — Data Analysis",
+      "description": "We have datasets from 12 US cities covering satellite-derived tree canopy coverage and surface temperature anomalies.",
+      "submissionRequirements": "Deliver a Jupyter notebook with reproducible analysis and an executive summary.",
+      "requirements": [
+        "Python (pandas, geopandas, statsmodels)",
+        "Experience with geospatial data",
+        "Statistical literacy",
+        "Clear data visualization"
+      ],
+      "tags": [
+        "Python",
+        "Data Analysis",
+        "GIS",
+        "Climate",
+        "Statistics"
+      ],
+      "reward": "$400 + co-authorship on GreenPulse blog post",
+      "duration": "2–3 weeks",
+      "deadline": "2026-07-10T23:59:00Z",
+      "postedAt": "2026-06-10T08:00:00Z",
+      "applicationCount": 7,
+      "appliedBy": [],
+      "status": "reviewing"
+    },
+    {
+      "id": "b5",
+      "companyId": "u6",
+      "title": "Redesign Stackform Onboarding Flow (UX + Hi-Fi)",
+      "description": "Our current onboarding drop-off rate at step 3 is 54%. We need a product designer to audit and redesign.",
+      "submissionRequirements": "Deliver: (1) 2-page audit doc, (2) hi-fi Figma prototype, (3) 10-min Loom walkthrough.",
+      "requirements": [
+        "Strong portfolio in product/UX design",
+        "Proficiency in Figma",
+        "Ability to conduct heuristic evaluation",
+        "Experience with SaaS onboarding"
+      ],
+      "tags": [
+        "Figma",
+        "UX Design",
+        "Product Design",
+        "Onboarding",
+        "SaaS"
+      ],
+      "reward": "$800 cash",
+      "duration": "3–4 weeks",
+      "deadline": "2026-07-28T23:59:00Z",
+      "postedAt": "2026-06-12T14:00:00Z",
+      "applicationCount": 31,
+      "appliedBy": [
+        "u2"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "b6",
+      "companyId": "u6",
+      "title": "TypeScript REST API Client SDK",
+      "description": "Stackform is publishing a public API and needs a first-class TypeScript SDK to go with it.",
+      "submissionRequirements": "Deliver the SDK as a published npm package with full TypeScript types and 90%+ test coverage.",
+      "requirements": [
+        "Deep TypeScript expertise",
+        "Experience building npm packages",
+        "Understanding of REST API design",
+        "Familiarity with fetch / axios"
+      ],
+      "tags": [
+        "TypeScript",
+        "SDK",
+        "REST API",
+        "npm",
+        "OpenAPI"
+      ],
+      "reward": "$1,000 cash",
+      "duration": "4–6 weeks",
+      "deadline": "2026-08-10T23:59:00Z",
+      "postedAt": "2026-06-08T10:00:00Z",
+      "applicationCount": 15,
+      "appliedBy": [],
+      "status": "open"
+    }
+  ],
+  "projects": [
+    {
+      "id": "pr1",
+      "authorId": "u1",
+      "title": "RaftKV — Distributed Key-Value Store",
+      "description": "A fault-tolerant distributed key-value store built on the Raft consensus algorithm in Go.",
+      "tags": [
+        "Go",
+        "Distributed Systems",
+        "Raft",
+        "GCP"
+      ],
+      "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+      "repoUrl": "https://github.com/priya/raftkv",
+      "createdAt": "2026-06-01T00:00:00Z",
+      "likes": 88,
+      "likedBy": [
+        "u2",
+        "u4"
+      ]
+    },
+    {
+      "id": "pr2",
+      "authorId": "u2",
+      "title": "Aria Design System",
+      "description": "An accessible, token-based component library built in React + TypeScript. Includes 40+ components.",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Figma",
+        "Accessibility",
+        "Storybook"
+      ],
+      "imageUrl": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+      "repoUrl": "https://github.com/marcuswebb/aria-ds",
+      "liveUrl": "https://aria-ds.vercel.app",
+      "createdAt": "2026-05-10T00:00:00Z",
+      "likes": 143,
+      "likedBy": [
+        "u1",
+        "u6"
+      ]
+    },
+    {
+      "id": "pr3",
+      "authorId": "u3",
+      "title": "AirView Austin",
+      "description": "Real-time dashboard visualizing Austin air quality index and correlations with traffic and weather data.",
+      "tags": [
+        "Python",
+        "React",
+        "Plotly",
+        "PostgreSQL",
+        "Climate"
+      ],
+      "imageUrl": "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&q=80",
+      "repoUrl": "https://github.com/aishakamara/airview",
+      "liveUrl": "https://airview.vercel.app",
+      "createdAt": "2026-06-14T00:00:00Z",
+      "likes": 72,
+      "likedBy": [
+        "u1",
+        "u5"
+      ]
+    },
+    {
+      "id": "pr4",
+      "authorId": "u1",
+      "title": "NoteSync — Local-First Notes App",
+      "description": "A local-first Markdown notes app with real-time peer-to-peer sync using CRDTs (Yjs).",
+      "tags": [
+        "TypeScript",
+        "Yjs",
+        "CRDTs",
+        "Electron",
+        "Markdown"
+      ],
+      "repoUrl": "https://github.com/priya/notesync",
+      "createdAt": "2026-04-20T00:00:00Z",
+      "likes": 54,
+      "likedBy": [
+        "u4"
+      ]
+    },
+    {
+      "id": "pr5",
+      "authorId": "u2",
+      "title": "Onboard.fyi — Onboarding UX Teardowns",
+      "description": "A curated collection of annotated onboarding flow breakdowns from 30+ products.",
+      "tags": [
+        "UX Research",
+        "Product Design",
+        "Case Studies"
+      ],
+      "imageUrl": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80",
+      "liveUrl": "https://onboard.fyi",
+      "createdAt": "2026-03-05T00:00:00Z",
+      "likes": 201,
+      "likedBy": [
+        "u1",
+        "u3",
+        "u6"
+      ]
+    }
+  ],
+  "lectureMaterials": [
+    {
+      "id": "lm1",
+      "authorId": "u7",
+      "title": "Week 9 — Inverter Topologies & Gate Drive Circuits",
+      "course": "EE401 — Power Electronics",
+      "type": "slides",
+      "uploadedAt": "2026-06-17T09:00:00Z",
+      "downloads": 214,
+      "fileSize": "6.1 MB",
+      "tags": [
+        "MOSFET",
+        "gate-drive",
+        "inverters"
+      ],
+      "published": true
+    },
+    {
+      "id": "lm2",
+      "authorId": "u7",
+      "title": "Lab 4 Handout — Half-Bridge Converter Bench Setup",
+      "course": "EE401 — Power Electronics",
+      "type": "lab",
+      "uploadedAt": "2026-06-15T14:30:00Z",
+      "downloads": 198,
+      "fileSize": "2.3 MB",
+      "tags": [
+        "half-bridge",
+        "bench",
+        "lab"
+      ],
+      "published": true
+    },
+    {
+      "id": "lm3",
+      "authorId": "u7",
+      "title": "Lecture Notes — Thermal Management in High-Power",
+      "course": "EE401 — Power Electronics",
+      "type": "notes",
+      "uploadedAt": "2026-06-12T11:00:00Z",
+      "downloads": 156,
+      "fileSize": "1.8 MB",
+      "tags": [
+        "thermal",
+        "heatsinks"
+      ],
+      "published": true
+    },
+    {
+      "id": "lm4",
+      "authorId": "u7",
+      "title": "Week 8 — Magnetics Design: Transformers & Inductors",
+      "course": "EE401 — Power Electronics",
+      "type": "slides",
+      "uploadedAt": "2026-06-10T09:00:00Z",
+      "downloads": 231,
+      "fileSize": "8.4 MB",
+      "tags": [
+        "magnetics",
+        "transformers",
+        "inductors"
+      ],
+      "published": true
+    },
+    {
+      "id": "lm5",
+      "authorId": "u7",
+      "title": "Recorded Lecture — PFC & EMC Compliance Basics",
+      "course": "EE501 — Power Systems Advanced",
+      "type": "recording",
+      "uploadedAt": "2026-06-08T16:00:00Z",
+      "downloads": 87,
+      "fileSize": "312 MB",
+      "tags": [
+        "PFC",
+        "EMC",
+        "compliance"
+      ],
+      "published": true
+    },
+    {
+      "id": "lm6",
+      "authorId": "u7",
+      "title": "Draft: Week 10 — SiC & GaN Wide-Bandgap Devices",
+      "course": "EE401 — Power Electronics",
+      "type": "slides",
+      "uploadedAt": "2026-06-19T08:00:00Z",
+      "downloads": 0,
+      "fileSize": "5.7 MB",
+      "tags": [
+        "SiC",
+        "GaN",
+        "wide-bandgap"
+      ],
+      "published": false
+    }
+  ],
+  "initiatives": [
+    {
+      "id": "si1",
+      "teamName": "VoltForge",
+      "memberNames": [
+        "Priya Nair",
+        "Jonas Becker",
+        "Amara Osei"
+      ],
+      "projectTitle": "Bidirectional EV Charger — 3.3 kW Prototype",
+      "description": "Designing a vehicle-to-grid capable 3.3 kW bidirectional onboard charger using SiC MOSFETs.",
+      "partsUsed": [
+        "SiC MOSFET WMT3N120",
+        "Gate Driver WGD220",
+        "Common-mode choke WE-CMB"
+      ],
+      "companyName": "Würth Elektronik",
+      "endorsed": true,
+      "submittedAt": "2026-05-20T00:00:00Z",
+      "status": "active"
+    },
+    {
+      "id": "si2",
+      "teamName": "GreenGrid",
+      "memberNames": [
+        "Marcus Webb",
+        "Aisha Kamara"
+      ],
+      "projectTitle": "Microgrid Controller for Campus Solar Array",
+      "description": "Embedded controller managing power flow between 40 kW rooftop solar and battery buffer.",
+      "partsUsed": [
+        "Toroidal Inductor WE-TI",
+        "EMI Filter WE-CLFS",
+        "DC-Link Capacitor"
+      ],
+      "companyName": "Würth Elektronik",
+      "endorsed": false,
+      "submittedAt": "2026-06-01T00:00:00Z",
+      "status": "pending-review"
+    },
+    {
+      "id": "si3",
+      "teamName": "PulseDrive",
+      "memberNames": [
+        "Lena Vogel",
+        "Tobias Müller",
+        "Yuki Tanaka",
+        "Fatima Al-Hassan"
+      ],
+      "projectTitle": "Brushless Motor Driver for Autonomous Campus Shuttle",
+      "description": "Three-phase BLDC drive system for a low-speed autonomous vehicle project.",
+      "partsUsed": [
+        "Gate Driver WGD100",
+        "Power Inductor WE-PD4",
+        "Current Sense Resistor"
+      ],
+      "companyName": "Würth Elektronik",
+      "endorsed": true,
+      "submittedAt": "2026-04-15T00:00:00Z",
+      "status": "active"
+    },
+    {
+      "id": "si4",
+      "teamName": "StorEd",
+      "memberNames": [
+        "Kwame Asante",
+        "Priya Nair"
+      ],
+      "projectTitle": "Modular 48V Battery Management System",
+      "description": "Scalable BMS for lithium-iron-phosphate cell stacks with active balancing.",
+      "partsUsed": [
+        "Shunt Resistor WSLP",
+        "Ferrite Bead WE-CBF",
+        "NTC Thermistor"
+      ],
+      "companyName": "Würth Elektronik",
+      "endorsed": false,
+      "submittedAt": "2026-06-10T00:00:00Z",
+      "status": "pending-review"
+    },
+    {
+      "id": "si5",
+      "teamName": "FluxLab",
+      "memberNames": [
+        "Anika Rao",
+        "Chen Wei",
+        "Marcus Webb"
+      ],
+      "projectTitle": "Wireless Power Transfer — 200W Qi2 Pad",
+      "description": "High-efficiency inductive power transfer pad reaching 93% efficiency at 200W.",
+      "partsUsed": [
+        "Wireless Charging Coil WE-WPCC",
+        "Resonant Capacitor",
+        "Shielding Foil"
+      ],
+      "companyName": "Würth Elektronik",
+      "endorsed": true,
+      "submittedAt": "2026-03-28T00:00:00Z",
+      "status": "completed"
+    }
+  ],
+  "qaChannels": [
+    {
+      "id": "qa1",
+      "topic": "Gate driver bootstrap supply — floating ground confusion",
+      "course": "EE401 — Power Electronics",
+      "openQuestions": 3,
+      "participants": 18,
+      "lastActivityAt": "2026-06-19T22:10:00Z",
+      "tags": [
+        "gate-driver",
+        "bootstrap",
+        "half-bridge"
+      ]
+    },
+    {
+      "id": "qa2",
+      "topic": "Lab 4 oscilloscope ringing — measurement artefact or real?",
+      "course": "EE401 — Power Electronics",
+      "openQuestions": 7,
+      "participants": 31,
+      "lastActivityAt": "2026-06-19T20:45:00Z",
+      "tags": [
+        "lab",
+        "oscilloscope",
+        "ringing"
+      ]
+    },
+    {
+      "id": "qa3",
+      "topic": "SiC vs GaN for 48V-bus DC-DC — selection criteria",
+      "course": "EE501 — Power Systems Advanced",
+      "openQuestions": 2,
+      "participants": 9,
+      "lastActivityAt": "2026-06-18T16:00:00Z",
+      "tags": [
+        "SiC",
+        "GaN",
+        "device-selection"
+      ]
+    },
+    {
+      "id": "qa4",
+      "topic": "Thermal pad placement for TO-247 packages on PCB",
+      "course": "EE401 — Power Electronics",
+      "openQuestions": 4,
+      "participants": 14,
+      "lastActivityAt": "2026-06-17T11:30:00Z",
+      "tags": [
+        "thermal",
+        "PCB",
+        "layout"
+      ]
+    }
+  ],
+  "deadlines": [
+    {
+      "id": "dl1",
+      "title": "Lab 4 Report Submission",
+      "type": "lab-submission",
+      "dueAt": "2026-06-23T23:59:00Z",
+      "course": "EE401 — Power Electronics",
+      "priority": "high"
+    },
+    {
+      "id": "dl2",
+      "title": "Carbon Footprint Calculator Bounty",
+      "type": "bounty",
+      "dueAt": "2026-07-20T23:59:00Z",
+      "linkedId": "b3",
+      "priority": "medium"
+    },
+    {
+      "id": "dl3",
+      "title": "EE401 Mid-term Project Proposal",
+      "type": "assignment",
+      "dueAt": "2026-06-27T17:00:00Z",
+      "course": "EE401 — Power Electronics",
+      "priority": "high"
+    },
+    {
+      "id": "dl4",
+      "title": "CI/CD Visualizer Widget Bounty",
+      "type": "bounty",
+      "dueAt": "2026-07-15T23:59:00Z",
+      "linkedId": "b1",
+      "priority": "medium"
+    },
+    {
+      "id": "dl5",
+      "title": "VoltForge — Weekly Progress Check-in",
+      "type": "project-review",
+      "dueAt": "2026-06-21T14:00:00Z",
+      "priority": "low"
+    }
+  ],
+  "communities": [
+    {
+      "id": "cm1",
+      "name": "Power Electronics Society",
+      "description": "The hub for students and professionals working on power conversion, motor drives, renewable energy integration, and high-voltage systems. Weekly paper reviews and lab share sessions.",
+      "category": "research-club",
+      "memberCount": 842,
+      "tags": [
+        "MOSFET",
+        "inverters",
+        "PFC",
+        "SiC",
+        "GaN",
+        "magnetics"
+      ],
+      "createdAt": "2024-01-10",
+      "isJoined": true,
+      "icon": "⚡",
+      "weeklyActivity": 34,
+      "isVerified": true
+    },
+    {
+      "id": "cm2",
+      "name": "PCB Design Guild",
+      "description": "Share your PCB layouts, get design-rule feedback, and discuss advanced topics like signal integrity, impedance control, and HDI stackups. Monthly gerber review nights.",
+      "category": "study-group",
+      "memberCount": 521,
+      "tags": [
+        "KiCad",
+        "Altium",
+        "signal-integrity",
+        "EMC",
+        "HDI"
+      ],
+      "createdAt": "2024-03-22",
+      "isJoined": false,
+      "icon": "🔌",
+      "weeklyActivity": 22,
+      "isVerified": true
+    },
+    {
+      "id": "cm3",
+      "name": "Embedded & IoT Builders",
+      "description": "From bare-metal RTOS to Linux on a Pi — this is the space for hands-on embedded developers. Share projects, debug sessions, and firmware tips.",
+      "category": "open-source",
+      "memberCount": 1104,
+      "tags": [
+        "STM32",
+        "RTOS",
+        "FreeRTOS",
+        "Linux",
+        "Zephyr",
+        "UART",
+        "SPI"
+      ],
+      "createdAt": "2023-11-05",
+      "isJoined": true,
+      "icon": "🤖",
+      "weeklyActivity": 58,
+      "isVerified": true
+    },
+    {
+      "id": "cm4",
+      "name": "RF & Wireless Engineers",
+      "description": "Antenna design, RF front-ends, spectrum analysis, Bluetooth/WiFi/5G. A technically focused group with a low tolerance for vague questions — come prepared.",
+      "category": "research-club",
+      "memberCount": 318,
+      "tags": [
+        "antenna",
+        "RF",
+        "spectrum",
+        "5G",
+        "Bluetooth",
+        "Zigbee"
+      ],
+      "createdAt": "2024-05-01",
+      "isJoined": false,
+      "icon": "📡",
+      "weeklyActivity": 14
+    },
+    {
+      "id": "cm5",
+      "name": "Würth Prototyping Circle",
+      "description": "Exclusive to students using Würth Elektronik components through the academic access programme. Share designs, ask component questions, and get feedback from Würth engineers.",
+      "category": "industry-connect",
+      "memberCount": 247,
+      "tags": [
+        "Würth",
+        "components",
+        "prototyping",
+        "magnetics",
+        "gate-drivers"
+      ],
+      "createdAt": "2024-02-15",
+      "isJoined": true,
+      "icon": "🔧",
+      "weeklyActivity": 11,
+      "isVerified": true
+    },
+    {
+      "id": "cm6",
+      "name": "Women in EE & Tech",
+      "description": "A community for women and non-binary engineers in electrical engineering and related fields. Peer support, career advice, and celebrating wins — large and small.",
+      "category": "mentorship-circle",
+      "memberCount": 389,
+      "tags": [
+        "community",
+        "mentorship",
+        "career",
+        "inclusion"
+      ],
+      "createdAt": "2024-04-08",
+      "isJoined": false,
+      "icon": "💜",
+      "weeklyActivity": 19
+    },
+    {
+      "id": "cm7",
+      "name": "EV & E-Mobility Hackers",
+      "description": "Battery management systems, motor controllers, charging infrastructure, and vehicle-to-grid. If it moves electrons to move vehicles, it belongs here.",
+      "category": "hackathon-team",
+      "memberCount": 673,
+      "tags": [
+        "BMS",
+        "motor-control",
+        "V2G",
+        "SiC",
+        "CAN",
+        "EV"
+      ],
+      "createdAt": "2023-09-20",
+      "isJoined": true,
+      "icon": "🚗",
+      "weeklyActivity": 41,
+      "isVerified": true
+    },
+    {
+      "id": "cm8",
+      "name": "AI Hardware Accelerators",
+      "description": "FPGA, custom ASICs, GPU microarchitecture, and the hardware powering modern AI workloads. Deep technical discussions, paper reviews, and silicon bringup stories.",
+      "category": "research-club",
+      "memberCount": 456,
+      "tags": [
+        "FPGA",
+        "ASIC",
+        "GPU",
+        "HLS",
+        "Verilog",
+        "AI"
+      ],
+      "createdAt": "2024-06-01",
+      "isJoined": false,
+      "icon": "🧠",
+      "weeklyActivity": 27
+    }
+  ],
+  "events": [
+    {
+      "id": "ev1",
+      "communityId": "cm1",
+      "title": "GaN vs SiC Selection Workshop",
+      "description": "Interactive workshop comparing GaN and SiC devices for 48V-bus applications. Includes live simulation and a Q&A with Prof. Hartmann.",
+      "type": "workshop",
+      "date": "2026-06-25T18:00:00Z",
+      "location": "Online (Zoom)",
+      "attendeeCount": 87,
+      "maxAttendees": 120,
+      "tags": [
+        "GaN",
+        "SiC",
+        "device-selection",
+        "workshop"
+      ],
+      "isRegistered": true
+    },
+    {
+      "id": "ev2",
+      "communityId": "cm3",
+      "title": "FreeRTOS Task Scheduling Deep Dive",
+      "description": "A technical walkthrough of FreeRTOS task priorities, pre-emption, and common pitfalls. Live debugging session with a STM32 target board.",
+      "type": "workshop",
+      "date": "2026-06-27T17:00:00Z",
+      "location": "Online (Discord Stage)",
+      "attendeeCount": 142,
+      "maxAttendees": 200,
+      "tags": [
+        "FreeRTOS",
+        "STM32",
+        "RTOS",
+        "debugging"
+      ],
+      "isRegistered": false
+    },
+    {
+      "id": "ev3",
+      "communityId": "cm7",
+      "title": "EV Battery Pack Design Hackathon",
+      "description": "48-hour virtual hackathon: design a 72V 20Ah pack for an electric cargo bike. Teams of 2–4. Judged on energy density, safety design, and cost estimate.",
+      "type": "hackathon",
+      "date": "2026-07-05T09:00:00Z",
+      "location": "Online (Async + Final Pitch Call)",
+      "attendeeCount": 56,
+      "maxAttendees": 80,
+      "tags": [
+        "BMS",
+        "battery-design",
+        "hackathon",
+        "EV"
+      ],
+      "isRegistered": false
+    },
+    {
+      "id": "ev4",
+      "communityId": "cm2",
+      "title": "PCB Layout Review Night #12",
+      "description": "Submit your PCB layout before the event; community members give structured, constructive feedback. All skill levels welcome.",
+      "type": "networking",
+      "date": "2026-06-28T19:00:00Z",
+      "location": "Online (Zoom)",
+      "attendeeCount": 33,
+      "tags": [
+        "PCB",
+        "review",
+        "KiCad",
+        "Altium"
+      ],
+      "isRegistered": true
+    },
+    {
+      "id": "ev5",
+      "communityId": "cm8",
+      "title": "FPGA Acceleration for Neural Networks — Industry Talk",
+      "description": "Engineer from Xilinx/AMD presents real-world FPGA deployment patterns for ML inference. Followed by open Q&A.",
+      "type": "talk",
+      "date": "2026-07-02T16:00:00Z",
+      "location": "Online (YouTube Live)",
+      "attendeeCount": 214,
+      "tags": [
+        "FPGA",
+        "AI",
+        "inference",
+        "ML",
+        "industry"
+      ],
+      "isRegistered": false
+    },
+    {
+      "id": "ev6",
+      "communityId": "cm5",
+      "title": "Würth Components Office Hours",
+      "description": "Monthly drop-in with Würth Elektronik application engineers. Bring your design questions, datasheet confusions, or component selection dilemmas.",
+      "type": "networking",
+      "date": "2026-06-30T15:00:00Z",
+      "location": "Online (Teams)",
+      "attendeeCount": 28,
+      "maxAttendees": 40,
+      "tags": [
+        "Würth",
+        "office-hours",
+        "components",
+        "Q&A"
+      ],
+      "isRegistered": true
+    }
+  ],
+  "news": [
+    {
+      "id": "nw1",
+      "title": "TSMC Announces 1.4nm \"A14\" Process Node, Targeting Mass Production in 2028",
+      "summary": "Taiwan Semiconductor Manufacturing Company has unveiled its next-generation 1.4nm process node, dubbed A14, featuring gate-all-around (GAA) transistor architecture. The company claims a 15% performance improvement and 30% power reduction over N2, with apple silicon and HPC clients expected to be first adopters.",
+      "source": "EE Times",
+      "sourceLogoEmoji": "📰",
+      "category": "semiconductors",
+      "publishedAt": "2026-06-20T07:00:00Z",
+      "readTime": 5,
+      "upvotes": 312,
+      "upvotedBy": [
+        "u1",
+        "u3"
+      ],
+      "saved": false,
+      "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "url": "https://eetimes.com/tsmc-a14",
+      "tags": [
+        "TSMC",
+        "semiconductor",
+        "process-node",
+        "GAA",
+        "AI"
+      ]
+    },
+    {
+      "id": "nw2",
+      "title": "Infineon Launches CoolGaN 650V Devices Targeting Datacentre PSUs",
+      "summary": "Infineon Technologies has expanded its CoolGaN portfolio with new 650V GaN transistors optimised for AC-DC power conversion in server power supply units. The devices achieve 99% efficiency at 12V bus voltage and are available in compact SMD packages suitable for high-density power stages.",
+      "source": "Power Electronics News",
+      "sourceLogoEmoji": "⚡",
+      "category": "power-electronics",
+      "publishedAt": "2026-06-20T06:30:00Z",
+      "readTime": 4,
+      "upvotes": 187,
+      "upvotedBy": [
+        "u1",
+        "u7"
+      ],
+      "saved": true,
+      "imageUrl": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+      "url": "https://powerelectronicsnews.com/infineon-coolgancol",
+      "tags": [
+        "GaN",
+        "Infineon",
+        "power-electronics",
+        "datacenter",
+        "PSU"
+      ]
+    },
+    {
+      "id": "nw3",
+      "title": "Nordic Semi Unveils nRF54L Series: Ultra-Low-Power BLE 6.0 + Matter SoCs",
+      "summary": "Nordic Semiconductor has announced the nRF54L series, the industry's first SoCs with Bluetooth LE 6.0 and native Matter support in a sub-mW active current envelope. The devices introduce a heterogeneous dual-core architecture pairing a 128MHz Arm Cortex-M33 with a dedicated Matter accelerator core.",
+      "source": "Embedded Computing Design",
+      "sourceLogoEmoji": "🤖",
+      "category": "iot-embedded",
+      "publishedAt": "2026-06-20T05:00:00Z",
+      "readTime": 6,
+      "upvotes": 241,
+      "upvotedBy": [
+        "u1",
+        "u3",
+        "u7"
+      ],
+      "saved": false,
+      "imageUrl": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
+      "url": "https://embeddedcomputing.com/nordic-nrf54l",
+      "tags": [
+        "Nordic",
+        "BLE",
+        "Matter",
+        "IoT",
+        "SoC",
+        "ultra-low-power"
+      ]
+    },
+    {
+      "id": "nw4",
+      "title": "KiCad 9.0 Released: Differential Pair Router Overhaul and 3D STEP Export",
+      "summary": "The KiCad EDA team has released version 9.0, featuring a completely rewritten differential pair router with length-matching tuning, push-and-shove improvements, and native STEP assembly export for full 3D manufacturing review. The update also brings a new constraint-driven DRC engine.",
+      "source": "Hackaday",
+      "sourceLogoEmoji": "🔧",
+      "category": "pcb-design",
+      "publishedAt": "2026-06-19T20:00:00Z",
+      "readTime": 3,
+      "upvotes": 528,
+      "upvotedBy": [
+        "u2",
+        "u3",
+        "u7"
+      ],
+      "saved": true,
+      "imageUrl": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&q=80",
+      "url": "https://hackaday.com/kicad-9",
+      "tags": [
+        "KiCad",
+        "PCB",
+        "EDA",
+        "differential-pair",
+        "open-source"
+      ]
+    },
+    {
+      "id": "nw5",
+      "title": "Qualcomm X85 Modem Achieves 10 Gbps Peak 5G Download in FR2 mmWave Tests",
+      "summary": "Qualcomm's Snapdragon X85 baseband has set a new commercial modem record, reaching 10.4 Gbps peak downlink throughput in millimetre-wave (FR2) testing. The device integrates advanced carrier aggregation across 8 mmWave carriers and is expected to debut in flagship smartphones Q3 2026.",
+      "source": "Anandtech",
+      "sourceLogoEmoji": "📡",
+      "category": "rf-wireless",
+      "publishedAt": "2026-06-19T16:00:00Z",
+      "readTime": 7,
+      "upvotes": 144,
+      "upvotedBy": [
+        "u1"
+      ],
+      "saved": false,
+      "url": "https://anandtech.com/qualcomm-x85",
+      "tags": [
+        "Qualcomm",
+        "5G",
+        "mmWave",
+        "RF",
+        "modem"
+      ]
+    },
+    {
+      "id": "nw6",
+      "title": "Bosch and Continental Partner on 800V Silicon Carbide Traction Inverter Platform",
+      "summary": "Bosch Mobility and Continental AG have announced a joint development agreement for a shared 800V SiC traction inverter platform targeting mid-range EVs. The platform will use dual-sided liquid cooling and targets 98.5% peak efficiency, with SOP planned for 2028 across multiple OEM programmes.",
+      "source": "Automotive Electronics",
+      "sourceLogoEmoji": "🚗",
+      "category": "automotive",
+      "publishedAt": "2026-06-19T12:00:00Z",
+      "readTime": 5,
+      "upvotes": 203,
+      "upvotedBy": [
+        "u1",
+        "u7"
+      ],
+      "saved": true,
+      "imageUrl": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80",
+      "url": "https://automotive-electronics.com/bosch-continental-sic",
+      "tags": [
+        "SiC",
+        "traction-inverter",
+        "EV",
+        "automotive",
+        "800V",
+        "Bosch"
+      ]
+    },
+    {
+      "id": "nw7",
+      "title": "Google TPU v6 \"Trillium\" Benchmarks Published: 5x Compute vs v4 per Chip",
+      "summary": "Google has published detailed performance benchmarks for its sixth-generation Tensor Processing Unit, codenamed Trillium. The chips deliver 4.7x peak compute improvement and 2x memory bandwidth versus TPU v4, using a new systolic array architecture with in-package HBM3e and custom optical interconnects.",
+      "source": "SemiAnalysis",
+      "sourceLogoEmoji": "🧠",
+      "category": "ai-hardware",
+      "publishedAt": "2026-06-19T10:00:00Z",
+      "readTime": 9,
+      "upvotes": 476,
+      "upvotedBy": [
+        "u1",
+        "u3"
+      ],
+      "saved": false,
+      "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80",
+      "url": "https://semianalysis.com/google-tpu-v6",
+      "tags": [
+        "Google",
+        "TPU",
+        "AI",
+        "accelerator",
+        "HBM",
+        "optical-interconnect"
+      ]
+    },
+    {
+      "id": "nw8",
+      "title": "EU Chips Act: €43B Fund Unlocks First Semiconductor Manufacturing Grants",
+      "summary": "The European Commission has announced the first disbursement of grants under the EU Chips Act, totalling €8.2 billion directed at Intel's Magdeburg fab, TSMC's Dresden joint venture, and STMicroelectronics' Crolles expansion. The grants aim to double Europe's semiconductor market share to 20% by 2030.",
+      "source": "Reuters Technology",
+      "sourceLogoEmoji": "🌍",
+      "category": "industry",
+      "publishedAt": "2026-06-18T14:00:00Z",
+      "readTime": 4,
+      "upvotes": 289,
+      "upvotedBy": [
+        "u7"
+      ],
+      "saved": false,
+      "url": "https://reuters.com/eu-chips-act-grants",
+      "tags": [
+        "EU",
+        "Chips-Act",
+        "Intel",
+        "TSMC",
+        "STMicro",
+        "policy"
+      ]
+    },
+    {
+      "id": "nw9",
+      "title": "TI Releases High-Density LLC Resonant Controller with 99.2% Efficiency at 3.3 kW",
+      "summary": "Texas Instruments has introduced the UCC256xxA series LLC resonant controller IC, capable of driving 3.3 kW LLC converters with 99.2% peak efficiency. The device integrates burst-mode control for light-load efficiency, adaptive dead-time optimisation, and protection features compliant with IEC 62368-1.",
+      "source": "Power Electronics World",
+      "sourceLogoEmoji": "⚡",
+      "category": "power-electronics",
+      "publishedAt": "2026-06-18T09:00:00Z",
+      "readTime": 5,
+      "upvotes": 158,
+      "upvotedBy": [
+        "u7"
+      ],
+      "saved": true,
+      "url": "https://powerelectronicsworld.com/ti-ucc256",
+      "tags": [
+        "TI",
+        "LLC",
+        "resonant",
+        "controller",
+        "power-electronics",
+        "IEC"
+      ]
+    },
+    {
+      "id": "nw10",
+      "title": "Raspberry Pi Compute Module 5 Released with PCIe 3.0 and LPDDR5",
+      "summary": "Raspberry Pi Ltd has launched the Compute Module 5 featuring the BCM2712 quad-core Cortex-A76 SoC, up to 8GB LPDDR5, 64GB eMMC, and a native PCIe 3.0 x1 lane. The CM5 targets industrial and embedded compute applications where the PCIe lane enables NVMe storage and custom peripheral attachment.",
+      "source": "Tom's Hardware",
+      "sourceLogoEmoji": "🖥️",
+      "category": "iot-embedded",
+      "publishedAt": "2026-06-17T15:00:00Z",
+      "readTime": 4,
+      "upvotes": 622,
+      "upvotedBy": [
+        "u1",
+        "u2",
+        "u3"
+      ],
+      "saved": false,
+      "imageUrl": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
+      "url": "https://tomshardware.com/rpi-cm5",
+      "tags": [
+        "Raspberry-Pi",
+        "CM5",
+        "PCIe",
+        "LPDDR5",
+        "embedded"
+      ]
+    },
+    {
+      "id": "nw11",
+      "title": "Wolfspeed Opens World's Largest SiC Wafer Fab in Siler City, NC",
+      "summary": "Wolfspeed has inaugurated its \"The JP\" mega-factory in Siler City, North Carolina — the world's largest dedicated SiC wafer manufacturing facility. The 445,000 sq ft facility targets 200mm wafer production at scale, supporting the explosive demand from EV traction, industrial motor drives, and grid infrastructure.",
+      "source": "Power Systems Design",
+      "sourceLogoEmoji": "🏭",
+      "category": "semiconductors",
+      "publishedAt": "2026-06-17T11:00:00Z",
+      "readTime": 6,
+      "upvotes": 334,
+      "upvotedBy": [
+        "u7"
+      ],
+      "saved": false,
+      "imageUrl": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80",
+      "url": "https://powersystemsdesign.com/wolfspeed-jp-factory",
+      "tags": [
+        "Wolfspeed",
+        "SiC",
+        "manufacturing",
+        "wafer-fab",
+        "EV"
+      ]
+    },
+    {
+      "id": "nw12",
+      "title": "New IEC 61000-4-39 Standard Defines Conducted RF Immunity Test for EV Chargers",
+      "summary": "The International Electrotechnical Commission has finalised IEC 61000-4-39, establishing standardised conducted RF immunity test procedures specifically for electric vehicle charging equipment. The standard covers conducted disturbances in the 150 kHz–30 MHz range and is mandatory for CE marking in the EU from 2027.",
+      "source": "Compliance Engineering",
+      "sourceLogoEmoji": "📋",
+      "category": "industry",
+      "publishedAt": "2026-06-16T08:00:00Z",
+      "readTime": 5,
+      "upvotes": 91,
+      "upvotedBy": [],
+      "saved": false,
+      "url": "https://complianceengineering.com/iec-61000-4-39",
+      "tags": [
+        "IEC",
+        "EMC",
+        "standard",
+        "EV-charger",
+        "RF-immunity",
+        "compliance"
+      ]
+    }
+  ],
+  "jobListings": [
+    {
+      "id": "job-1",
+      "title": "PCB Design Internship",
+      "department": "Power Modules",
+      "type": "Internship",
+      "location": "Ludwigsburg, Germany",
+      "description": "Join our Power Modules team to design and optimize printed circuit boards for high-efficiency power conversion solutions. You will work with state-of-the-art CAD tools and collaborate with experienced engineers on real-world projects.",
+      "requiredSkills": [
+        "KiCAD",
+        "Circuit Analysis",
+        "SPICE Simulation",
+        "VHDL"
+      ],
+      "hardwareStack": [
+        "Passive Components",
+        "Power Semiconductors",
+        "Magnetic Components"
+      ],
+      "applicationUrl": "https://careers.wuerth.com/job-1"
+    },
+    {
+      "id": "job-2",
+      "title": "Firmware Development Working Student",
+      "department": "Embedded Systems",
+      "type": "Working Student",
+      "location": "Ludwigsburg, Germany",
+      "description": "Develop embedded firmware for IoT devices and sensors. You'll work with microcontrollers, real-time operating systems, and communication protocols. Great opportunity to apply your programming knowledge in a production environment.",
+      "requiredSkills": [
+        "C/C++",
+        "ARM Cortex",
+        "FreeRTOS",
+        "CAN/I2C/SPI"
+      ],
+      "hardwareStack": [
+        "Microcontrollers",
+        "Sensors",
+        "Communication Modules"
+      ],
+      "applicationUrl": "https://careers.wuerth.com/job-2"
+    },
+    {
+      "id": "job-3",
+      "title": "Wireless Connectivity Research Assistant",
+      "department": "Wireless Connectivity & Sensors",
+      "type": "Research Assistant",
+      "location": "Ludwigsburg, Germany",
+      "description": "Conduct research on 5G and WiFi 6 technologies for industrial IoT applications. Participate in prototyping, measurement campaigns, and data analysis. Publish your findings in collaboration with the research team.",
+      "requiredSkills": [
+        "RF Circuit Design",
+        "MATLAB",
+        "Signal Processing",
+        "Network Protocols"
+      ],
+      "hardwareStack": [
+        "RF Components",
+        "Antennas",
+        "Network Processors"
+      ],
+      "applicationUrl": "https://careers.wuerth.com/job-3"
+    },
+    {
+      "id": "job-4",
+      "title": "HiWi - Sensor Integration",
+      "department": "Wireless Connectivity & Sensors",
+      "type": "HiWi",
+      "location": "Ludwigsburg, Germany",
+      "description": "Support the Sensor Integration team in designing multi-sensor platforms for environmental monitoring. Test hardware prototypes and develop calibration procedures. Ideal for students with hands-on experience.",
+      "requiredSkills": [
+        "Electronics",
+        "Python",
+        "Data Analysis",
+        "Lab Work"
+      ],
+      "hardwareStack": [
+        "Environmental Sensors",
+        "Signal Conditioning Circuits",
+        "ADC Modules"
+      ],
+      "applicationUrl": "https://careers.wuerth.com/job-4"
+    },
+    {
+      "id": "job-5",
+      "title": "Power Electronics Design Internship",
+      "department": "Power Modules",
+      "type": "Internship",
+      "location": "Ludwigsburg, Germany",
+      "description": "Design and simulate power conversion circuits with high efficiency and reliability. Work on DC-DC converters, power factor correction, and energy storage systems. Collaborate with cross-functional teams.",
+      "requiredSkills": [
+        "SPICE",
+        "Circuit Simulation",
+        "Power Electronics Theory",
+        "Thermal Management"
+      ],
+      "hardwareStack": [
+        "MOSFETs",
+        "IGBTs",
+        "Capacitors",
+        "Inductors"
+      ],
+      "applicationUrl": "https://careers.wuerth.com/job-5"
+    },
+    {
+      "id": "job-6",
+      "title": "Software Engineer - Embedded Systems",
+      "department": "Embedded Systems",
+      "type": "Working Student",
+      "location": "Ludwigsburg, Germany",
+      "description": "Build robust firmware for industrial control systems. Optimize code for performance and memory footprint. Work with version control, automated testing, and CI/CD pipelines.",
+      "requiredSkills": [
+        "C",
+        "Git",
+        "Linux",
+        "Debugging Techniques"
+      ],
+      "hardwareStack": [
+        "ARM Processors",
+        "Memory Controllers",
+        "Communication Interfaces"
+      ],
+      "applicationUrl": "https://careers.wuerth.com/job-6"
+    },
+    {
+      "id": "job-7",
+      "title": "RF Systems Internship",
+      "department": "Wireless Connectivity & Sensors",
+      "type": "Internship",
+      "location": "Ludwigsburg, Germany",
+      "description": "Design and characterize RF systems for wireless communications. Conduct antenna simulations, perform spectrum analysis, and validate prototypes. Gain experience with modern RF tools and methodologies.",
+      "requiredSkills": [
+        "RF Design",
+        "ADS/HFSS",
+        "Spectrum Analysis",
+        "Network Analysis"
+      ],
+      "hardwareStack": [
+        "Antennas",
+        "RF Filters",
+        "Amplifiers",
+        "Oscillators"
+      ],
+      "applicationUrl": "https://careers.wuerth.com/job-7"
+    },
+    {
+      "id": "job-8",
+      "title": "HiWi - Test Engineering",
+      "department": "Power Modules",
+      "type": "HiWi",
+      "location": "Ludwigsburg, Germany",
+      "description": "Develop and execute test procedures for power module products. Set up measurement equipment, analyze test data, and document results. Support quality assurance processes.",
+      "requiredSkills": [
+        "Test Engineering",
+        "Measurement Instruments",
+        "Data Analysis",
+        "Technical Writing"
+      ],
+      "hardwareStack": [
+        "Power Modules",
+        "Test Equipment",
+        "Thermal Cameras"
+      ],
+      "applicationUrl": "https://careers.wuerth.com/job-8"
+    }
+  ],
+  "githubPortfolios": {
+    "alex-mueller": {
+      "username": "alex-mueller",
+      "profileUrl": "https://github.com/alex-mueller",
+      "lastFetched": "2026-06-21T07:54:28.654Z",
+      "repositoryList": [
+        {
+          "id": "repo-1",
+          "name": "wireless-sensor-network",
+          "description": "IoT platform for distributed environmental monitoring using LoRaWAN protocol stack",
+          "primaryLanguage": "C++",
+          "stargazersCount": 142,
+          "forksCount": 28,
+          "url": "https://github.com/alex-mueller/wireless-sensor-network",
+          "isFork": false,
+          "isPrivate": false
+        },
+        {
+          "id": "repo-2",
+          "name": "power-converter-sim",
+          "description": "SPICE simulation framework for resonant DC-DC converter optimization",
+          "primaryLanguage": "Python",
+          "stargazersCount": 89,
+          "forksCount": 15,
+          "url": "https://github.com/alex-mueller/power-converter-sim",
+          "isFork": false,
+          "isPrivate": false
+        },
+        {
+          "id": "repo-3",
+          "name": "embedded-rtos",
+          "description": "Lightweight RTOS kernel for ARM Cortex-M microcontrollers with preemptive scheduling",
+          "primaryLanguage": "C",
+          "stargazersCount": 234,
+          "forksCount": 52,
+          "url": "https://github.com/alex-mueller/embedded-rtos",
+          "isFork": false,
+          "isPrivate": false
+        },
+        {
+          "id": "repo-4",
+          "name": "vhdl-neural-accelerator",
+          "description": "Hardware neural network accelerator implemented in VHDL for edge inference",
+          "primaryLanguage": "VHDL",
+          "stargazersCount": 78,
+          "forksCount": 12,
+          "url": "https://github.com/alex-mueller/vhdl-neural-accelerator",
+          "isFork": false,
+          "isPrivate": false
+        },
+        {
+          "id": "repo-5",
+          "name": "pcb-design-toolkit",
+          "description": "Utilities and validation scripts for automated PCB manufacturing checks",
+          "primaryLanguage": "Python",
+          "stargazersCount": 45,
+          "forksCount": 8,
+          "url": "https://github.com/alex-mueller/pcb-design-toolkit",
+          "isFork": false,
+          "isPrivate": false
+        },
+        {
+          "id": "repo-6",
+          "name": "firmware-bootloader",
+          "description": "Secure bootloader implementation with OTA update capabilities for embedded systems",
+          "primaryLanguage": "C",
+          "stargazersCount": 156,
+          "forksCount": 34,
+          "url": "https://github.com/alex-mueller/firmware-bootloader",
+          "isFork": false,
+          "isPrivate": false
+        }
+      ],
+      "contributionGraph": {
+        "totalContributions": 1247,
+        "pullRequestsCount": 34,
+        "pullRequestsMerged": 32,
+        "issuesOpened": 18,
+        "issuesClosed": 16,
+        "contributionDays": [
+          {
+            "date": "2025-06-22",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-06-23",
+            "count": 9,
+            "level": 3
+          },
+          {
+            "date": "2025-06-24",
+            "count": 8,
+            "level": 2
+          },
+          {
+            "date": "2025-06-25",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2025-06-26",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2025-06-27",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-06-28",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-06-29",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-06-30",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-07-01",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-07-02",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-07-03",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-07-04",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-07-05",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-07-06",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-07-07",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2025-07-08",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-07-09",
+            "count": 11,
+            "level": 3
+          },
+          {
+            "date": "2025-07-10",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-07-11",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-07-12",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-07-13",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-07-14",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-07-15",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-07-16",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-07-17",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-07-18",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-07-19",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-07-20",
+            "count": 13,
+            "level": 4
+          },
+          {
+            "date": "2025-07-21",
+            "count": 9,
+            "level": 3
+          },
+          {
+            "date": "2025-07-22",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2025-07-23",
+            "count": 10,
+            "level": 3
+          },
+          {
+            "date": "2025-07-24",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-07-25",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-07-26",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-07-27",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-07-28",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-07-29",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-07-30",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-07-31",
+            "count": 13,
+            "level": 4
+          },
+          {
+            "date": "2025-08-01",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-08-02",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-08-03",
+            "count": 12,
+            "level": 3
+          },
+          {
+            "date": "2025-08-04",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-08-05",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2025-08-06",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-08-07",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-08-08",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-08-09",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-08-10",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-08-11",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2025-08-12",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-08-13",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2025-08-14",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-08-15",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-08-16",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-08-17",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-08-18",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-08-19",
+            "count": 14,
+            "level": 4
+          },
+          {
+            "date": "2025-08-20",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-08-21",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-08-22",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-08-23",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-08-24",
+            "count": 11,
+            "level": 3
+          },
+          {
+            "date": "2025-08-25",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-08-26",
+            "count": 13,
+            "level": 4
+          },
+          {
+            "date": "2025-08-27",
+            "count": 13,
+            "level": 4
+          },
+          {
+            "date": "2025-08-28",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-08-29",
+            "count": 12,
+            "level": 3
+          },
+          {
+            "date": "2025-08-30",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-08-31",
+            "count": 15,
+            "level": 4
+          },
+          {
+            "date": "2025-09-01",
+            "count": 12,
+            "level": 3
+          },
+          {
+            "date": "2025-09-02",
+            "count": 9,
+            "level": 3
+          },
+          {
+            "date": "2025-09-03",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-09-04",
+            "count": 11,
+            "level": 3
+          },
+          {
+            "date": "2025-09-05",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2025-09-06",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2025-09-07",
+            "count": 14,
+            "level": 4
+          },
+          {
+            "date": "2025-09-08",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-09-09",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-09-10",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-09-11",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-09-12",
+            "count": 18,
+            "level": 4
+          },
+          {
+            "date": "2025-09-13",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-09-14",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-09-15",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-09-16",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-09-17",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2025-09-18",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-09-19",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2025-09-20",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-09-21",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-09-22",
+            "count": 11,
+            "level": 3
+          },
+          {
+            "date": "2025-09-23",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-09-24",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-09-25",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-09-26",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-09-27",
+            "count": 10,
+            "level": 3
+          },
+          {
+            "date": "2025-09-28",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-09-29",
+            "count": 11,
+            "level": 3
+          },
+          {
+            "date": "2025-09-30",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-10-01",
+            "count": 8,
+            "level": 2
+          },
+          {
+            "date": "2025-10-02",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-10-03",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-10-04",
+            "count": 13,
+            "level": 4
+          },
+          {
+            "date": "2025-10-05",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-10-06",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-10-07",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-10-08",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-10-09",
+            "count": 9,
+            "level": 3
+          },
+          {
+            "date": "2025-10-10",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-10-11",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-10-12",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-10-13",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-10-14",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-10-15",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2025-10-16",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2025-10-17",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2025-10-18",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-10-19",
+            "count": 16,
+            "level": 4
+          },
+          {
+            "date": "2025-10-20",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-10-21",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2025-10-22",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-10-23",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2025-10-24",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2025-10-25",
+            "count": 8,
+            "level": 2
+          },
+          {
+            "date": "2025-10-26",
+            "count": 11,
+            "level": 3
+          },
+          {
+            "date": "2025-10-27",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-10-28",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-10-29",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2025-10-30",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-10-31",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-11-01",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-11-02",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-11-03",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-11-04",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-11-05",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-11-06",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-11-07",
+            "count": 15,
+            "level": 4
+          },
+          {
+            "date": "2025-11-08",
+            "count": 10,
+            "level": 3
+          },
+          {
+            "date": "2025-11-09",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-11-10",
+            "count": 11,
+            "level": 3
+          },
+          {
+            "date": "2025-11-11",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-11-12",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-11-13",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-11-14",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-11-15",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-11-16",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-11-17",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-11-18",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2025-11-19",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-11-20",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2025-11-21",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-11-22",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-11-23",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2025-11-24",
+            "count": 10,
+            "level": 3
+          },
+          {
+            "date": "2025-11-25",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-11-26",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2025-11-27",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-11-28",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-11-29",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-11-30",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-12-01",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-12-02",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-12-03",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-12-04",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-12-05",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-12-06",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-12-07",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-12-08",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2025-12-09",
+            "count": 13,
+            "level": 4
+          },
+          {
+            "date": "2025-12-10",
+            "count": 13,
+            "level": 4
+          },
+          {
+            "date": "2025-12-11",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-12-12",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2025-12-13",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-12-14",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-12-15",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-12-16",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2025-12-17",
+            "count": 18,
+            "level": 4
+          },
+          {
+            "date": "2025-12-18",
+            "count": 17,
+            "level": 4
+          },
+          {
+            "date": "2025-12-19",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2025-12-20",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-12-21",
+            "count": 13,
+            "level": 4
+          },
+          {
+            "date": "2025-12-22",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-12-23",
+            "count": 16,
+            "level": 4
+          },
+          {
+            "date": "2025-12-24",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2025-12-25",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-12-26",
+            "count": 9,
+            "level": 3
+          },
+          {
+            "date": "2025-12-27",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2025-12-28",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2025-12-29",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2025-12-30",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2025-12-31",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-01-01",
+            "count": 9,
+            "level": 3
+          },
+          {
+            "date": "2026-01-02",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-01-03",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-01-04",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-01-05",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-01-06",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-01-07",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-01-08",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-01-09",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-01-10",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-01-11",
+            "count": 13,
+            "level": 4
+          },
+          {
+            "date": "2026-01-12",
+            "count": 18,
+            "level": 4
+          },
+          {
+            "date": "2026-01-13",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-01-14",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-01-15",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-01-16",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2026-01-17",
+            "count": 12,
+            "level": 3
+          },
+          {
+            "date": "2026-01-18",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-01-19",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-01-20",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-01-21",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2026-01-22",
+            "count": 13,
+            "level": 4
+          },
+          {
+            "date": "2026-01-23",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-01-24",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-01-25",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-01-26",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-01-27",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-01-28",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-01-29",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-01-30",
+            "count": 9,
+            "level": 3
+          },
+          {
+            "date": "2026-01-31",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-02-01",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-02-02",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-02-03",
+            "count": 8,
+            "level": 2
+          },
+          {
+            "date": "2026-02-04",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-02-05",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-02-06",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-02-07",
+            "count": 13,
+            "level": 4
+          },
+          {
+            "date": "2026-02-08",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-02-09",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-02-10",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2026-02-11",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2026-02-12",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-02-13",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-02-14",
+            "count": 13,
+            "level": 4
+          },
+          {
+            "date": "2026-02-15",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-02-16",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-02-17",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-02-18",
+            "count": 9,
+            "level": 3
+          },
+          {
+            "date": "2026-02-19",
+            "count": 8,
+            "level": 2
+          },
+          {
+            "date": "2026-02-20",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-02-21",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-02-22",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-02-23",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-02-24",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-02-25",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-02-26",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-02-27",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-02-28",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-03-01",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-03-02",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2026-03-03",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-03-04",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-03-05",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-03-06",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-03-07",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-03-08",
+            "count": 12,
+            "level": 3
+          },
+          {
+            "date": "2026-03-09",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-03-10",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-03-11",
+            "count": 9,
+            "level": 3
+          },
+          {
+            "date": "2026-03-12",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2026-03-13",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-03-14",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-03-15",
+            "count": 12,
+            "level": 3
+          },
+          {
+            "date": "2026-03-16",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-03-17",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-03-18",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2026-03-19",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-03-20",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-03-21",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-03-22",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-03-23",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-03-24",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-03-25",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-03-26",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-03-27",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-03-28",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-03-29",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-03-30",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-03-31",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-04-01",
+            "count": 10,
+            "level": 3
+          },
+          {
+            "date": "2026-04-02",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-04-03",
+            "count": 13,
+            "level": 4
+          },
+          {
+            "date": "2026-04-04",
+            "count": 13,
+            "level": 4
+          },
+          {
+            "date": "2026-04-05",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-04-06",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-04-07",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-04-08",
+            "count": 17,
+            "level": 4
+          },
+          {
+            "date": "2026-04-09",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-04-10",
+            "count": 20,
+            "level": 4
+          },
+          {
+            "date": "2026-04-11",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-04-12",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2026-04-13",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2026-04-14",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-04-15",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-04-16",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2026-04-17",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-04-18",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-04-19",
+            "count": 9,
+            "level": 3
+          },
+          {
+            "date": "2026-04-20",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-04-21",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-04-22",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-04-23",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2026-04-24",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-04-25",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-04-26",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-04-27",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-04-28",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-04-29",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-04-30",
+            "count": 16,
+            "level": 4
+          },
+          {
+            "date": "2026-05-01",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-05-02",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-05-03",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-05-04",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-05-05",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-05-06",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2026-05-07",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-05-08",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2026-05-09",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-05-10",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-05-11",
+            "count": 16,
+            "level": 4
+          },
+          {
+            "date": "2026-05-12",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-05-13",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2026-05-14",
+            "count": 18,
+            "level": 4
+          },
+          {
+            "date": "2026-05-15",
+            "count": 11,
+            "level": 3
+          },
+          {
+            "date": "2026-05-16",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-05-17",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-05-18",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2026-05-19",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-05-20",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-05-21",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2026-05-22",
+            "count": 10,
+            "level": 3
+          },
+          {
+            "date": "2026-05-23",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-05-24",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-05-25",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-05-26",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-05-27",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-05-28",
+            "count": 12,
+            "level": 3
+          },
+          {
+            "date": "2026-05-29",
+            "count": 6,
+            "level": 2
+          },
+          {
+            "date": "2026-05-30",
+            "count": 11,
+            "level": 3
+          },
+          {
+            "date": "2026-05-31",
+            "count": 8,
+            "level": 2
+          },
+          {
+            "date": "2026-06-01",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2026-06-02",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-06-03",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2026-06-04",
+            "count": 12,
+            "level": 3
+          },
+          {
+            "date": "2026-06-05",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-06-06",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-06-07",
+            "count": 12,
+            "level": 3
+          },
+          {
+            "date": "2026-06-08",
+            "count": 5,
+            "level": 2
+          },
+          {
+            "date": "2026-06-09",
+            "count": 21,
+            "level": 4
+          },
+          {
+            "date": "2026-06-10",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-06-11",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-06-12",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-06-13",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-06-14",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-06-15",
+            "count": 0,
+            "level": 0
+          },
+          {
+            "date": "2026-06-16",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-06-17",
+            "count": 12,
+            "level": 3
+          },
+          {
+            "date": "2026-06-18",
+            "count": 7,
+            "level": 2
+          },
+          {
+            "date": "2026-06-19",
+            "count": 3,
+            "level": 1
+          },
+          {
+            "date": "2026-06-20",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-06-21",
+            "count": 0,
+            "level": 0
+          }
+        ]
+      },
+      "collaborationMetrics": [
+        {
+          "repositoryName": "student-hardware-projects",
+          "repositoryUrl": "https://github.com/org/student-hardware-projects",
+          "pullRequestsCount": 8,
+          "commitsCount": 42,
+          "role": "collaborator",
+          "organization": "WürthElectronics"
+        },
+        {
+          "repositoryName": "embedded-systems-hackathon-2025",
+          "repositoryUrl": "https://github.com/org/embedded-systems-hackathon-2025",
+          "pullRequestsCount": 5,
+          "commitsCount": 28,
+          "role": "collaborator",
+          "organization": "HackathonOrganization"
+        },
+        {
+          "repositoryName": "open-source-rtos",
+          "repositoryUrl": "https://github.com/org/open-source-rtos",
+          "pullRequestsCount": 12,
+          "commitsCount": 87,
+          "role": "contributor",
+          "organization": "OpenSourceProject"
+        }
+      ]
+    }
+  },
+  "admin": {
+    "analyticsMetrics": [
+      {
+        "id": "metric-1",
+        "label": "Total Platform Revenue",
+        "value": "$2.4M",
+        "change": 12.5,
+        "trend": "up",
+        "timestamp": "2025-01-15"
+      },
+      {
+        "id": "metric-2",
+        "label": "Active Users",
+        "value": "18,450",
+        "change": 8.3,
+        "trend": "up",
+        "timestamp": "2025-01-15"
+      },
+      {
+        "id": "metric-3",
+        "label": "Conversion Rate",
+        "value": "4.2%",
+        "change": -1.2,
+        "trend": "down",
+        "timestamp": "2025-01-15"
+      },
+      {
+        "id": "metric-4",
+        "label": "Student Engagement",
+        "value": "67.8%",
+        "change": 5.4,
+        "trend": "up",
+        "timestamp": "2025-01-15"
+      },
+      {
+        "id": "metric-5",
+        "label": "Partner Institution Count",
+        "value": "142",
+        "change": 3.2,
+        "trend": "up",
+        "timestamp": "2025-01-15"
+      },
+      {
+        "id": "metric-6",
+        "label": "Average Session Duration",
+        "value": "12m 45s",
+        "change": 2.1,
+        "trend": "up",
+        "timestamp": "2025-01-15"
+      }
+    ],
+    "roiData": [
+      {
+        "month": "Jan",
+        "revenue": 240000,
+        "engagement": 62,
+        "roi": 18
+      },
+      {
+        "month": "Feb",
+        "revenue": 260000,
+        "engagement": 65,
+        "roi": 21
+      },
+      {
+        "month": "Mar",
+        "revenue": 235000,
+        "engagement": 63,
+        "roi": 19
+      },
+      {
+        "month": "Apr",
+        "revenue": 310000,
+        "engagement": 68,
+        "roi": 25
+      },
+      {
+        "month": "May",
+        "revenue": 285000,
+        "engagement": 66,
+        "roi": 23
+      },
+      {
+        "month": "Jun",
+        "revenue": 340000,
+        "engagement": 71,
+        "roi": 28
+      },
+      {
+        "month": "Jul",
+        "revenue": 380000,
+        "engagement": 74,
+        "roi": 32
+      },
+      {
+        "month": "Aug",
+        "revenue": 420000,
+        "engagement": 78,
+        "roi": 35
+      },
+      {
+        "month": "Sep",
+        "revenue": 410000,
+        "engagement": 76,
+        "roi": 34
+      },
+      {
+        "month": "Oct",
+        "revenue": 450000,
+        "engagement": 79,
+        "roi": 37
+      },
+      {
+        "month": "Nov",
+        "revenue": 480000,
+        "engagement": 82,
+        "roi": 40
+      },
+      {
+        "month": "Dec",
+        "revenue": 520000,
+        "engagement": 85,
+        "roi": 43
+      }
+    ],
+    "gdprRecords": [
+      {
+        "id": "gdpr-001",
+        "userId": "u1",
+        "userName": "Alex Johnson",
+        "userEmail": "alex.johnson@mit.edu",
+        "dataCategory": "profile",
+        "status": "active",
+        "createdAt": "2024-06-15",
+        "modifiedAt": "2025-01-10",
+        "retentionPeriod": "90 days",
+        "auditTrail": [
+          {
+            "id": "audit-1",
+            "action": "Profile created",
+            "actor": "user:u1",
+            "timestamp": "2024-06-15T08:00:00Z",
+            "details": "Initial profile creation"
+          },
+          {
+            "id": "audit-2",
+            "action": "Profile updated",
+            "actor": "user:u1",
+            "timestamp": "2024-12-20T14:30:00Z",
+            "details": "Updated bio and skills"
+          }
+        ]
+      },
+      {
+        "id": "gdpr-002",
+        "userId": "u2",
+        "userName": "Sarah Chen",
+        "userEmail": "sarah.chen@stanford.edu",
+        "dataCategory": "activity",
+        "status": "pending-deletion",
+        "createdAt": "2024-08-10",
+        "modifiedAt": "2025-01-12",
+        "retentionPeriod": "30 days",
+        "auditTrail": [
+          {
+            "id": "audit-3",
+            "action": "Deletion requested",
+            "actor": "user:u2",
+            "timestamp": "2025-01-12T10:15:00Z",
+            "details": "User requested data deletion"
+          }
+        ]
+      },
+      {
+        "id": "gdpr-003",
+        "userId": "u3",
+        "userName": "Marcus Williams",
+        "userEmail": "marcus@berkeley.edu",
+        "dataCategory": "connections",
+        "status": "archived",
+        "createdAt": "2024-07-20",
+        "modifiedAt": "2024-11-05",
+        "retentionPeriod": "180 days",
+        "auditTrail": [
+          {
+            "id": "audit-4",
+            "action": "Data archived",
+            "actor": "admin:a1",
+            "timestamp": "2024-11-05T09:00:00Z",
+            "details": "Account archived per retention policy"
+          }
+        ]
+      },
+      {
+        "id": "gdpr-004",
+        "userId": "u4",
+        "userName": "TechCorp Inc",
+        "userEmail": "compliance@techcorp.com",
+        "dataCategory": "applications",
+        "status": "active",
+        "createdAt": "2024-05-01",
+        "modifiedAt": "2025-01-15",
+        "retentionPeriod": "1 year",
+        "auditTrail": [
+          {
+            "id": "audit-5",
+            "action": "Data access request",
+            "actor": "admin:a1",
+            "timestamp": "2025-01-15T11:20:00Z",
+            "details": "Compliance review initiated"
+          }
+        ]
+      }
+    ],
+    "hardwareBounties": [
+      {
+        "id": "hb-001",
+        "title": "ESP32 Microcontroller Integration",
+        "description": "Develop drivers and libraries for ESP32 IoT platform integration",
+        "category": "Microcontroller",
+        "value": 1500,
+        "status": "published",
+        "applicants": 24,
+        "createdAt": "2024-12-10",
+        "createdBy": "admin:a1",
+        "deadline": "2025-02-28"
+      },
+      {
+        "id": "hb-002",
+        "title": "Raspberry Pi 5 Performance Optimization",
+        "description": "Optimize video processing pipeline for Raspberry Pi 5",
+        "category": "Single-Board Computer",
+        "value": 2000,
+        "status": "published",
+        "applicants": 18,
+        "createdAt": "2024-11-30",
+        "createdBy": "admin:a1",
+        "deadline": "2025-03-15"
+      },
+      {
+        "id": "hb-003",
+        "title": "Arduino Sensor Array Development",
+        "description": "Create modular sensor array library for Arduino ecosystem",
+        "category": "Development Board",
+        "value": 1200,
+        "status": "draft",
+        "applicants": 0,
+        "createdAt": "2025-01-10",
+        "createdBy": "admin:a1",
+        "deadline": "2025-04-30"
+      },
+      {
+        "id": "hb-004",
+        "title": "STM32 Firmware Development",
+        "description": "Develop custom firmware for STM32 embedded systems",
+        "category": "Microcontroller",
+        "value": 2500,
+        "status": "published",
+        "applicants": 31,
+        "createdAt": "2024-12-01",
+        "createdBy": "admin:a1",
+        "deadline": "2025-03-31"
+      }
+    ],
+    "microInternships": [
+      {
+        "id": "mi-001",
+        "title": "Backend API Development - Node.js",
+        "description": "Build RESTful APIs for our platform",
+        "company": "TechCorp Inc",
+        "duration": "4 weeks",
+        "compensation": "$1,200",
+        "status": "published",
+        "applicants": 42,
+        "createdAt": "2024-12-15",
+        "deadline": "2025-02-15"
+      },
+      {
+        "id": "mi-002",
+        "title": "React Component Library Refactor",
+        "description": "Modernize and refactor existing component library",
+        "company": "Stackform",
+        "duration": "6 weeks",
+        "compensation": "$1,800",
+        "status": "published",
+        "applicants": 35,
+        "createdAt": "2024-12-20",
+        "deadline": "2025-03-01"
+      },
+      {
+        "id": "mi-003",
+        "title": "Data Analytics Dashboard",
+        "description": "Create real-time analytics dashboards using D3.js",
+        "company": "DataStream Labs",
+        "duration": "3 weeks",
+        "compensation": "$900",
+        "status": "completed",
+        "applicants": 28,
+        "createdAt": "2024-11-01",
+        "deadline": "2025-01-15"
+      },
+      {
+        "id": "mi-004",
+        "title": "Mobile App Testing & QA",
+        "description": "Comprehensive testing and QA for iOS app",
+        "company": "MobileFirst",
+        "duration": "4 weeks",
+        "compensation": "$1,100",
+        "status": "draft",
+        "applicants": 0,
+        "createdAt": "2025-01-05",
+        "deadline": "2025-03-20"
+      }
+    ],
+    "projectValidations": [
+      {
+        "id": "pv-001",
+        "projectId": "proj-001",
+        "projectTitle": "AI-Powered Recommendation Engine",
+        "authorName": "Alex Johnson",
+        "submittedAt": "2025-01-10T14:30:00Z",
+        "validatedAt": "2025-01-12T09:15:00Z",
+        "validatedBy": "Dr. Sarah Chen",
+        "status": "approved",
+        "validationNotes": "Excellent technical implementation with clear documentation.",
+        "attachments": [
+          "proposal.pdf",
+          "technical_spec.md"
+        ]
+      },
+      {
+        "id": "pv-002",
+        "projectId": "proj-002",
+        "projectTitle": "Cloud Infrastructure Automation",
+        "authorName": "Marcus Williams",
+        "submittedAt": "2025-01-14T10:00:00Z",
+        "validatedAt": "2025-01-15T16:45:00Z",
+        "validatedBy": "Prof. James Rodriguez",
+        "status": "approved",
+        "validationNotes": "Strong DevOps practices. Minor documentation improvements suggested.",
+        "attachments": [
+          "architecture_diagram.png",
+          "deployment_guide.md"
+        ]
+      },
+      {
+        "id": "pv-003",
+        "projectId": "proj-003",
+        "projectTitle": "Blockchain Voting System",
+        "authorName": "Emma Thompson",
+        "submittedAt": "2025-01-13T11:20:00Z",
+        "status": "needs-revision",
+        "validationNotes": "Please address security concerns in smart contract review. See detailed comments.",
+        "attachments": [
+          "contract_audit.pdf"
+        ]
+      },
+      {
+        "id": "pv-004",
+        "projectId": "proj-004",
+        "projectTitle": "Real-time Collaboration Platform",
+        "authorName": "David Kim",
+        "submittedAt": "2025-01-15T09:00:00Z",
+        "status": "pending",
+        "validationNotes": "",
+        "attachments": []
+      }
+    ],
+    "verificationAudit": [
+      {
+        "id": "audit-v-001",
+        "entityType": "project",
+        "entityId": "proj-001",
+        "entityName": "AI Recommendation Engine",
+        "action": "verified",
+        "reviewedBy": "Dr. Sarah Chen",
+        "timestamp": "2025-01-12T09:15:00Z",
+        "severity": "low"
+      },
+      {
+        "id": "audit-v-002",
+        "entityType": "user",
+        "entityId": "u1",
+        "entityName": "Alex Johnson",
+        "action": "flagged",
+        "reviewedBy": "Admin Portal",
+        "timestamp": "2025-01-14T14:30:00Z",
+        "reason": "Multiple copyright violation reports",
+        "severity": "high"
+      },
+      {
+        "id": "audit-v-003",
+        "entityType": "institution",
+        "entityId": "inst-001",
+        "entityName": "MIT",
+        "action": "verified",
+        "reviewedBy": "Dr. Sarah Chen",
+        "timestamp": "2025-01-10T08:00:00Z",
+        "severity": "low"
+      },
+      {
+        "id": "audit-v-004",
+        "entityType": "project",
+        "entityId": "proj-003",
+        "entityName": "Blockchain Voting System",
+        "action": "flagged",
+        "reviewedBy": "Security Team",
+        "timestamp": "2025-01-15T11:20:00Z",
+        "reason": "Security vulnerabilities detected",
+        "severity": "high"
+      }
+    ],
+    "activityLogs": [
+      {
+        "id": "log-001",
+        "adminId": "admin:a1",
+        "adminName": "System Administrator",
+        "action": "Created new hardware bounty",
+        "resourceType": "HardwareBounty",
+        "resourceId": "hb-004",
+        "timestamp": "2025-01-15T10:30:00Z",
+        "status": "success"
+      },
+      {
+        "id": "log-002",
+        "adminId": "admin:a1",
+        "adminName": "System Administrator",
+        "action": "Updated project validation status",
+        "resourceType": "ProjectValidation",
+        "resourceId": "pv-003",
+        "timestamp": "2025-01-15T11:20:00Z",
+        "changes": {
+          "status": "needs-revision"
+        },
+        "status": "success"
+      },
+      {
+        "id": "log-003",
+        "adminId": "admin:a1",
+        "adminName": "System Administrator",
+        "action": "User data deletion request processed",
+        "resourceType": "GDPRRecord",
+        "resourceId": "gdpr-002",
+        "timestamp": "2025-01-15T14:45:00Z",
+        "status": "success"
+      },
+      {
+        "id": "log-004",
+        "adminId": "admin:a1",
+        "adminName": "System Administrator",
+        "action": "Failed to update micro-internship",
+        "resourceType": "MicroInternship",
+        "resourceId": "mi-002",
+        "timestamp": "2025-01-15T15:10:00Z",
+        "status": "failed"
+      }
+    ]
+  },
+  "nexus": {
+    "members": [
+      {
+        "id": "nm-1",
+        "username": "TechLena",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=TechLena",
+        "level": 1,
+        "levelTitle": "Newcomer",
+        "daysActive": 2,
+        "repPoints": 10,
+        "repTarget": 100,
+        "nextLevelTitle": "Explorer",
+        "milestone": "Posted her first question",
+        "milestoneIcon": "🌱",
+        "badgeUnlocked": "First Step",
+        "nextChallenge": "Answer one peer question to unlock 🧠 Curious Mind badge",
+        "nextChallengePoints": 50,
+        "announcement": "Hey everyone, let's give a warm welcome to **@TechLena**! 🎉 She just fired off her very first question on the platform — that takes courage, and that's exactly the kind of curiosity that makes this community worth being part of.",
+        "dmDraft": "Hey @TechLena! 👋 You've asked your first great question — that's a real milestone. This week's challenge: answer one peer question to unlock your 🧠 Curious Mind badge and earn +50 rep. Want me to recommend a thread you can help with right now?",
+        "status": "engaged",
+        "progressPath": [
+          {
+            "action": "Answer 1 peer question",
+            "points": 50,
+            "time": "~15 mins"
+          },
+          {
+            "action": "Complete your profile",
+            "points": 20,
+            "time": "~5 mins"
+          },
+          {
+            "action": "Receive 3 upvotes",
+            "points": 15,
+            "time": "Passive"
+          },
+          {
+            "action": "Join a community",
+            "points": 5,
+            "time": "~1 min"
+          }
+        ]
+      },
+      {
+        "id": "nm-2",
+        "username": "RohanV",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=RohanV",
+        "level": 3,
+        "levelTitle": "Contributor",
+        "daysActive": 47,
+        "repPoints": 500,
+        "repTarget": 600,
+        "nextLevelTitle": "Mentor",
+        "milestone": "Hit 500 reputation points",
+        "milestoneIcon": "🎯",
+        "nextChallenge": "Reply to 3 open technical threads this week to reach Lv 4 — Mentor",
+        "nextChallengePoints": 60,
+        "announcement": "🔥 **@RohanV** just crossed 500 reputation points — and he did it in under 47 days. Members who hit 500 rep this fast usually become the go-to voices in their niche. Keep your eye on this one. 👀",
+        "dmDraft": "Hey @RohanV! You're sitting at 500 rep points. Lv 4 — Mentor is just 100 points away. Reply to 3 technical threads this week and you're there. Want me to surface the top unanswered threads in your domain?",
+        "status": "near-levelup",
+        "progressPath": [
+          {
+            "action": "Reply to 3 open threads",
+            "points": 60,
+            "time": "~45 mins"
+          },
+          {
+            "action": "Receive 5 upvotes on any reply",
+            "points": 25,
+            "time": "Passive"
+          },
+          {
+            "action": "Nominate a peer for a badge",
+            "points": 10,
+            "time": "~2 mins"
+          },
+          {
+            "action": "Solve an open bounty",
+            "points": 25,
+            "time": "Variable"
+          }
+        ]
+      },
+      {
+        "id": "nm-3",
+        "username": "CircuitSam",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=CircuitSam",
+        "level": 2,
+        "levelTitle": "Explorer",
+        "daysActive": 18,
+        "repPoints": 210,
+        "repTarget": 300,
+        "nextLevelTitle": "Contributor",
+        "milestone": "Solved his first bounty",
+        "milestoneIcon": "⚡",
+        "badgeUnlocked": "Bounty Hunter",
+        "nextChallenge": "Solve 2 more bounties to earn 💡 Problem Solver badge + jump to Lv 3",
+        "nextChallengePoints": 90,
+        "announcement": "⚡ **@CircuitSam** just cracked his first bounty — 18 days in. That's not beginner energy, that's builder energy. You've unlocked the 🏹 Bounty Hunter badge. Go check it out in your profile!",
+        "dmDraft": "Hey @CircuitSam! Your first bounty solve — that's massive. 🏹 Bounty Hunter badge is now in your profile. Solve 2 more to earn 💡 Problem Solver and jump to Lv 3 — Contributor. Want me to match you with a bounty based on your skillset?",
+        "status": "momentum",
+        "progressPath": [
+          {
+            "action": "Solve 2 more bounties",
+            "points": 90,
+            "time": "Variable"
+          },
+          {
+            "action": "Answer 2 technical threads",
+            "points": 40,
+            "time": "~30 mins"
+          },
+          {
+            "action": "Receive 5 upvotes",
+            "points": 25,
+            "time": "Passive"
+          }
+        ]
+      },
+      {
+        "id": "nm-4",
+        "username": "Prof_Ayesha",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=ProfAyesha",
+        "level": 4,
+        "levelTitle": "Mentor",
+        "daysActive": 134,
+        "repPoints": 1840,
+        "repTarget": 2000,
+        "nextLevelTitle": "Legend",
+        "milestone": "Reached a 7-day reply streak",
+        "milestoneIcon": "🔥",
+        "badgeUnlocked": "On Fire",
+        "nextChallenge": "Maintain streak to Day 14 + answer 3 threads = Legend tier unlocked",
+        "nextChallengePoints": 160,
+        "weeklyUpvotes": 40,
+        "streakDays": 7,
+        "announcement": "🔥 Seven days. Every single day. **@Prof_Ayesha** hasn't missed a beat — her replies this week alone generated 40+ upvotes across 6 threads. She's 160 points from Legend tier. The Hall of Fame is calling.",
+        "dmDraft": "Hey Ayesha 👋 — You're at 1,840 rep points. The Legend tier is 160 points away — and based on your activity this week, you could hit it by this weekend. Answer 3 threads (+60), maintain streak to Day 14 (+50), nominate a peer (+25), collect 5 upvotes (+25) = 160 pts = Legend. You've been one of the most consistent voices here for 134 days. Let's get you across the finish line. 🏁",
+        "status": "highvalue",
+        "progressPath": [
+          {
+            "action": "Answer 3 open technical threads",
+            "points": 60,
+            "time": "~90 mins"
+          },
+          {
+            "action": "Maintain streak through Day 14",
+            "points": 50,
+            "time": "Keep going!"
+          },
+          {
+            "action": "Nominate a peer for a badge",
+            "points": 25,
+            "time": "~2 mins"
+          },
+          {
+            "action": "Collect 5 more upvotes",
+            "points": 25,
+            "time": "Passive"
+          }
+        ]
+      },
+      {
+        "id": "nm-5",
+        "username": "NewbieNick",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=NewbieNick",
+        "level": 0,
+        "levelTitle": "Unverified",
+        "daysActive": 1,
+        "repPoints": 0,
+        "repTarget": 100,
+        "nextLevelTitle": "Newcomer",
+        "milestone": "Just joined today",
+        "milestoneIcon": "👋",
+        "nextChallenge": "Complete profile (+20 rep) and drop your first reply to unlock Newcomer status",
+        "nextChallengePoints": 20,
+        "announcement": "Welcome **@NewbieNick** to the community! 👋 Day one — everything starts here. Let's make it a great one.",
+        "dmDraft": "Hey @NewbieNick, welcome — genuinely glad you're here! 👋 Here's a low-pressure way to start: ✅ Complete your profile (+20 rep) ✅ Browse 'Good First Questions' ✅ Drop a reply anywhere — even a 'this helped me too!' counts. Want me to recommend one thread for your first reply? No pressure, no rush. This community moves at your pace. 🙌",
+        "status": "atrisk",
+        "progressPath": [
+          {
+            "action": "Complete your profile",
+            "points": 20,
+            "time": "~5 mins"
+          },
+          {
+            "action": "Post your first reply",
+            "points": 10,
+            "time": "~5 mins"
+          },
+          {
+            "action": "Receive your first upvote",
+            "points": 5,
+            "time": "Passive"
+          },
+          {
+            "action": "Join a community group",
+            "points": 5,
+            "time": "~1 min"
+          }
+        ]
+      }
+    ],
+    "threads": [
+      {
+        "id": "nt-1",
+        "authorUsername": "TechLena",
+        "authorLevel": 1,
+        "authorLevelTitle": "Newcomer",
+        "question": "Why does my I²C sensor stop responding after running for ~30 minutes? Using STM32 + BMP280.",
+        "topic": "Embedded Systems",
+        "hoursUnanswered": 5,
+        "tags": [
+          "I2C",
+          "STM32",
+          "BMP280",
+          "Embedded"
+        ],
+        "nexusResponse": "Hey @TechLena — great question, and you're definitely not alone on this one! Based on what our community solved last month, this is a classic symptom of one of three things. Let's figure this out together:\n\n**🔍 Most Likely Causes:**\n\n**1. Clock Stretching Timeout** — The STM32 HAL I²C driver has a default timeout. If the BMP280 stretches the clock longer than expected during a conversion, the peripheral can lock up silently. Try increasing your HAL_I2C_Master_Transmit timeout parameter.\n\n**2. Missing or Weak Pull-up Resistors** — I²C lines need external pull-ups (typically 4.7kΩ for 3.3V systems). Signal integrity degrades under thermal load — which explains the consistent 30-minute mark.\n\n**3. Bus Lock-up After NACK** — If a transmission is interrupted, the bus can lock. Add a software I²C bus recovery routine — toggle SCL 9 times to flush any stuck slave.\n\n**🛠 Quick Fix to try first:**\nHAL_I2C_DeInit(&hi2c1); → HAL_I2C_Init(&hi2c1);\n\nThis forces a peripheral reset without a full system reboot. Many community members resolved the 30-minute lockup with exactly this.\n\nHas anyone else tackled I²C lockup on STM32 recently? Drop your fix below! 👇",
+        "ctaForAuthor": "Hey @TechLena! You've asked your first great question 🌱 Answer one peer question this week to unlock your 🧠 Curious Mind badge (+50 rep). Want me to find a thread you can help with?"
+      },
+      {
+        "id": "nt-2",
+        "authorUsername": "CircuitSam",
+        "authorLevel": 2,
+        "authorLevelTitle": "Explorer",
+        "question": "Best approach for EMI shielding on a 4-layer PCB with a switching regulator at 400kHz?",
+        "topic": "PCB Design",
+        "hoursUnanswered": 6,
+        "tags": [
+          "EMI",
+          "PCB",
+          "Power Electronics",
+          "Shielding"
+        ],
+        "nexusResponse": "Hey @CircuitSam — solid design question, and the 400kHz range is exactly where things get interesting. Based on what our community and Würth Elektronik's application notes have covered, here's the structured approach:\n\n**🛡 Recommended Stackup:**\nLayer 1 — Signal + Switching components (tight loops!)\nLayer 2 — Ground plane (unbroken, directly beneath L1) ← Your primary EMI weapon\nLayer 3 — Power plane\nLayer 4 — Signal (low-speed, away from switching nodes)\n\n**⚡ Key Layout Rules:**\n• Keep the hot loop (switch node → inductor → output cap → GND) as small as possible\n• Never route sensitive signals beneath the switching node\n• Use a pour guard / keepout around the SW node on all layers\n• Stitch vias around the board perimeter every λ/20\n\n**🔩 Component Pick:**\nWürth Elektronik's WE-MAPI and WE-SFIA series inductors are shielded and specifically characterized for this frequency range — a community favourite for this exact use case.\n\nAny power layout veterans want to add their preferred stackup? The more real-world examples, the better! 👇"
+      },
+      {
+        "id": "nt-3",
+        "authorUsername": "NewbieNick",
+        "authorLevel": 0,
+        "authorLevelTitle": "Unverified",
+        "question": "What's the difference between a working student position and an internship at a tech company?",
+        "topic": "Career",
+        "hoursUnanswered": 4.5,
+        "tags": [
+          "Career",
+          "Internship",
+          "Working Student",
+          "Germany"
+        ],
+        "nexusResponse": "Welcome to the community, @NewbieNick — and don't let anyone tell you this is a \"basic\" question. It trips a lot of people up outside the European tech ecosystem. Let's break it down clearly:\n\n**🎓 Internship (Praktikum)**\n• Fixed term, typically 3–6 months\n• Full-time commitment (40hrs/week)\n• Often mandatory as part of a degree programme\n• Focused on a single project or rotation\n\n**💼 Working Student (Werkstudent)**\n• Ongoing, part-time role (15–20hrs/week)\n• Must be actively enrolled as a student\n• Can last 1–2+ years alongside your studies\n• More responsibility, deeper team integration\n• Often converts to a full-time offer upon graduation\n\n**Which is better?** Depends on your goal. If you want depth and a long-term foot in the door — working student. If you want breadth and a structured sprint — internship.\n\nOur Jobs board has both types listed from Würth Elektronik right now if you want to compare real postings side by side! 🔍\n\nHas anyone here done both? Would love your comparison in the replies! 👇",
+        "ctaForAuthor": "Hey @NewbieNick! Great first question 👋 Complete your profile this week to earn +20 rep and unlock Newcomer status. Want me to recommend a thread you can answer to earn your first points?"
+      }
+    ],
+    "announcements": [
+      {
+        "icon": "🌱",
+        "text": "@TechLena posted her very first question — welcome her and help her grow!",
+        "time": "5h ago"
+      },
+      {
+        "icon": "⚡",
+        "text": "@CircuitSam just solved his first bounty — 18 days in. Absolute builder energy.",
+        "time": "6h ago"
+      },
+      {
+        "icon": "🔥",
+        "text": "@Prof_Ayesha is on a 7-day streak with 40+ upvotes this week. Legend tier incoming.",
+        "time": "1h ago"
+      },
+      {
+        "icon": "🎯",
+        "text": "@RohanV crossed 500 reputation points in under 47 days. Watch this space.",
+        "time": "3h ago"
+      },
+      {
+        "icon": "👋",
+        "text": "@NewbieNick just joined — let's make them feel welcome!",
+        "time": "2h ago"
+      }
+    ]
+  },
+  "weFeed": [
+    {
+      "id": "we-fncs",
+      "url": "https://www.we-online.com/en/news-center/press/press-releases?d=we-fncs",
+      "title": "WE-FNCS — Nanocrystalline EMI Shielding Sheets",
+      "summary": "Würth Elektronik introduces nanocrystalline EMI shielding sheets. Quick and easy surface mounting with superior suppression performance at high frequencies — ideal for PCB-level EMI management.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/wth1pi1812_01_group-we-fncs.jpg&resize=",
+      "publishedAt": "2026-06-01T09:00:00.000Z",
+      "source": "Würth Elektronik Press",
+      "category": "product",
+      "tags": [
+        "EMI",
+        "shielding",
+        "nanocrystalline",
+        "PCB",
+        "EMC",
+        "WE-FNCS"
+      ],
+      "upvotes": 47,
+      "saved": false
+    },
+    {
+      "id": "we-wpme-cdi2c",
+      "url": "https://www.we-online.com/en/news-center/press/press-releases?d=WPME-CDI2C",
+      "title": "WPME-CDI2C — Digital Isolators for I²C Interfaces",
+      "summary": "New digital isolators from Würth Elektronik provide galvanic isolation of digital signals on I²C buses. Supports fast mode (400 kHz) and fast mode plus (1 MHz), with 5 kVrms isolation voltage. Suitable for industrial, medical, and automotive applications.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/wth1pi1817_01.jpg&resize=",
+      "publishedAt": "2026-06-01T08:00:00.000Z",
+      "source": "Würth Elektronik Press",
+      "category": "product",
+      "tags": [
+        "isolator",
+        "I2C",
+        "galvanic-isolation",
+        "digital",
+        "WPME-CDI2C",
+        "industrial"
+      ],
+      "upvotes": 63,
+      "saved": false
+    },
+    {
+      "id": "we-sfia",
+      "url": "https://www.we-online.com/en/news-center/press/press-releases?d=we-sfia",
+      "title": "WE-SFIA — SMT Flat-Wire Inductor for Automotive Electronics",
+      "summary": "The WE-SFIA SMT flat-wire power inductor is engineered for automotive DC-DC converters. Its flat-wire winding technology achieves ultra-low DCR and excellent thermal performance in an AEC-Q200-qualified package, meeting the rigorous demands of ADAS and powertrain applications.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/wth1pi1709_01.jpg&resize=",
+      "publishedAt": "2026-05-28T10:00:00.000Z",
+      "source": "Würth Elektronik Press",
+      "category": "product",
+      "tags": [
+        "inductor",
+        "automotive",
+        "flat-wire",
+        "AEC-Q200",
+        "DC-DC",
+        "WE-SFIA"
+      ],
+      "upvotes": 89,
+      "saved": true
+    },
+    {
+      "id": "we-smdc-led",
+      "url": "https://www.we-online.com/en/news-center/press/press-releases?d=smdc",
+      "title": "SMDC Horticulture LEDs — Expanded Portfolio for Plant Growth",
+      "summary": "Würth Elektronik expands its Horticulture LED portfolio with new SMDC emitters. More light output, greater efficiency, and better plant growth — the new wavelength options target red (660 nm) and far-red (730 nm) spectra for vertical farming and greenhouse applications.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/smdc.jpg&resize=",
+      "publishedAt": "2026-05-25T07:00:00.000Z",
+      "source": "Würth Elektronik Press",
+      "category": "product",
+      "tags": [
+        "LED",
+        "horticulture",
+        "SMDC",
+        "lighting",
+        "vertical-farming",
+        "photonics"
+      ],
+      "upvotes": 34,
+      "saved": false
+    },
+    {
+      "id": "we-ic-leds",
+      "url": "https://www.we-online.com/en/news-center/blog?d=rgb-leds-with-integrated-control-circuit",
+      "title": "IC LEDs — Integrated Control Circuit LEDs Set New Standards",
+      "summary": "ICLEDs from Würth Elektronik integrate an intelligent control circuit directly into the LED package. Where traditional LED solutions reach their limits, ICLED's built-in dimming, colour mixing, and fault detection begin to shine. Targeted at signage, automotive interior, and industrial HMI.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/aufmacherbild.jpg&resize=",
+      "publishedAt": "2026-05-20T10:00:00.000Z",
+      "source": "Würth Elektronik Blog",
+      "category": "product",
+      "tags": [
+        "LED",
+        "IC-LED",
+        "integrated-control",
+        "RGB",
+        "automotive",
+        "HMI",
+        "lighting"
+      ],
+      "upvotes": 72,
+      "saved": false
+    },
+    {
+      "id": "we-rohs-leadfree",
+      "url": "https://www.we-online.com/en/news-center/blog?d=rohs-leadfree",
+      "title": "RoHS Lead-Free Transition — New Varistors & SMT Spacers",
+      "summary": "Würth Elektronik is implementing lead-free alternatives across its passive component portfolio in compliance with RoHS Directive 2011/65/EU. New lead-free varistors and SMT spacers are now available. Learn how to transition your BOM without compromising reliability.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/eisos_nachhaltigkeit_bleifrei_l2.jpg&resize=",
+      "publishedAt": "2026-05-15T08:00:00.000Z",
+      "source": "Würth Elektronik Blog",
+      "category": "product",
+      "tags": [
+        "RoHS",
+        "lead-free",
+        "varistor",
+        "SMT",
+        "compliance",
+        "sustainability"
+      ],
+      "upvotes": 58,
+      "saved": false
+    },
+    {
+      "id": "we-ics-solutions",
+      "url": "https://www.we-online.com/en/products/intelligent-systems/overview",
+      "title": "Intelligent Control Systems (ICS) — Vehicles & Industrial",
+      "summary": "Würth Elektronik ICS provides complete system solutions for construction, agricultural, and commercial vehicles. From power distribution and signal transmission to control & display — covering simple components through to full system integration.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/ICS_Header_1920x600_L3_C2_V2.jpg&resize=",
+      "publishedAt": "2026-06-01T17:00:00.000Z",
+      "source": "Würth Elektronik ICS",
+      "category": "service",
+      "tags": [
+        "ICS",
+        "intelligent-systems",
+        "vehicles",
+        "agricultural",
+        "power-distribution",
+        "system-solution"
+      ],
+      "upvotes": 41,
+      "saved": false
+    },
+    {
+      "id": "we-ics-services",
+      "url": "https://www.we-online.com/en/products/intelligent-systems/services",
+      "title": "ICS Engineering Services — From Idea to Series Product",
+      "summary": "Würth Elektronik ICS offers unique engineering services from initial concept through prototype to series production. Experience their system design, testing, and qualification capabilities first-hand.",
+      "image": "https://www.we-online.com/files/jpg1/_dsc2911.jpg",
+      "publishedAt": "2026-05-10T09:00:00.000Z",
+      "source": "Würth Elektronik ICS",
+      "category": "service",
+      "tags": [
+        "ICS",
+        "engineering-services",
+        "prototyping",
+        "series-production",
+        "testing"
+      ],
+      "upvotes": 29,
+      "saved": false
+    },
+    {
+      "id": "we-wesystems",
+      "url": "https://www.we-online.com/en/products/printed-circuit-boards/services/wesystems",
+      "title": "WEsystems — Wire Bonding, PCBs & Custom System Processing",
+      "summary": "WEsystems combines wire bonding services, printed circuit board manufacturing, and customer-specific system processing under one roof. Würth Elektronik acts as customer advocate and solution provider throughout the full product lifecycle.",
+      "publishedAt": "2026-05-05T10:00:00.000Z",
+      "source": "Würth Elektronik PCB",
+      "category": "service",
+      "tags": [
+        "WEsystems",
+        "wire-bonding",
+        "PCB",
+        "custom-systems",
+        "manufacturing"
+      ],
+      "upvotes": 22,
+      "saved": false
+    },
+    {
+      "id": "we-support",
+      "url": "https://www.we-online.com/en/support/overview",
+      "title": "Technical Support — Personal, Professional & On-Site",
+      "summary": "Würth Elektronik offers best-in-class technical support including FAE visits, application engineering, design-in assistance, REDEXPERT parametric selection tool, and online calculators for magnetics, power, and RF design.",
+      "publishedAt": "2026-04-20T09:00:00.000Z",
+      "source": "Würth Elektronik Support",
+      "category": "service",
+      "tags": [
+        "support",
+        "FAE",
+        "application-engineering",
+        "REDEXPERT",
+        "design-in",
+        "calculators"
+      ],
+      "upvotes": 55,
+      "saved": true
+    },
+    {
+      "id": "we-ecovadis-platinum",
+      "url": "https://www.we-online.com/en/news-center/blog?d=ecovadis-platinum",
+      "title": "EcoVadis Platinum — Leading the Way in Sustainable PCB Manufacturing",
+      "summary": "Würth Elektronik Circuit Board Technology has achieved EcoVadis Platinum status — placing it in the top 1% of companies assessed globally for sustainability performance. The rating covers environment, labour & human rights, ethics, and sustainable procurement.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/we-cbt-keyvisual-ecovadis-platinum-rating.jpg&resize=",
+      "publishedAt": "2026-06-05T08:00:00.000Z",
+      "source": "Würth Elektronik Blog",
+      "category": "news",
+      "tags": [
+        "EcoVadis",
+        "sustainability",
+        "platinum",
+        "PCB",
+        "ESG",
+        "manufacturing"
+      ],
+      "upvotes": 118,
+      "saved": false
+    },
+    {
+      "id": "we-innovative-employer",
+      "url": "https://www.we-online.com/en/news-center/blog?d=innovative-company",
+      "title": "How to Find an Innovative Employer? Würth Elektronik's Answer",
+      "summary": "What makes a company truly innovative — and how do you find one? Würth Elektronik shares its approach: R&D investment, know-how transfer through university partnerships, flat hierarchies, and an engineering-first culture. Insight for students evaluating employers.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/bild-5-fh230403_wemuc_0947m.jpg&resize=",
+      "publishedAt": "2026-05-18T09:00:00.000Z",
+      "source": "Würth Elektronik Blog",
+      "category": "blog",
+      "tags": [
+        "employer",
+        "innovation",
+        "R&D",
+        "culture",
+        "students",
+        "career"
+      ],
+      "upvotes": 94,
+      "saved": false
+    },
+    {
+      "id": "we-en45545-rail",
+      "url": "https://www.we-online.com/en/news-center/blog?d=en-45545-2-rail-standard",
+      "title": "EN 45545-2 Railway Certification — Ready for Rail",
+      "summary": "Würth Elektronik PCBs are now certified to EN 45545-2 — the European fire protection standard for railway vehicles. Covers hazard levels HL1 through HL3 for materials used in rolling stock and infrastructure equipment.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/we-cbt-rail-standard-en-45545-2.jpg&resize=",
+      "publishedAt": "2026-05-12T08:00:00.000Z",
+      "source": "Würth Elektronik Blog",
+      "category": "news",
+      "tags": [
+        "railway",
+        "EN-45545-2",
+        "certification",
+        "PCB",
+        "safety",
+        "rail"
+      ],
+      "upvotes": 67,
+      "saved": false
+    },
+    {
+      "id": "we-pcb-quality",
+      "url": "https://www.we-online.com/en/news-center/blog?d=small-component",
+      "title": "Small Component, Big Responsibility — The Truth About PCB Quality",
+      "summary": "PCBs are rarely the component engineers think hardest about — but they're often the root cause of field failures. Würth Elektronik's webinar with Dr. Andreas Schilpp explains IPC class, material selection, copper roughness, and why blind/buried via quality matters.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/cbt-speaker-webinar-andreas-schilpp.jpg&resize=",
+      "publishedAt": "2026-05-08T10:00:00.000Z",
+      "source": "Würth Elektronik Blog",
+      "category": "blog",
+      "tags": [
+        "PCB",
+        "quality",
+        "IPC",
+        "webinar",
+        "reliability",
+        "manufacturing"
+      ],
+      "upvotes": 83,
+      "saved": false
+    },
+    {
+      "id": "we-smartwatch",
+      "url": "https://www.we-online.com/en/news-center/blog?d=advanced-hdi-open-source-smartwatch-en",
+      "title": "Open Source Smartwatch Powered by ADVANCED.hdi PCB Technology",
+      "summary": "OV Tech's open-source smartwatch project uses Würth Elektronik's ADVANCED.hdi high-density interconnect PCBs. The design packs BLE, IMU, display driver, and 72-hour battery life into a 38×38mm board — a showcase of what HDI enables for wearable electronics.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/we-cbt-advanced-hdi-open-source-smartwatch-ovtech-2.jpeg&resize=",
+      "publishedAt": "2026-04-30T09:00:00.000Z",
+      "source": "Würth Elektronik Blog",
+      "category": "blog",
+      "tags": [
+        "HDI",
+        "PCB",
+        "smartwatch",
+        "open-source",
+        "wearable",
+        "BLE",
+        "ADVANCED-hdi"
+      ],
+      "upvotes": 142,
+      "saved": true
+    },
+    {
+      "id": "we-asia-production",
+      "url": "https://www.we-online.com/en/news-center/blog?d=asia-production-by-wuerth-elektronik",
+      "title": "Asia Production by Würth Elektronik — More Than Just an Alternative",
+      "summary": "Würth Elektronik's Asia production network offers customers quality manufacturing with European engineering oversight and real logistics relief. Covers PCBs, assemblies, and complete system builds — reducing lead times while maintaining Würth quality standards.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/we-cbt-asia-production-logistic-solutions.jpg&resize=",
+      "publishedAt": "2026-04-22T08:00:00.000Z",
+      "source": "Würth Elektronik Blog",
+      "category": "blog",
+      "tags": [
+        "Asia",
+        "manufacturing",
+        "PCB",
+        "logistics",
+        "supply-chain",
+        "assembly"
+      ],
+      "upvotes": 51,
+      "saved": false
+    },
+    {
+      "id": "we-valencia-emc",
+      "url": "https://www.we-online.com/en/news-center/press/press-releases?d=10-jahre-catedra",
+      "title": "10 Years of EMC Research — University of Valencia Partnership",
+      "summary": "Würth Elektronik and the University of Valencia celebrate a decade of collaboration in Electromagnetic Compatibility research. The Cátedra Würth has produced 40+ peer-reviewed publications, 12 PhD theses, and numerous EMC measurement tools freely available to the industry.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/wth1pi1843_01_valencia.jpg&resize=",
+      "publishedAt": "2026-04-15T09:00:00.000Z",
+      "source": "Würth Elektronik Press",
+      "category": "news",
+      "tags": [
+        "EMC",
+        "university",
+        "Valencia",
+        "research",
+        "partnership",
+        "academic"
+      ],
+      "upvotes": 76,
+      "saved": false
+    },
+    {
+      "id": "we-united-summit",
+      "url": "https://www.we-online.com/en/news-center/press/press-releases?d=we-united",
+      "title": "WE United Leadership Summit — Reflections on Leading in Complex Tech Environments",
+      "summary": "Würth Elektronik hosted the WE United Leadership Summit in Munich, bringing together senior leaders across divisions to discuss navigating technological complexity, talent development, and the company's innovation roadmap for 2026–2030.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/we-united_hic-muenchen.jpg&resize=",
+      "publishedAt": "2026-04-10T10:00:00.000Z",
+      "source": "Würth Elektronik Press",
+      "category": "news",
+      "tags": [
+        "leadership",
+        "summit",
+        "strategy",
+        "innovation",
+        "Munich",
+        "culture"
+      ],
+      "upvotes": 38,
+      "saved": false
+    },
+    {
+      "id": "we-seminars",
+      "url": "https://www.we-online.com/en/news-center/events/seminars",
+      "title": "Free Seminars — Electronics, EMC, PCB Design & More",
+      "summary": "Würth Elektronik runs free, expert-led seminars worldwide covering power electronics, EMC compliance, PCB design rules, RF fundamentals, and magnetics design. Available in-person and online. Register at no cost — suitable for students and working engineers.",
+      "publishedAt": "2026-06-01T23:00:00.000Z",
+      "source": "Würth Elektronik Events",
+      "category": "event",
+      "tags": [
+        "seminar",
+        "free",
+        "EMC",
+        "PCB",
+        "power-electronics",
+        "RF",
+        "training",
+        "education"
+      ],
+      "upvotes": 201,
+      "saved": true
+    },
+    {
+      "id": "we-pcim-2026",
+      "url": "https://www.we-online.com/en/news-center/press/press-releases?d=ankuendigung-pcim",
+      "title": "Würth Elektronik at PCIM Europe 2026 — Modern Power Electronics Solutions",
+      "summary": "Würth Elektronik will exhibit at PCIM Europe 2026 in Nuremberg (27–29 May). Visit Hall 9, Stand 540 to see live demos of new SiC gate drivers, resonant magnetics, GaN-compatible inductors, and the REDEXPERT simulation platform.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=jpg1/wth1pi1832_01.jpg&resize=",
+      "publishedAt": "2026-05-01T09:00:00.000Z",
+      "source": "Würth Elektronik Events",
+      "category": "event",
+      "tags": [
+        "PCIM",
+        "exhibition",
+        "Nuremberg",
+        "SiC",
+        "GaN",
+        "power-electronics",
+        "event"
+      ],
+      "upvotes": 133,
+      "saved": false
+    },
+    {
+      "id": "we-ivt-2026",
+      "url": "https://www.we-online.com/en/news-center/press/press-releases?d=wuerth-elektronik-ics-at-ivt-2026",
+      "title": "Würth Elektronik ICS at iVT Expo 2026 — Intelligent Power Distribution",
+      "summary": "Würth Elektronik ICS exhibits at iVT International Expo 2026, showcasing intelligent power distribution solutions for off-highway vehicles. Live demos include solid-state relay modules, CANopen-controlled distribution boxes, and the new ICS SmartBox system.",
+      "image": "https://www.we-online.com/apps/services/image.cfm?source=png1/we-ics-logo-ivt-2026.png&resize=",
+      "publishedAt": "2026-03-20T09:00:00.000Z",
+      "source": "Würth Elektronik ICS",
+      "category": "event",
+      "tags": [
+        "iVT",
+        "exhibition",
+        "ICS",
+        "off-highway",
+        "power-distribution",
+        "CANopen"
+      ],
+      "upvotes": 44,
+      "saved": false
+    },
+    {
+      "id": "ikom-tum",
+      "url": "https://ikom-tum.de/en",
+      "title": "IKOM — TU Munich Career Forum (4 Annual Job Fairs)",
+      "summary": "IKOM organises four career job fairs per year at the Technical University of Munich. Connect directly with top-tier engineering companies including Würth Elektronik, Siemens, BMW, and MAN. Open to all students — free registration.",
+      "publishedAt": "2026-06-01T12:00:00.000Z",
+      "source": "IKOM TU Munich",
+      "category": "career",
+      "tags": [
+        "career",
+        "job-fair",
+        "TUM",
+        "Munich",
+        "students",
+        "networking",
+        "IKOM"
+      ],
+      "upvotes": 167,
+      "saved": false
+    },
+    {
+      "id": "we-overview",
+      "url": "https://www.we-online.com/en/company/overview",
+      "title": "About Würth Elektronik — Manufacturer of Electronic & Electromechanical Components",
+      "summary": "Würth Elektronik is a leading manufacturer of electrical and electromechanical components, printed circuit boards, and intelligent systems. Family-owned, headquartered in Waldenburg, Germany, with 7,800+ employees globally and free samples available for engineers.",
+      "publishedAt": "2026-01-01T00:00:00.000Z",
+      "source": "Würth Elektronik",
+      "category": "news",
+      "tags": [
+        "company",
+        "overview",
+        "manufacturer",
+        "components",
+        "PCB",
+        "Germany"
+      ],
+      "upvotes": 29,
+      "saved": false
+    }
+  ]
+}

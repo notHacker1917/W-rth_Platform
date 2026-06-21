@@ -1,0 +1,30 @@
+services:
+  api:
+    build: .
+    image: wurth-platform-backend:latest
+    container_name: wurth-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      API_PREFIX: /api
+      # Override these in a .env file or your orchestrator's secrets.
+      JWT_SECRET: ${JWT_SECRET:-replace-with-a-long-random-secret}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-7d}
+      SEED_PASSWORD: ${SEED_PASSWORD:-wurth1234}
+      CORS_ORIGINS: ${CORS_ORIGINS:-*}
+      DATA_DIR: /app/data
+    volumes:
+      # Persist db.json across container restarts.
+      - wurth-data:/app/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+volumes:
+  wurth-data:

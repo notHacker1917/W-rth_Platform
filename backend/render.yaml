@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: wurth-platform-backend
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "3000"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: SEED_PASSWORD
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+    disk:
+      name: wurth-data
+      mountPath: /app/data
+      sizeGB: 1
