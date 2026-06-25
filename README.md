@@ -4,7 +4,7 @@ A professional networking and engineering-talent platform that connects engineer
 students with industry (Würth Elektronik and partner companies). It combines a social
 feed, a jobs and bounty marketplace, project portfolios with GitHub analytics,
 gamification, community groups, an industry news digest, and a role-based admin
-back office.
+back office. 
 
 This repository contains the **web frontend** (React 19 + TypeScript + Vite + Tailwind v4).
 It is designed to run against a REST backend (assumed to be a Next.js API) backed by the
