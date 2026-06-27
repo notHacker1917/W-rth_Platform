@@ -11,7 +11,7 @@ It is designed to run against a REST backend (assumed to be a Next.js API) backe
 PostgreSQL schema described in [`docs/DATABASE.md`](docs/DATABASE.md).
 
 ---
- 
+  
 ## Documentation map
 
 | Document | What it covers |
