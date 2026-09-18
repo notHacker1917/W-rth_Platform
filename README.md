@@ -16,7 +16,7 @@ PostgreSQL schema described in [`docs/DATABASE.md`](docs/DATABASE.md).
 
 | Document | What it covers |
 |---|---|
-| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | System overview, layers, data flow, frontend ↔ backend contract |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | System overview, layers, data flow, frontend ↔ backend contract | 
 | [`docs/FRONTEND.md`](docs/FRONTEND.md) | Routing, pages, components, hooks, services, state, design system |
 | [`docs/API.md`](docs/API.md) | REST API reference the frontend expects from the backend |
 | [`docs/DATABASE.md`](docs/DATABASE.md) | PostgreSQL schema, tables, enums, relationships |
