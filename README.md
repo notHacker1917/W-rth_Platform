@@ -10,7 +10,7 @@ This repository contains the **web frontend** (React 19 + TypeScript + Vite + Ta
 It is designed to run against a REST backend (assumed to be a Next.js API) backed by the
 PostgreSQL schema described in [`docs/DATABASE.md`](docs/DATABASE.md).
  
----
+--- 
   
 ## Documentation map
 
